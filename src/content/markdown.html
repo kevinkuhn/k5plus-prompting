@@ -1,0 +1,50 @@
+<p class="lead">Markdown ist Text mit ein paar Zeichen für Struktur. Sprachmodelle <strong>lesen und schreiben es von Haus aus</strong>, und du kannst es in jedem Editor öffnen.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <div class="split even">
+      <div>
+        <p class="k">Das tippst du</p>
+<pre class="code"><span class="c"># Sitzung vom 3. September</span>
+
+<span class="c">## Beschlüsse</span>
+<span class="c">-</span> Der Werkhof zieht im März um
+<span class="c">-</span> Budget: <span class="c">**</span>unverändert<span class="c">**</span>
+
+<span class="c">| Wer | Was | Bis |
+|---|---|---|</span>
+| Bau | Offerte | 15.10. |
+
+<span class="c">&lt;protokoll&gt;</span>
+… eingefügter Text …
+<span class="c">&lt;/protokoll&gt;</span></pre>
+      </div>
+      <div>
+        <p class="k accent">Das bedeutet es</p>
+        <ul class="ticks">
+          <li><code>#</code> und <code>##</code>: Titel und Untertitel</li>
+          <li><code>-</code>: Aufzählung</li>
+          <li><code>**…**</code>: fett</li>
+          <li><code>| … |</code>: Tabelle</li>
+          <li><code>&lt;name&gt; … &lt;/name&gt;</code>: kein Markdown, aber derselbe Zweck. So trennst du eingefügtes Material von deiner Anweisung.</li>
+        </ul>
+        <p class="callout"><b>Wozu?</b> Ein gegliederter Prompt wird genauer befolgt, und eine gegliederte Antwort lässt sich weiterverarbeiten: nach Word, in eine Wissensablage, in den nächsten Prompt.</p>
+      </div>
+    </div>
+  </div>
+  <figcaption>Agenten-Instruktionen, Skills und Projektanweisungen sind fast immer Markdown-Dateien mit der Endung <code>.md</code>.</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Wenn eine Antwort voller Sternchen und Rauten ankommt, ist das Markdown, das dein Programm nicht dargestellt hat.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Markdown im Prompt</h2>
+    <p>Ab etwa zehn Zeilen lohnt sich Struktur: ein Titel pro Abschnitt (Zweck, Regeln, Ablauf, Ausgabe), Regeln als Liste, Material in Tags. Das Modell findet die Regel wieder, wenn es sie braucht, und du auch. Wie das aussieht, zeigt die Seite <a href="@prompt-stufen">Vom Satz zur Agenten-Instruktion</a>.</p>
+    <h2>Markdown als Ausgabe</h2>
+    <p>Verlange das Format ausdrücklich: «Antworte in Markdown mit einer Tabelle» oder «als Fliesstext ohne Markdown». Für Word kopierst du aus der dargestellten Ansicht, für eine Wissensablage oder den nächsten Prompt den rohen Text.</p>
+    <h2>Warum nicht Word oder PDF?</h2>
+    <p>Beides kann das Modell lesen, aber die Struktur geht dabei oft verloren: Spalten, Kopfzeilen und Tabellen kommen als Buchstabensalat an. Wenn ein Dokument immer wieder gebraucht wird, etwa ein Reglement für einen Agenten, lohnt sich eine saubere Markdown-Fassung.</p>
+  </div>
+</details>

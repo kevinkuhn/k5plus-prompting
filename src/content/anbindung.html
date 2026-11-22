@@ -1,0 +1,32 @@
+<p class="lead">Ein Agent wird nützlich, sobald er an deine Systeme kommt. Vier Begriffe beschreiben, <strong>wie er dorthin kommt</strong>, und jede Anbindung ist auch ein Risiko.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <div class="cards">
+      <div class="card"><h3>Werkzeug</h3><p>Eine Funktion, die das Modell aufrufen kann: suchen, rechnen, eine Datei lesen, einen Entwurf ablegen. Das Modell schreibt den Aufruf, die Software führt ihn aus.</p></div>
+      <div class="card"><h3>Connector</h3><p>Eine fertige Anbindung an ein System, etwa SharePoint, Outlook oder Teams. Ein Admin muss sie zuerst aktivieren.[[ref:ms-agent-builder]]</p></div>
+      <div class="card"><h3>MCP</h3><p>Das «Model Context Protocol»: ein offener Standard, um Werkzeuge an verschiedene Modelle anzuschliessen. Einmal gebaut, mehrfach nutzbar.</p></div>
+      <div class="card"><h3>Skill</h3><p>Eine gespeicherte Anleitung mit Beispielen und Dateien, die das Modell bei Bedarf lädt: «So schreiben wir Medienmitteilungen».</p></div>
+    </div>
+    <p class="callout warm"><b>So wenig Zugriff wie nötig.</b> Lesen ist heikel, Schreiben und Senden noch mehr. Ein Agent, der Mails lesen und versenden darf, kann von einer Mail dazu gebracht werden.</p>
+  </div>
+  <figcaption>Die Namen unterscheiden sich je nach Plattform, die Bausteine sind dieselben.</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Werkzeuge und Connectors geben dem Agenten Hände. Skills geben ihm Erfahrung. MCP ist der Stecker, der beides übertragbar macht.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Mit wessen Rechten?</h2>
+    <p>Wissen aus SharePoint wird mit den Rechten der fragenden Person abgerufen. Dateien, die direkt in einen Agenten hochgeladen werden, sieht dagegen jede Person, die den Agenten nutzt. Mehr dazu auf der Seite <a href="@it-freigabe">Was die IT freigeben muss</a>.</p>
+    <h2>Welche Anbindung wofür</h2>
+    <ul>
+      <li><b>Nachschlagen in Reglementen und Merkblättern:</b> Wissen hinterlegen oder eine Ablage anbinden. Wie die Suche arbeitet, zeigt <a href="@rag">So arbeiten Chatbots</a>.</li>
+      <li><b>Etwas ausrechnen:</b> ein Werkzeug, das rechnet. Das Modell selbst <a href="@rechnet-nicht">rechnet nicht</a>.</li>
+      <li><b>Etwas auslösen:</b> ein Entwurf im Postfach, ein Eintrag in einer Liste. Immer mit Freigabe durch einen Menschen.</li>
+    </ul>
+    <h2>Eingeschleuste Anweisungen</h2>
+    <p>Alles, was ein Agent liest, kann Anweisungen enthalten: eine Mail, ein Dokument, eine Website. Das Modell kann Material und Befehl nicht sicher unterscheiden. Die wirksamste Vorsorge ist, dem Agenten wenig zu erlauben. Siehe <a href="@risiken">Risiken</a>.</p>
+  </div>
+</details>
