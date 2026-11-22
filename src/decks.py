@@ -27,8 +27,9 @@ CHAPTERS = {
 
     # --- Was KI kann und was nicht ---
     "raten": {"title": "Ein Sprachmodell kann vor allem eines: <em>sehr gut raten</em>", "short": "Sehr gut raten"},
+    "begriffe": {"title": "Drei Begriffe: <em>Prompt, Sprachmodell, Token</em>", "short": "Drei Begriffe"},
     "wuerfel": {"title": "Gleiche Frage, <em>andere Antwort</em>", "short": "Jedes Mal anders"},
-    "erfinden": {"title": "Warum die KI <em>Dinge erfindet</em>", "short": "Warum sie erfindet"},
+    "erfinden": {"title": "Die KI <em>erfindet</em> manchmal Dinge", "short": "Erfinden und prüfen"},
     "lernt-nicht": {"title": "Das Modell <em>lernt nicht mit</em>", "short": "Lernt nicht mit"},
     "gut-schlecht": {"title": "Wofür KI <em>taugt</em> – und wofür nicht", "short": "Stärken und Schwächen"},
 
@@ -59,18 +60,18 @@ DECKS = [
                  "Ich möchte verstehen, was KI kann – und was nicht."],
         "take": "Die ersten eigenen Prompts schreiben, Möglichkeiten und Grenzen kennen.",
         "parts": [
-            {"title": "Start", "divider": False, "chapters": ["b-ablauf", "umfrage"]},
+            {"title": "Start", "divider": False, "chapters": ["b-ablauf"]},
             {"title": "Was KI kann und was nicht", "sub": "Was passiert eigentlich, wenn ich etwas eintippe?",
-             "chapters": ["raten", "wuerfel", "erfinden", "lernt-nicht", "gut-schlecht"]},
+             "chapters": ["begriffe", "raten", "erfinden", "lernt-nicht", "gut-schlecht"]},
             {"title": "Was tippe ich ein?", "sub": "Die ersten eigenen Prompts.",
              "chapters": ["prompt", "kontext-statt-rolle", "schritte", "runden", "rueckfragen", "standard-prompt"]},
             {"title": "Gemeindealltag", "sub": "Einfache Beispiele, die du morgen brauchen kannst.",
              "chapters": ["alltag"]},
             {"title": "Vertrauen und Sicherheit", "sub": "Welches Tool passt, und welche Daten darf ich teilen?",
-             "chapters": ["best-practices", "fremde-person", "organisation", "gratis"]},
+             "chapters": ["best-practices", "fremde-person", "organisation"]},
             {"title": "Übungen", "sub": "30 Minuten, zwei Übungen zum Nachmachen.",
-             "chapters": ["b-uebung-1", "b-uebung-2"]},
-            {"title": "Fragen", "chapters": ["ideen", "b-spickzettel"]},
+             "chapters": ["b-uebung-1", "b-uebung-2", "ideen"]},
+            {"title": "Fragen", "chapters": ["b-spickzettel"]},
         ],
     },
     {

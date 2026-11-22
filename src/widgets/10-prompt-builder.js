@@ -1,10 +1,10 @@
 App.widget('prompt-builder', function (root, ctx) {
   var el = App.el;
-  var VAGUE = 'Schreib mir ein Konzept für ein Reporting.';
+  var VAGUE = 'Schreib mir ein Konzept für ein Infoblatt.';
   var SEGS = [
-    ['Wir sind das Controlling-Team der Gemeinde, fünf Personen; wir erstellen quartalsweise das Finanzreporting für den Gemeinderat.', 'Situation', 'Wer schreibt, für wen, wozu. Daraus ergibt sich die Rolle von selbst.'],
-    ['Angehängt: das bisherige Reporting und die Rückmeldungen der Finanzkommission.', 'Material', 'Das Modell sieht deine Unterlagen nur, wenn du sie mitgibst.'],
-    ['Entwirf eine Gliederung für ein neues Reporting mit maximal 8 Seiten, das die drei Hauptkritikpunkte behebt.', 'Aufgabe', 'Eine klare Aufgabe mit Umfang. «Ein Konzept» ist keine Aufgabe.'],
+    ['Wir sind die Kommunikationsstelle der Gemeinde, drei Personen; wir geben viermal im Jahr das Infoblatt für alle Haushalte heraus.', 'Situation', 'Wer schreibt, für wen, wozu. Daraus ergibt sich die Rolle von selbst.'],
+    ['Angehängt: die letzte Ausgabe und die Rückmeldungen aus der Bevölkerungsumfrage.', 'Unterlagen', 'Das Modell sieht deine Unterlagen nur, wenn du sie mitgibst.'],
+    ['Entwirf eine Gliederung für ein neues Infoblatt mit maximal 8 Seiten, das die drei Hauptkritikpunkte behebt.', 'Aufgabe', 'Eine klare Aufgabe mit Umfang. «Ein Konzept» ist keine Aufgabe.'],
     ['Als nummerierte Gliederung mit je einem Satz Begründung.', 'Form', 'Sag, wie die Antwort aussehen soll – sonst kommt der Standard.'],
     ['Schweizer Rechtschreibung, keine englischen Fachbegriffe.', 'Regeln', 'Kleine Regeln ersparen eine Korrekturrunde.'],
     ['Wenn dir etwas fehlt, frag zuerst.', 'Einladung', 'Erlaubt dem Modell, Lücken zu klären, statt zu raten.']
@@ -35,9 +35,9 @@ App.widget('prompt-builder', function (root, ctx) {
   var bCtx = el('button', { type: 'button', 'aria-pressed': 'false', text: 'Kontext' }, seg);
   var cmp = el('div', { class: 'pb-cmp', 'aria-live': 'polite' }, role);
   var verdict = el('div', { class: 'pb-verdict' }, role);
-  var FACTS = ['Wer liest (Gemeinderat)', 'Wozu (Quartalsreporting)', 'Wer schreibt (Team, 5 Personen)', 'Tonlage (Zahlen, Abweichungen, wenig Zeit)', 'Was schiefging (Kritik der Finanzkommission)'];
+  var FACTS = ['Wer liest (alle Haushalte)', 'Wozu (Infoblatt, viermal im Jahr)', 'Wer schreibt (Team, 3 Personen)', 'Tonlage (verständlich, ohne Fachbegriffe)', 'Was schiefging (Kritik aus der Umfrage)'];
   var MODES = {
-    role: { k: 'Rolle', q: 'Stell dir vor, du bist ein Controller.', yes: [3], cls: 'role', v: '<b>1 von 5.</b> Die Rolle verschiebt den Ton – mehr nicht. Alles andere muss das Modell raten.' },
+    role: { k: 'Rolle', q: 'Stell dir vor, du bist eine Kommunikationsverantwortliche.', yes: [3], cls: 'role', v: '<b>1 von 5.</b> Die Rolle verschiebt den Ton – mehr nicht. Alles andere muss das Modell raten.' },
     ctx: { k: 'Kontext', q: SEGS[0][0] + ' ' + SEGS[1][0], yes: [0, 1, 2, 3, 4], cls: 'ctx', v: '<b>5 von 5.</b> Der Kontext enthält die Rolle – und dazu alles, was die Rolle offenlässt.' }
   };
   function show(m) {

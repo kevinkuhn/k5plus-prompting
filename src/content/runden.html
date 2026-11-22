@@ -1,25 +1,23 @@
-<p class="lead">Die gute Antwort kommt selten auf die erste Nachricht. Sag dem Modell, <strong>was dir noch nicht passt</strong>, und lass es nachbessern.</p>
+<p class="lead">Die gute Antwort kommt selten auf die erste Nachricht. Mit jeder Runde liest das Modell <strong>das ganze Gespräch von vorn</strong>: deinen Auftrag, seine Antworten und deine Korrekturen.</p>
 <!-- /slide -->
-<figure class="fig">
-  <div class="fig-body">
-    <ol class="steps">
-      <li><b>Erste Runde: der Auftrag.</b> Anweisung, Material, Form. Du bekommst einen Entwurf.</li>
-      <li><b>Zweite Runde: die Korrektur.</b> «Gut. Jetzt den zweiten Absatz streichen und den Schluss verbindlicher formulieren.»</li>
-      <li><b>Dritte Runde: der Feinschliff.</b> «Kürzer, förmlicher, ein Beispiel dazu.»</li>
-    </ol>
-    <p class="callout"><b>Neu generieren ist nicht dasselbe.</b> Der Knopf zieht nur eine neue Antwort auf denselben Prompt. Eine Korrektur gibt dem Modell eine neue Information.</p>
-  </div>
-  <figcaption>Jede Korrektur wird Teil des Gesprächs: Das Modell liest bei der nächsten Antwort alles von vorn, auch deine Rückmeldung.</figcaption>
+<figure class="fig" data-widget="chat-rounds">
+  <div class="fig-body"></div>
+  <figcaption>Links, was du in dieser Runde tippst. Rechts, was das Modell tatsächlich liest. Klick auf «Nächste Runde».</figcaption>
 </figure>
 <div class="slide-notes">
-  <p>Behandle den ersten Entwurf wie den Entwurf einer neuen Kollegin: Du schickst ihn nicht zurück mit «nochmal», du sagst, was fehlt.</p>
+  <p>Darum genügt in Runde 2 ein kurzer Satz wie «kürzer, förmlicher». Der Auftrag und der Entwurf sind schon im Gespräch.</p>
+  <p>Und darum gilt: ein Thema pro Gespräch. Was nicht mehr dazugehört, liest das Modell trotzdem mit.</p>
 </div>
 <details class="more">
   <summary>Mehr lesen</summary>
   <div class="prose">
+    <h2>Das Modell erinnert sich nicht</h2>
+    <p>Es wirkt, als würde sich die KI an das Gespräch erinnern. Tatsächlich schickt das Programm bei jeder neuen Nachricht den ganzen bisherigen Verlauf mit. Das Modell liest alles neu und schreibt dann weiter.</p>
     <h2>Gute Rückmeldungen</h2>
-    <p>Nenne die Stelle und die gewünschte Änderung: «Im ersten Absatz fehlt das Datum», «Die Aufzählung als Fliesstext», «Die Anrede stimmt nicht, wir siezen». Je genauer die Rückmeldung, desto weniger Runden brauchst du.</p>
+    <p>Behandle den ersten Entwurf wie den Entwurf einer neuen Kollegin: Du schickst ihn nicht zurück mit «nochmal», du sagst, was fehlt. Nenne die Stelle und die gewünschte Änderung: «Im ersten Absatz fehlt das Datum», «Die Aufzählung als Fliesstext», «Die Anrede stimmt nicht, wir siezen».</p>
+    <h2>Neu generieren ist nicht dasselbe</h2>
+    <p>Der Knopf «Neu generieren» zieht nur eine neue Antwort auf denselben Verlauf. Eine Korrektur gibt dem Modell eine neue Information.</p>
     <h2>Wann du besser neu beginnst</h2>
-    <p>Wenn das Gespräch lang wird und das Modell frühere Vorgaben vergisst, lohnt sich ein neues Gespräch. Lass dir vorher zusammenfassen, was ihr entschieden habt, und füge die Zusammenfassung als ersten Prompt ein. Ein Thema pro Gespräch.</p>
+    <p>Wird das Gespräch lang, vergisst das Modell frühere Vorgaben. Lass dir zusammenfassen, was ihr entschieden habt, beginne ein neues Gespräch und füge die Zusammenfassung als ersten Prompt ein.</p>
   </div>
 </details>

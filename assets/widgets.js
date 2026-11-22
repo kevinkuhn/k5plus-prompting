@@ -3,19 +3,19 @@ App.widget('prompt-anatomy', function (root, ctx) {
   var el = App.el;
   var BLOCKS = [
     { k: 'Anweisung', text: 'Schreibe eine Antwort auf die folgende Anfrage einer Einwohnerin.' },
-    { k: 'Material', text: 'Anfrage: «Guten Tag, ich habe gehört, dass die Parkkarten für Anwohner ab nächstem Jahr teurer werden. Stimmt das, und wo kann ich meine verlängern? Freundliche Grüsse, M. Keller» – Fakten: Die Anwohnerparkkarte kostet ab 1. Januar 2027 CHF 360 statt 300 pro Jahr (Beschluss Gemeinderat vom 12. Mai 2026). Verlängerung online im Bürgerportal oder am Schalter der Einwohnerdienste, Mo–Fr 8–12 und 14–17 Uhr.' },
+    { k: 'Kontext', text: 'Anfrage: «Guten Tag, ich habe gehört, dass die Parkkarten für Anwohner ab nächstem Jahr teurer werden. Stimmt das, und wo kann ich meine verlängern? Freundliche Grüsse, M. Keller» – Fakten: Die Anwohnerparkkarte kostet ab 1. Januar 2027 CHF 360 statt 300 pro Jahr (Beschluss Gemeinderat vom 12. Mai 2026). Verlängerung online im Bürgerportal oder am Schalter der Einwohnerdienste, Mo–Fr 8–12 und 14–17 Uhr.' },
     { k: 'Form', text: 'Höflich, Sie-Form, mit Anrede und Grussformel, maximal 120 Wörter, keine Aufzählung.' }
   ];
-  // canned answers, keyed by which blocks are on (A = Anweisung, M = Material, F = Form)
+  // canned answers, keyed by which blocks are on (A = Anweisung, M = Kontext, F = Form)
   var ANSWERS = {
     '': ['Womit kann ich helfen?', 'Leer', 'Kein Prompt, keine Aufgabe. Das Modell kann nur zurückfragen.'],
     'A': ['Gerne beantworte ich die Anfrage. Allerdings sehe ich keine Anfrage in Ihrer Nachricht – könnten Sie den Text einfügen? Sobald ich weiss, worum es geht, formuliere ich eine passende Antwort.', 'Rät oder fragt zurück', 'Die Anweisung ist klar, aber das Modell kennt weder die Anfrage noch die Fakten. Es kann nur nachfragen – oder etwas erfinden.'],
-    'M': ['Das ist eine Anfrage zur Anwohnerparkkarte: Frau Keller möchte wissen, ob die Karte teurer wird und wo sie sie verlängern kann. Laut Beschluss steigt der Preis ab 2027 auf CHF 360. Soll ich eine Antwort formulieren, die Anfrage zusammenfassen oder etwas anderes damit tun?', 'Fasst zusammen, weiss nicht, was tun', 'Material ohne Anweisung: Das Modell beschreibt, was es sieht, und fragt nach der Aufgabe.'],
+    'M': ['Das ist eine Anfrage zur Anwohnerparkkarte: Frau Keller möchte wissen, ob die Karte teurer wird und wo sie sie verlängern kann. Laut Beschluss steigt der Preis ab 2027 auf CHF 360. Soll ich eine Antwort formulieren, die Anfrage zusammenfassen oder etwas anderes damit tun?', 'Fasst zusammen, weiss nicht, was tun', 'Kontext ohne Anweisung: Das Modell beschreibt, was es sieht, und fragt nach der Aufgabe.'],
     'F': ['Sehr geehrte Damen und Herren\n\nVielen Dank für Ihre Nachricht. Gerne helfe ich Ihnen weiter – teilen Sie mir bitte mit, worum es geht.\n\nFreundliche Grüsse', 'Form ohne Inhalt', 'Ton und Länge stimmen, aber es gibt nichts zu sagen.'],
     'AM': ['Sehr geehrte Frau Keller\n\nVielen Dank für Ihre Anfrage. Ja, das stimmt:\n\n• Ab 1. Januar 2027 kostet die Anwohnerparkkarte CHF 360 pro Jahr (bisher CHF 300).\n• Grundlage ist der Beschluss des Gemeinderats vom 12. Mai 2026.\n• Verlängern können Sie die Karte online im Bürgerportal oder am Schalter der Einwohnerdienste (Mo–Fr 8–12 und 14–17 Uhr).\n\nBei weiteren Fragen stehe ich Ihnen gerne zur Verfügung.\n\nFreundliche Grüsse', 'Inhaltlich richtig, Form ist Standard', 'Alle Fakten stimmen. Aber Aufzählungspunkte und Länge sind die Voreinstellung des Modells, nicht deine Wahl.'],
-    'AF': ['Sehr geehrte Frau Keller\n\nVielen Dank für Ihre Anfrage zur Anwohnerparkkarte. Die aktuellen Gebühren und die Möglichkeiten zur Verlängerung finden Sie auf unserer Website; gerne gebe ich Ihnen auch telefonisch Auskunft.\n\nFreundliche Grüsse', 'Höflich, aber leer', 'Ohne Material kann das Modell die eigentliche Frage nicht beantworten. Es schreibt elegant um sie herum – so entstehen nichtssagende Antworten.'],
-    'MF': ['Sehr geehrte Frau Keller\n\nIhre Nachricht betrifft die Anwohnerparkkarte, die ab 2027 CHF 360 kostet. Falls Sie möchten, formuliere ich daraus eine Antwort an Sie – sagen Sie mir kurz, was ich tun soll.\n\nFreundliche Grüsse', 'Unklar, was verlangt ist', 'Form und Material, aber keine Aufgabe. Das Modell bleibt vorsichtig.'],
-    'AMF': ['Sehr geehrte Frau Keller\n\nVielen Dank für Ihre Anfrage. Ja, die Anwohnerparkkarte wird teurer: Ab 1. Januar 2027 kostet sie CHF 360 statt bisher CHF 300 pro Jahr. Der Gemeinderat hat dies am 12. Mai 2026 beschlossen.\n\nVerlängern können Sie Ihre Karte bequem online im Bürgerportal oder persönlich am Schalter der Einwohnerdienste, jeweils Montag bis Freitag von 8 bis 12 und 14 bis 17 Uhr.\n\nFreundliche Grüsse', 'Vollständig und in deiner Form', 'Anweisung, Material und Form: Das Modell hat alles, was auch eine neue Kollegin bräuchte.']
+    'AF': ['Sehr geehrte Frau Keller\n\nVielen Dank für Ihre Anfrage zur Anwohnerparkkarte. Die aktuellen Gebühren und die Möglichkeiten zur Verlängerung finden Sie auf unserer Website; gerne gebe ich Ihnen auch telefonisch Auskunft.\n\nFreundliche Grüsse', 'Höflich, aber leer', 'Ohne Kontext kann das Modell die eigentliche Frage nicht beantworten. Es schreibt elegant um sie herum – so entstehen nichtssagende Antworten.'],
+    'MF': ['Sehr geehrte Frau Keller\n\nIhre Nachricht betrifft die Anwohnerparkkarte, die ab 2027 CHF 360 kostet. Falls Sie möchten, formuliere ich daraus eine Antwort an Sie – sagen Sie mir kurz, was ich tun soll.\n\nFreundliche Grüsse', 'Unklar, was verlangt ist', 'Form und Kontext, aber keine Aufgabe. Das Modell bleibt vorsichtig.'],
+    'AMF': ['Sehr geehrte Frau Keller\n\nVielen Dank für Ihre Anfrage. Ja, die Anwohnerparkkarte wird teurer: Ab 1. Januar 2027 kostet sie CHF 360 statt bisher CHF 300 pro Jahr. Der Gemeinderat hat dies am 12. Mai 2026 beschlossen.\n\nVerlängern können Sie Ihre Karte bequem online im Bürgerportal oder persönlich am Schalter der Einwohnerdienste, jeweils Montag bis Freitag von 8 bis 12 und 14 bis 17 Uhr.\n\nFreundliche Grüsse', 'Vollständig und in deiner Form', 'Anweisung, Kontext und Form: Das Modell hat alles, was auch eine neue Kollegin bräuchte.']
   };
   var on = [true, true, true];
   root.classList.add('w');
@@ -26,12 +26,33 @@ App.widget('prompt-anatomy', function (root, ctx) {
     bt.addEventListener('click', function () { on[i] = !on[i]; bt.setAttribute('aria-pressed', String(on[i])); renderPrompt(); answer.innerHTML = ''; el('span', { class: 'k', text: 'Antwort' }, answer); el('span', { class: 'empty', text: 'Noch nicht gesendet.' }, answer); });
     return bt;
   });
+  // dasselbe Eingabefeld, dreimal eingekleidet: vereinfachte Nachbildungen, keine Screenshots
+  var UIS = [['chatgpt', 'ChatGPT'], ['copilot', 'Copilot'], ['claude', 'Claude']];
+  var uiSeg = el('div', { class: 'seg pa-uis', role: 'group', 'aria-label': 'Programm' }, blocks);
   var wrap = el('div', { class: 'pa-wrap' }, root);
   var left = el('div', {}, wrap);
-  var prompt = el('div', { class: 'pa-prompt', 'aria-live': 'polite' }, left);
+  var ui = el('div', { class: 'pa-ui' }, left);
+  var uiName = el('div', { class: 'pa-ui-name' }, ui);
+  var prompt = el('div', { class: 'pa-prompt', 'aria-live': 'polite' }, ui);
+  var tools = el('div', { class: 'pa-ui-tools' }, ui);
+  el('span', { class: 'pa-ui-plus', text: '+', 'aria-hidden': 'true' }, tools);
+  var sendBtn = el('button', { class: 'pa-ui-send', type: 'button', 'aria-label': 'Senden', title: 'Senden' }, tools);
+  sendBtn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V6M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var uiBtns = UIS.map(function (u, i) {
+    var b = el('button', { type: 'button', text: u[1] }, uiSeg);
+    b.addEventListener('click', function () { setUi(i); });
+    return b;
+  });
+  function setUi(i) {
+    ui.className = 'pa-ui ui-' + UIS[i][0];
+    uiName.textContent = UIS[i][1];
+    uiBtns.forEach(function (b, k) { b.setAttribute('aria-pressed', String(k === i)); });
+  }
+  // #copilot oder #claude in der Adresse öffnet direkt diese Ansicht
+  setUi(Math.max(0, UIS.map(function (u) { return u[0]; }).indexOf(location.hash.slice(1))));
   var stats = el('div', { class: 'pa-stats' }, left);
   var send = el('div', { class: 'pa-send' }, left);
-  var sendBtn = el('button', { class: 'btn', type: 'button', text: 'Senden →' }, send);
+  el('span', { class: 'pa-hint', text: 'Pfeil drücken zum Senden' }, send);
   var flow = el('div', { class: 'pa-flow' }, send);
   var dots = el('span', { class: 'dots' }, flow); for (var d = 0; d < 4; d++) el('i', {}, dots);
   el('span', { class: 'pa-model', text: 'Modell' }, flow);
@@ -40,7 +61,7 @@ App.widget('prompt-anatomy', function (root, ctx) {
 
   function promptText() { return BLOCKS.filter(function (b, i) { return on[i]; }).map(function (b) { return b.text; }).join(' '); }
   function renderPrompt() {
-    prompt.innerHTML = ''; el('span', { class: 'k', text: 'Prompt' }, prompt);
+    prompt.innerHTML = '';
     var any = false;
     BLOCKS.forEach(function (b, i) { if (!on[i]) return; any = true; el('span', { class: 'pseg b' + i, text: b.text }, prompt); prompt.appendChild(document.createTextNode(' ')); });
     if (!any) el('span', { class: 'empty', text: '(leer)' }, prompt);
@@ -586,11 +607,11 @@ App.widget('techniques', function (root, ctx) {
 /* ---- 10-prompt-builder.js ---- */
 App.widget('prompt-builder', function (root, ctx) {
   var el = App.el;
-  var VAGUE = 'Schreib mir ein Konzept für ein Reporting.';
+  var VAGUE = 'Schreib mir ein Konzept für ein Infoblatt.';
   var SEGS = [
-    ['Wir sind das Controlling-Team der Gemeinde, fünf Personen; wir erstellen quartalsweise das Finanzreporting für den Gemeinderat.', 'Situation', 'Wer schreibt, für wen, wozu. Daraus ergibt sich die Rolle von selbst.'],
-    ['Angehängt: das bisherige Reporting und die Rückmeldungen der Finanzkommission.', 'Material', 'Das Modell sieht deine Unterlagen nur, wenn du sie mitgibst.'],
-    ['Entwirf eine Gliederung für ein neues Reporting mit maximal 8 Seiten, das die drei Hauptkritikpunkte behebt.', 'Aufgabe', 'Eine klare Aufgabe mit Umfang. «Ein Konzept» ist keine Aufgabe.'],
+    ['Wir sind die Kommunikationsstelle der Gemeinde, drei Personen; wir geben viermal im Jahr das Infoblatt für alle Haushalte heraus.', 'Situation', 'Wer schreibt, für wen, wozu. Daraus ergibt sich die Rolle von selbst.'],
+    ['Angehängt: die letzte Ausgabe und die Rückmeldungen aus der Bevölkerungsumfrage.', 'Unterlagen', 'Das Modell sieht deine Unterlagen nur, wenn du sie mitgibst.'],
+    ['Entwirf eine Gliederung für ein neues Infoblatt mit maximal 8 Seiten, das die drei Hauptkritikpunkte behebt.', 'Aufgabe', 'Eine klare Aufgabe mit Umfang. «Ein Konzept» ist keine Aufgabe.'],
     ['Als nummerierte Gliederung mit je einem Satz Begründung.', 'Form', 'Sag, wie die Antwort aussehen soll – sonst kommt der Standard.'],
     ['Schweizer Rechtschreibung, keine englischen Fachbegriffe.', 'Regeln', 'Kleine Regeln ersparen eine Korrekturrunde.'],
     ['Wenn dir etwas fehlt, frag zuerst.', 'Einladung', 'Erlaubt dem Modell, Lücken zu klären, statt zu raten.']
@@ -621,9 +642,9 @@ App.widget('prompt-builder', function (root, ctx) {
   var bCtx = el('button', { type: 'button', 'aria-pressed': 'false', text: 'Kontext' }, seg);
   var cmp = el('div', { class: 'pb-cmp', 'aria-live': 'polite' }, role);
   var verdict = el('div', { class: 'pb-verdict' }, role);
-  var FACTS = ['Wer liest (Gemeinderat)', 'Wozu (Quartalsreporting)', 'Wer schreibt (Team, 5 Personen)', 'Tonlage (Zahlen, Abweichungen, wenig Zeit)', 'Was schiefging (Kritik der Finanzkommission)'];
+  var FACTS = ['Wer liest (alle Haushalte)', 'Wozu (Infoblatt, viermal im Jahr)', 'Wer schreibt (Team, 3 Personen)', 'Tonlage (verständlich, ohne Fachbegriffe)', 'Was schiefging (Kritik aus der Umfrage)'];
   var MODES = {
-    role: { k: 'Rolle', q: 'Stell dir vor, du bist ein Controller.', yes: [3], cls: 'role', v: '<b>1 von 5.</b> Die Rolle verschiebt den Ton – mehr nicht. Alles andere muss das Modell raten.' },
+    role: { k: 'Rolle', q: 'Stell dir vor, du bist eine Kommunikationsverantwortliche.', yes: [3], cls: 'role', v: '<b>1 von 5.</b> Die Rolle verschiebt den Ton – mehr nicht. Alles andere muss das Modell raten.' },
     ctx: { k: 'Kontext', q: SEGS[0][0] + ' ' + SEGS[1][0], yes: [0, 1, 2, 3, 4], cls: 'ctx', v: '<b>5 von 5.</b> Der Kontext enthält die Rolle – und dazu alles, was die Rolle offenlässt.' }
   };
   function show(m) {
@@ -1146,7 +1167,6 @@ App.widget('az-steps', function (root, ctx) {
     ['Anfragen zur Kehrichtgebühr zu beantworten', 'eine Antwortvorlage mit den neuen Ansätzen entwerfen']
   ];
   var LETTERS = ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '…'];
-  var TOOL = { B: 1, E: 1, F: 1, K: 1 };  // hier passt ein anderes Werkzeug besser
   var EYE = { C: 1, D: 1, G: 1, J: 1 };   // hier schaut ein Mensch hin
   var EYE_SVG = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>';
   var state = ctx.reduced || App.mode === 'print' ? 1 : 0;
@@ -1171,25 +1191,73 @@ App.widget('az-steps', function (root, ctx) {
   var steps = el('div', { class: 'az-letters' }, mid);
   LETTERS.forEach(function (l) {
     var s = el('span', { class: 'az-l' }, steps);
-    el('i', { class: 'az-tool' + (TOOL[l] ? ' on' : ''), text: TOOL[l] ? '✳' : '' }, s);
     el('b', { text: l }, s);
     el('i', { class: 'az-eye' + (EYE[l] ? ' on' : ''), html: EYE[l] ? EYE_SVG : '' }, s);
   });
   el('b', { class: 'az-end', text: 'Z' }, track);
   var legend = el('p', { class: 'az-legend' }, wrap);
-  legend.innerHTML = '<span><i class="az-tool on">✳</i> anderes Werkzeug oder neues Gespräch</span><span><i class="az-eye on">' + EYE_SVG + '</i> hier prüft ein Mensch</span>';
+  legend.innerHTML = '<span><i class="az-eye on">' + EYE_SVG + '</i> hier prüft ein Mensch</span>';
   var note = el('p', { class: 'callout' }, wrap);
 
   function render() {
     wrap.classList.toggle('split', state === 1);
     b0.setAttribute('aria-pressed', state === 0 ? 'true' : 'false');
     b1.setAttribute('aria-pressed', state === 1 ? 'true' : 'false');
+    note.hidden = state === 0;
     note.innerHTML = state === 0
-      ? '<b>Von A nach Z in einem Schritt.</b> So klingt der Wunsch. Die Aufgabe ist aber zu gross und zu vage: Das Modell muss raten, was gemeint ist, und niemand kann das Ergebnis prüfen.'
+      ? ''
       : '<b>Aus jeder grossen Aufgabe wird ein kleiner, prüfbarer Schritt.</b> Viele kleine Schritte führen ans Ziel, und zwischen den Schritten schaust du hin.';
   }
   b0.addEventListener('click', function () { state = 0; render(); });
   b1.addEventListener('click', function () { state = 1; render(); });
+  render();
+});
+
+/* ---- k5-chat-rounds.js ---- */
+/* Mit jeder Runde liest das Modell das ganze bisherige Gespräch. */
+App.widget('chat-rounds', function (root, ctx) {
+  var el = App.el;
+  var MSGS = [
+    { who: 'Du', round: 1, k: 'Dein Auftrag', text: 'Schreibe eine Antwort auf diese Anfrage. Stütze dich auf die Mitteilung unten. Höflich, Sie-Form, höchstens 100 Wörter.' },
+    { who: 'KI', round: 1, k: 'Entwurf 1', text: 'Sehr geehrte Frau Huber … (erster Entwurf)' },
+    { who: 'Du', round: 2, k: 'Deine Korrektur', text: 'Gut. Jetzt den zweiten Absatz streichen und den Schluss verbindlicher formulieren.' },
+    { who: 'KI', round: 2, k: 'Entwurf 2', text: 'Sehr geehrte Frau Huber … (ohne zweiten Absatz)' },
+    { who: 'Du', round: 3, k: 'Dein Feinschliff', text: 'Kürzer, und nenne die neue Gebühr im ersten Satz.' }
+  ];
+  var all = App.mode === 'print';
+  var round = all ? 3 : 1;
+  var wrap = el('div', { class: 'w cr' }, root);
+  var ctl = el('div', { class: 'ctl' }, wrap);
+  var title = el('b', { class: 'cr-title' }, ctl);
+  var next = el('button', { type: 'button', class: 'btn', text: 'Nächste Runde' }, ctl);
+  var reset = el('button', { type: 'button', class: 'btn secondary', text: 'Von vorn' }, ctl);
+  var grid = el('div', { class: 'cr-grid' }, wrap);
+  var left = el('div', { class: 'cr-col' }, grid);
+  el('p', { class: 'k', text: 'Du tippst' }, left);
+  var typed = el('div', { class: 'cr-typed' }, left);
+  var right = el('div', { class: 'cr-col' }, grid);
+  el('p', { class: 'k', text: 'Das Modell liest' }, right);
+  var stack = el('div', { class: 'cr-stack', 'aria-live': 'polite' }, right);
+  var sum = el('p', { class: 'cr-sum' }, wrap);
+
+  function render() {
+    title.textContent = 'Runde ' + round + ' von 3';
+    var mine = MSGS.filter(function (m) { return m.who === 'Du' && m.round === round; })[0];
+    typed.textContent = mine.text;
+    stack.innerHTML = '';
+    var read = MSGS.filter(function (m) { return m.round < round || (m.round === round && m.who === 'Du'); });
+    read.forEach(function (m) {
+      var b = el('div', { class: 'cr-msg' + (m.who === 'KI' ? ' ai' : '') + (m.round === round ? ' new' : '') }, stack);
+      el('span', { class: 'k', text: m.k }, b);
+      el('span', { text: m.text }, b);
+    });
+    sum.innerHTML = round === 1
+      ? 'Das Modell liest <b>1 Nachricht</b>: deinen Auftrag.'
+      : 'Du tippst einen Satz. Das Modell liest <b>' + read.length + ' Nachrichten</b>: alles Bisherige und deinen neuen Satz.';
+    next.disabled = round === 3;
+  }
+  next.addEventListener('click', function () { if (round < 3) { round++; render(); } });
+  reset.addEventListener('click', function () { round = 1; render(); });
   render();
 });
 

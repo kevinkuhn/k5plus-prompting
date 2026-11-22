@@ -121,9 +121,9 @@ def resolve(fragment, deck_slugs, cited, where=""):
     return fragment.replace('src="img/', 'src="../assets/img/')
 
 
-def fragment_for(slug, deck_slugs, cited):
+def fragment_for(slug, deck_slugs, cited, deck_id):
     path = os.path.join(HERE, "content", CHAPTERS[slug].get("file", slug) + ".html")
-    return normalize_de(resolve(read(path), deck_slugs, cited, slug))
+    return normalize_de(resolve(read(path).replace("{{deck}}", deck_id), deck_slugs, cited, slug))
 
 
 # ---------------------------------------------------------------------------
@@ -313,7 +313,7 @@ def build_deck(deck):
     cited, bodies = [], {}
     for it in seq:  # erst alle Fragmente, damit die Quellenseite alle Zitate kennt
         if it["kind"] in ("chapter", "page"):
-            bodies[it["slug"]] = fragment_for(it["slug"], slugs, cited)
+            bodies[it["slug"]] = fragment_for(it["slug"], slugs, cited, deck["id"])
     site = f'{SITE["title"]} · {deck["level"]}'
     n_seq = len(seq) - 1
     arts = []
@@ -373,12 +373,18 @@ def build_pdf(deck):
     chrome = next((c for c in CHROME_CANDIDATES if shutil.which(c) or os.path.exists(c)), None)
     if not chrome:
         raise SystemExit("PDF: Google Chrome oder Chromium nicht gefunden")
-    out = os.path.join(ROOT, deck["id"], f'ki-prompting-{deck["id"]}.pdf')
-    subprocess.run([chrome, "--headless", "--disable-gpu", "--no-pdf-header-footer",
-                    "--virtual-time-budget=10000", "--run-all-compositor-stages-before-draw",
-                    f"--print-to-pdf={out}", "file://" + os.path.join(ROOT, deck["id"], "print.html")],
-                   check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    print(f"PDF: {os.path.getsize(out) / 1024:.0f} KB -> {out}")
+    ddir = os.path.join(ROOT, deck["id"])
+    jobs = [(f'ki-prompting-{deck["id"]}.pdf', "print.html")]
+    sheet = next((s for p in deck["parts"] for s in p["chapters"] if s.endswith("spickzettel")), None)
+    if sheet:
+        jobs.append((f'spickzettel-{deck["id"]}.pdf', sheet + ".html"))
+    for name, page in jobs:
+        out = os.path.join(ddir, name)
+        subprocess.run([chrome, "--headless", "--disable-gpu", "--no-pdf-header-footer",
+                        "--virtual-time-budget=10000", "--run-all-compositor-stages-before-draw",
+                        f"--print-to-pdf={out}", "file://" + os.path.join(ddir, page)],
+                       check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print(f"PDF: {os.path.getsize(out) / 1024:.0f} KB -> {out}")
 
 
 if __name__ == "__main__":

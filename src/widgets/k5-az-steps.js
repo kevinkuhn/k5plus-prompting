@@ -9,7 +9,6 @@ App.widget('az-steps', function (root, ctx) {
     ['Anfragen zur Kehrichtgebühr zu beantworten', 'eine Antwortvorlage mit den neuen Ansätzen entwerfen']
   ];
   var LETTERS = ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', '…'];
-  var TOOL = { B: 1, E: 1, F: 1, K: 1 };  // hier passt ein anderes Werkzeug besser
   var EYE = { C: 1, D: 1, G: 1, J: 1 };   // hier schaut ein Mensch hin
   var EYE_SVG = '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>';
   var state = ctx.reduced || App.mode === 'print' ? 1 : 0;
@@ -34,21 +33,21 @@ App.widget('az-steps', function (root, ctx) {
   var steps = el('div', { class: 'az-letters' }, mid);
   LETTERS.forEach(function (l) {
     var s = el('span', { class: 'az-l' }, steps);
-    el('i', { class: 'az-tool' + (TOOL[l] ? ' on' : ''), text: TOOL[l] ? '✳' : '' }, s);
     el('b', { text: l }, s);
     el('i', { class: 'az-eye' + (EYE[l] ? ' on' : ''), html: EYE[l] ? EYE_SVG : '' }, s);
   });
   el('b', { class: 'az-end', text: 'Z' }, track);
   var legend = el('p', { class: 'az-legend' }, wrap);
-  legend.innerHTML = '<span><i class="az-tool on">✳</i> anderes Werkzeug oder neues Gespräch</span><span><i class="az-eye on">' + EYE_SVG + '</i> hier prüft ein Mensch</span>';
+  legend.innerHTML = '<span><i class="az-eye on">' + EYE_SVG + '</i> hier prüft ein Mensch</span>';
   var note = el('p', { class: 'callout' }, wrap);
 
   function render() {
     wrap.classList.toggle('split', state === 1);
     b0.setAttribute('aria-pressed', state === 0 ? 'true' : 'false');
     b1.setAttribute('aria-pressed', state === 1 ? 'true' : 'false');
+    note.hidden = state === 0;
     note.innerHTML = state === 0
-      ? '<b>Von A nach Z in einem Schritt.</b> So klingt der Wunsch. Die Aufgabe ist aber zu gross und zu vage: Das Modell muss raten, was gemeint ist, und niemand kann das Ergebnis prüfen.'
+      ? ''
       : '<b>Aus jeder grossen Aufgabe wird ein kleiner, prüfbarer Schritt.</b> Viele kleine Schritte führen ans Ziel, und zwischen den Schritten schaust du hin.';
   }
   b0.addEventListener('click', function () { state = 0; render(); });

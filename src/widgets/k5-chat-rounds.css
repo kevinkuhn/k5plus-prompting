@@ -1,0 +1,14 @@
+.cr .ctl { justify-content: flex-start; }
+.cr-title { font-family: var(--display); font-size: 1.25rem; margin-right: auto; }
+.cr .btn[disabled] { opacity: 0.35; cursor: default; }
+.cr-grid { display: grid; grid-template-columns: 1fr; gap: 1rem 1.5rem; align-items: start; }
+@media (min-width: 640px) { .cr-grid { grid-template-columns: 5fr 7fr; } }
+.cr-typed { border: 2px solid var(--accent); border-radius: 12px; padding: 0.8rem 0.95rem; font-size: 0.98rem; line-height: 1.4; }
+.cr-stack { display: flex; flex-direction: column; gap: 0.4rem; border: 1px dashed var(--ink-3); border-radius: 12px; padding: 0.6rem; min-height: 6rem; }
+.cr-msg { border-radius: 8px; padding: 0.5rem 0.7rem; font-size: 0.9rem; line-height: 1.35; background: var(--surface-2); color: var(--ink-2); }
+.cr-msg .k { display: block; margin: 0 0 0.15rem; font-size: 0.68rem; }
+.cr-msg.ai { margin-left: 1.5rem; }
+.cr-msg.new { background: var(--accent-soft-2); color: var(--ink); outline: 2px solid var(--accent); animation: rise 0.35s ease both; }
+.cr-msg.new .k { color: var(--accent); }
+.cr-sum { margin: 1rem 0 0; font-size: 1rem; color: var(--ink-2); }
+.cr-sum b { color: var(--accent); }

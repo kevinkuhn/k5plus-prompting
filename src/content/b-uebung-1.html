@@ -4,11 +4,11 @@
     <p class="lead">Eine Einwohnerin fragt nach der Kehrichtgebühr. Du beantwortest dieselbe Anfrage <strong>dreimal</strong> und vergleichst.</p>
     <ol class="steps">
       <li><b>Runde 1: ein Satz.</b> Kopiere die Anfrage und den Prompt 1 in ein neues Gespräch. Lies die Antwort. Woher hat das Modell seine Angaben?</li>
-      <li><b>Runde 2: drei Bausteine.</b> Neues Gespräch. Kopiere Prompt 2 mit Anweisung, Material und Form. Was ist jetzt anders?</li>
-      <li><b>Runde 3: nachbessern.</b> Bleib im Gespräch und gib eine Rückmeldung, zum Beispiel: «Kürzer, und nenne die neue Gebühr im ersten Satz.»</li>
+      <li><b>Runde 2: drei Bausteine.</b> Neues Gespräch. Kopiere Prompt 2 mit Anweisung, Kontext und Form. Was ist jetzt anders?</li>
+      <li><b>Runde 3: nachbessern.</b> Bleib im selben Gespräch. Lass die Antwort mit Prompt 3 kürzen oder übersetzen.</li>
       <li><b>Prüfen.</b> Vergleiche jede Zahl mit der Mitteilung. Beantwortet das Modell die Frage «Muss ich etwas tun?», obwohl die Mitteilung dazu nichts sagt?</li>
     </ol>
-    <p class="ex-done"><b>Fertig?</b> Verlange dieselbe Antwort in einfacher Sprache oder auf Englisch.</p>
+    <p class="ex-done"><b>Fertig?</b> Verlange dieselbe Antwort in einfacher Sprache.</p>
   </div>
   <div>
     <div class="ex-box material">
@@ -34,12 +34,18 @@ Ich habe gehört, dass die Kehrichtgebühr sinkt. Stimmt das? Ab wann gilt das, 
 Freundliche Grüsse
 R. Huber
 
-Stütze dich nur auf diese Mitteilung der Gemeinde vom 18. November 2026:
+Stütze dich nur auf diese Mitteilung der Gemeinde vom 18. November 2026
+(Quelle: https://www.ebikon.ch/news/einwohnerrat-genehmigt-budget-2027-und-kredit-fuer-gebiet-bahnhof-ost):
 «Der Einwohnerrat hat das Budget 2027 mit einem Ertragsüberschuss von 2,14 Millionen Franken genehmigt. Der Steuerfuss bleibt bei 2,05 Einheiten. Stattdessen sinken ab 2027 mehrere Gebühren, etwa die Kehrichtgrundgebühr von 110 auf 80 Franken pro Jahr und die Abwassergebühr von 1.90 auf 1.30 Franken pro Kubikmeter.»
 
 Form: höflich, Sie-Form, mit Anrede und Grussformel, höchstens 100 Wörter, Schweizer Rechtschreibung.
 Wenn die Mitteilung eine Frage nicht beantwortet, schreib das offen und erfinde nichts.</pre>
     </div>
-    <p class="src-note">Zitat aus der Mitteilung der Gemeinde Ebikon.[[ref:ebikon-budget-2027]] Der Text ist öffentlich und darf in jedes Tool.</p>
+    <div class="ex-box">
+      <p class="k">Prompt 3 · im selben Gespräch</p>
+<pre class="cs-tpl">Kürze die Antwort auf höchstens 50 Wörter und nenne die neue Gebühr im ersten Satz.</pre>
+<pre class="cs-tpl">Übersetze die Antwort ins Englische. Behalte Anrede, Zahlen und Grussformel bei.</pre>
+    </div>
+    <p class="src-note">Zitat aus der Mitteilung der Gemeinde Ebikon.[[ref:ebikon-budget-2027]] <a href="https://www.ebikon.ch/news/einwohnerrat-genehmigt-budget-2027-und-kredit-fuer-gebiet-bahnhof-ost" target="_blank" rel="noopener">Zur Mitteilung</a>. Der Text ist öffentlich und darf in jedes Tool.</p>
   </div>
 </div>

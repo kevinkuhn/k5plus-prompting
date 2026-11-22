@@ -24,3 +24,34 @@
 .pa-answer .verdict { display: block; margin-top: 0.75rem; font-size: 0.82rem; color: var(--ink-2); border-top: 1px solid var(--accent-soft); padding-top: 0.5rem; }
 .pa-answer .verdict b { color: var(--accent); }
 @container (min-width: 720px) { .pa-wrap { grid-template-columns: 1.1fr 1fr; gap: 1.25rem; } }
+
+/* Eingabefeld im Stil von ChatGPT, Copilot und Claude (vereinfacht nachgebaut) */
+.pa-blocks { align-items: center; }
+.pa-uis { margin-left: auto; }
+.pa-ui { border-radius: 14px; padding: 0.9rem 0.9rem 1rem; transition: background 0.25s ease; }
+.pa-ui-name { font-size: 1rem; font-weight: 600; margin: 0 0 0.7rem 0.2rem; }
+.pa-ui .pa-prompt { border: 0; border-radius: 0; background: transparent; padding: 0.9rem 1rem 0.3rem; min-height: 8rem; }
+.pa-ui-tools { display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 0.7rem 0.6rem 1rem; }
+.pa-ui-plus { font-size: 1.5rem; line-height: 1; color: var(--ink-3); font-weight: 300; }
+.pa-ui-send { width: 2.2rem; height: 2.2rem; border: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #fff; }
+.pa-ui-send:hover { filter: brightness(1.15); }
+.pa-ui .pa-prompt, .pa-ui-tools { background: #fff; }
+/* ChatGPT: weiss, stark gerundetes Feld, schwarzer runder Knopf */
+.ui-chatgpt { background: #fff; border: 1px solid var(--line-soft); font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+.ui-chatgpt .pa-prompt { border: 1px solid #e3e3e3; border-bottom: 0; border-radius: 1.6rem 1.6rem 0 0; }
+.ui-chatgpt .pa-ui-tools { border: 1px solid #e3e3e3; border-top: 0; border-radius: 0 0 1.6rem 1.6rem; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); }
+.ui-chatgpt .pa-ui-send { background: #000; border-radius: 50%; }
+/* Copilot: helles Blau, Feld mit Farbverlauf am Rand, blauer Knopf */
+.ui-copilot { background: linear-gradient(180deg, #f4f7fd, #eef1fb); font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif; }
+.ui-copilot .pa-prompt { border-radius: 1.3rem 1.3rem 0 0; box-shadow: 0 -2px 0 0 #6aa8f5 inset, 0 0 0 0 transparent; border: 1.5px solid #b9c6f2; border-bottom: 0; box-shadow: none; }
+.ui-copilot .pa-ui-tools { border: 1.5px solid #b9c6f2; border-top: 0; border-radius: 0 0 1.3rem 1.3rem; border-image: none; box-shadow: 0 3px 0 -1px #8d6be8; }
+.ui-copilot .pa-ui-send { background: #0f6cbd; border-radius: 0.6rem; }
+/* Claude: warmes Papierweiss, Serifenschrift im Kopf, oranger Knopf */
+.ui-claude { background: #f5f4ee; font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+.ui-claude .pa-ui-name { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 1.15rem; }
+.ui-claude .pa-prompt { border: 1px solid #ddd9cc; border-bottom: 0; border-radius: 1rem 1rem 0 0; }
+.ui-claude .pa-ui-tools { border: 1px solid #ddd9cc; border-top: 0; border-radius: 0 0 1rem 1rem; box-shadow: 0 4px 14px rgba(60, 50, 30, 0.07); }
+.ui-claude .pa-ui-send { background: #d97757; border-radius: 0.55rem; }
+.pa-hint { font-size: 0.8rem; color: var(--ink-3); }
+.pa-blocks .pa-uis button { border: 0; background: transparent; color: var(--ink-2); padding: 0.3rem 0.8rem; }
+.pa-blocks .pa-uis button[aria-pressed="true"] { background: var(--ink); color: #fff; }

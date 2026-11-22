@@ -117,6 +117,13 @@ h1 em { font-style: normal; color: var(--accent); }
 .ex-done { border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 0.9rem; color: var(--ink-2); }
 .copy-btn { position: absolute; top: 0.6rem; right: 0.6rem; }
 
+.fig-pre { padding: clamp(1rem, 2.5vw, 1.75rem) clamp(1rem, 2.5vw, 1.75rem) 0; }
+.fig-pre + .fig-body { padding-top: 0.5rem; min-height: 0; }
+.dl { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.5rem; }
+.dl .btn { font-size: 1rem; padding: 0.6rem 1.2rem 0.45rem; text-decoration: none; }
+.dl .btn:not(.secondary) { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media print { .dl { display: none; } }
+
 /* Dank */
 .closing { text-align: center; padding-top: clamp(2rem, 8vh, 6rem); }
 .closing h1 { max-width: none; font-size: clamp(2rem, 4.4vw, 3.6rem); margin-bottom: clamp(2rem, 6vh, 4rem); }
@@ -161,3 +168,6 @@ html:has([data-mode="print"]) { font-size: 16px; }
 [data-deck="intermediate"] .survey-card:not(.lv-intermediate),
 [data-deck="advanced"] .survey-card:not(.lv-advanced) { opacity: 0.4; }
 .cards.rows { grid-template-columns: 1fr; }
+
+/* Tokenizer ohne Token-Nummern (Beginner) */
+.fig.simple .tk-ids, .fig.simple .hint { display: none; }

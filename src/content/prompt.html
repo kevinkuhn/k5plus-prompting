@@ -2,18 +2,18 @@
 <!-- /slide -->
 <figure class="fig" data-widget="prompt-anatomy">
   <div class="fig-body"></div>
-  <figcaption>Ein Prompt aus drei Bausteinen: Anweisung, Material, gewünschte Form. Schalte Bausteine aus und ein und sende – die Antwort zeigt, was das Modell mit dem Rest anfangen kann. Die Antworten sind nachgestellt; die Prinzipien stammen aus den Leitfäden der Anbieter.[[ref:anthropic-prompting,openai-prompting]]</figcaption>
+  <figcaption>Ein Prompt aus drei Bausteinen: Anweisung, Kontext, gewünschte Form. Schalte Bausteine aus und ein und sende – die Antwort zeigt, was das Modell mit dem Rest anfangen kann. Oben rechts wechselst du zwischen ChatGPT, Copilot und Claude: Das Eingabefeld sieht jedes Mal etwas anders aus, der Prompt bleibt derselbe. Die drei Oberflächen sind vereinfacht nachgebaut. Die Antworten sind nachgestellt; die Prinzipien stammen aus den Leitfäden der Anbieter.[[ref:anthropic-prompting,openai-prompting]]</figcaption>
 </figure>
 <div class="slide-notes">
   <p>Das Modell sieht weder deinen Bildschirm noch deine Ablage noch die E-Mail, die du gerade gelesen hast. Es kennt nur den Text im Eingabefeld. Fehlt dort etwas, muss es raten – oder nachfragen.</p>
-  <p>Ein Prompt kann ein Satz sein oder zwanzig Seiten. Was zählt, ist nicht die Länge, sondern ob Anweisung, Material und gewünschte Form drin sind.</p>
+  <p>Ein Prompt kann ein Satz sein oder zwanzig Seiten. Was zählt, ist nicht die Länge, sondern ob Anweisung, Kontext und gewünschte Form drin sind.</p>
 </div>
 <details class="more">
   <summary>Mehr lesen</summary>
   <div class="prose">
     <h2>Drei Bausteine</h2>
-    <p>Fast jeder brauchbare Prompt enthält drei Dinge. Die <strong>Anweisung</strong> sagt, was zu tun ist: beantworten, zusammenfassen, übersetzen, prüfen, entwerfen. Das <strong>Material</strong> ist das, worauf sich die Anweisung bezieht: die Anfrage einer Einwohnerin, ein Protokoll, ein Reglement, deine Stichworte. Die <strong>Form</strong> beschreibt, wie die Antwort aussehen soll: Länge, Ton, Sprache, Aufbau, Anrede.</p>
-    <p>Lässt du einen Baustein weg, ersetzt das Modell ihn durch eine Annahme. Ohne Anweisung fragt es zurück oder fasst zusammen. Ohne Material erfindet es Beispiele oder schreibt allgemein. Ohne Form bekommst du den Standard: mittellang, mit Aufzählungspunkten, in der Tonlage, die das Modell am häufigsten gesehen hat.</p>
+    <p>Fast jeder brauchbare Prompt enthält drei Dinge. Die <strong>Anweisung</strong> sagt, was zu tun ist: beantworten, zusammenfassen, übersetzen, prüfen, entwerfen. Der <strong>Kontext</strong> ist das, worauf sich die Anweisung bezieht: die Anfrage einer Einwohnerin, ein Protokoll, ein Reglement, deine Stichworte. Die <strong>Form</strong> beschreibt, wie die Antwort aussehen soll: Länge, Ton, Sprache, Aufbau, Anrede.</p>
+    <p>Lässt du einen Baustein weg, ersetzt das Modell ihn durch eine Annahme. Ohne Anweisung fragt es zurück oder fasst zusammen. Ohne Kontext erfindet es Beispiele oder schreibt allgemein. Ohne Form bekommst du den Standard: mittellang, mit Aufzählungspunkten, in der Tonlage, die das Modell am häufigsten gesehen hat.</p>
     <h2>Alles im Gespräch ist Prompt</h2>
     <p>Der Prompt ist nicht nur deine erste Nachricht. Bei jeder weiteren Nachricht schickt die Software das ganze bisherige Gespräch mit – deine Fragen, die Antworten des Modells, hochgeladene Dokumente. Das Modell «erinnert» sich nicht; es liest jedes Mal alles von vorn. Deshalb wirkt eine Korrektur («kürzer, förmlicher») so gut: Sie wird Teil des Prompts für die nächste Antwort. Wie viel in dieses Gespräch passt, zeigt das Kapitel zum <a href="@kontextfenster">Kontextfenster</a>.</p>
     <h2>Was ein Prompt nicht ist</h2>

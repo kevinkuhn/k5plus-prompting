@@ -686,6 +686,37 @@ main { flex: 1; }
 .pa-answer .verdict b { color: var(--accent); }
 @container (min-width: 720px) { .pa-wrap { grid-template-columns: 1.1fr 1fr; gap: 1.25rem; } }
 
+/* Eingabefeld im Stil von ChatGPT, Copilot und Claude (vereinfacht nachgebaut) */
+.pa-blocks { align-items: center; }
+.pa-uis { margin-left: auto; }
+.pa-ui { border-radius: 14px; padding: 0.9rem 0.9rem 1rem; transition: background 0.25s ease; }
+.pa-ui-name { font-size: 1rem; font-weight: 600; margin: 0 0 0.7rem 0.2rem; }
+.pa-ui .pa-prompt { border: 0; border-radius: 0; background: transparent; padding: 0.9rem 1rem 0.3rem; min-height: 8rem; }
+.pa-ui-tools { display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 0.7rem 0.6rem 1rem; }
+.pa-ui-plus { font-size: 1.5rem; line-height: 1; color: var(--ink-3); font-weight: 300; }
+.pa-ui-send { width: 2.2rem; height: 2.2rem; border: 0; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; color: #fff; }
+.pa-ui-send:hover { filter: brightness(1.15); }
+.pa-ui .pa-prompt, .pa-ui-tools { background: #fff; }
+/* ChatGPT: weiss, stark gerundetes Feld, schwarzer runder Knopf */
+.ui-chatgpt { background: #fff; border: 1px solid var(--line-soft); font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+.ui-chatgpt .pa-prompt { border: 1px solid #e3e3e3; border-bottom: 0; border-radius: 1.6rem 1.6rem 0 0; }
+.ui-chatgpt .pa-ui-tools { border: 1px solid #e3e3e3; border-top: 0; border-radius: 0 0 1.6rem 1.6rem; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06); }
+.ui-chatgpt .pa-ui-send { background: #000; border-radius: 50%; }
+/* Copilot: helles Blau, Feld mit Farbverlauf am Rand, blauer Knopf */
+.ui-copilot { background: linear-gradient(180deg, #f4f7fd, #eef1fb); font-family: "Segoe UI", -apple-system, Helvetica, Arial, sans-serif; }
+.ui-copilot .pa-prompt { border-radius: 1.3rem 1.3rem 0 0; box-shadow: 0 -2px 0 0 #6aa8f5 inset, 0 0 0 0 transparent; border: 1.5px solid #b9c6f2; border-bottom: 0; box-shadow: none; }
+.ui-copilot .pa-ui-tools { border: 1.5px solid #b9c6f2; border-top: 0; border-radius: 0 0 1.3rem 1.3rem; border-image: none; box-shadow: 0 3px 0 -1px #8d6be8; }
+.ui-copilot .pa-ui-send { background: #0f6cbd; border-radius: 0.6rem; }
+/* Claude: warmes Papierweiss, Serifenschrift im Kopf, oranger Knopf */
+.ui-claude { background: #f5f4ee; font-family: ui-sans-serif, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+.ui-claude .pa-ui-name { font-family: Georgia, "Times New Roman", serif; font-weight: 500; font-size: 1.15rem; }
+.ui-claude .pa-prompt { border: 1px solid #ddd9cc; border-bottom: 0; border-radius: 1rem 1rem 0 0; }
+.ui-claude .pa-ui-tools { border: 1px solid #ddd9cc; border-top: 0; border-radius: 0 0 1rem 1rem; box-shadow: 0 4px 14px rgba(60, 50, 30, 0.07); }
+.ui-claude .pa-ui-send { background: #d97757; border-radius: 0.55rem; }
+.pa-hint { font-size: 0.8rem; color: var(--ink-3); }
+.pa-blocks .pa-uis button { border: 0; background: transparent; color: var(--ink-2); padding: 0.3rem 0.8rem; }
+.pa-blocks .pa-uis button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+
 /* ---- 02-tokenizer.css ---- */
 .tz-cmp { margin-top: 0.9rem; padding-top: 0.75rem; border-top: 1px solid var(--line-soft); font-size: 0.85rem; color: var(--ink-2); display: grid; grid-template-columns: 1fr; gap: 0.35rem 1rem; }
 .tz-cmp .row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.75rem; }
@@ -1115,16 +1146,31 @@ main { flex: 1; }
 .az-letters { position: absolute; inset: 0; z-index: 1; display: flex; justify-content: space-around; align-items: center; padding: 0 0.6rem 0 0.2rem; opacity: 0; transition: opacity 0.4s ease; }
 .az.split .az-one { opacity: 0; }
 .az.split .az-letters { opacity: 1; }
-.az-l { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+.az-l { padding-top: 1.6rem; display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
 .az-l b { font-family: var(--display); font-weight: 800; font-size: clamp(1.1rem, 2.4vw, 1.9rem); color: var(--accent); background: var(--surface); padding: 0.18em 0.12em 0; line-height: 1; }
 .az-l i { height: 1.5rem; display: flex; align-items: center; font-style: normal; }
-.az-tool.on { color: var(--warm); font-size: 1.15rem; }
 .az-eye.on { color: var(--ink); }
 .az-legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem; font-size: 0.9rem; color: var(--ink-2); margin: 0; opacity: 0; transition: opacity 0.4s ease; }
 .az.split .az-legend { opacity: 1; }
 .az-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
 .az-legend i { font-style: normal; display: inline-flex; }
 @media (max-width: 640px) { .az-l:nth-child(even) { display: none; } }
+
+/* ---- k5-chat-rounds.css ---- */
+.cr .ctl { justify-content: flex-start; }
+.cr-title { font-family: var(--display); font-size: 1.25rem; margin-right: auto; }
+.cr .btn[disabled] { opacity: 0.35; cursor: default; }
+.cr-grid { display: grid; grid-template-columns: 1fr; gap: 1rem 1.5rem; align-items: start; }
+@media (min-width: 640px) { .cr-grid { grid-template-columns: 5fr 7fr; } }
+.cr-typed { border: 2px solid var(--accent); border-radius: 12px; padding: 0.8rem 0.95rem; font-size: 0.98rem; line-height: 1.4; }
+.cr-stack { display: flex; flex-direction: column; gap: 0.4rem; border: 1px dashed var(--ink-3); border-radius: 12px; padding: 0.6rem; min-height: 6rem; }
+.cr-msg { border-radius: 8px; padding: 0.5rem 0.7rem; font-size: 0.9rem; line-height: 1.35; background: var(--surface-2); color: var(--ink-2); }
+.cr-msg .k { display: block; margin: 0 0 0.15rem; font-size: 0.68rem; }
+.cr-msg.ai { margin-left: 1.5rem; }
+.cr-msg.new { background: var(--accent-soft-2); color: var(--ink); outline: 2px solid var(--accent); animation: rise 0.35s ease both; }
+.cr-msg.new .k { color: var(--accent); }
+.cr-sum { margin: 1rem 0 0; font-size: 1rem; color: var(--ink-2); }
+.cr-sum b { color: var(--accent); }
 
 /* ---- pfc-04-agent-loop.css ---- */
 .al-lane { display: grid; grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 0.9rem; }
@@ -1321,6 +1367,13 @@ h1 em { font-style: normal; color: var(--accent); }
 .ex-done { border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 0.9rem; color: var(--ink-2); }
 .copy-btn { position: absolute; top: 0.6rem; right: 0.6rem; }
 
+.fig-pre { padding: clamp(1rem, 2.5vw, 1.75rem) clamp(1rem, 2.5vw, 1.75rem) 0; }
+.fig-pre + .fig-body { padding-top: 0.5rem; min-height: 0; }
+.dl { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 1.5rem; }
+.dl .btn { font-size: 1rem; padding: 0.6rem 1.2rem 0.45rem; text-decoration: none; }
+.dl .btn:not(.secondary) { background: var(--accent); border-color: var(--accent); color: #fff; }
+@media print { .dl { display: none; } }
+
 /* Dank */
 .closing { text-align: center; padding-top: clamp(2rem, 8vh, 6rem); }
 .closing h1 { max-width: none; font-size: clamp(2rem, 4.4vw, 3.6rem); margin-bottom: clamp(2rem, 6vh, 4rem); }
@@ -1365,3 +1418,6 @@ html:has([data-mode="print"]) { font-size: 16px; }
 [data-deck="intermediate"] .survey-card:not(.lv-intermediate),
 [data-deck="advanced"] .survey-card:not(.lv-advanced) { opacity: 0.4; }
 .cards.rows { grid-template-columns: 1fr; }
+
+/* Tokenizer ohne Token-Nummern (Beginner) */
+.fig.simple .tk-ids, .fig.simple .hint { display: none; }
