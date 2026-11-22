@@ -9,9 +9,15 @@ App.widget('context-rot', function (root, ctx) {
   var state = { n: 0, repeated: false };
   root.classList.add('w');
   var ctl = el('div', { class: 'ctl' }, root);
-  var add = el('button', { class: 'btn', type: 'button', text: '+ 10 Nachrichten' }, ctl);
-  var rep = el('button', { class: 'btn secondary', type: 'button', text: 'Regel wiederholen' }, ctl);
-  var reset = el('button', { class: 'btn secondary', type: 'button', text: 'Neues Gespräch' }, ctl);
+  var STAGES = [['Am Anfang', 0, false], ['Nach 30 Nachrichten', 30, false], ['Nach 60 Nachrichten', 60, false], ['Regel wiederholt', 60, true]];
+  var seg = el('div', { class: 'seg', role: 'group', 'aria-label': 'Stand des Gesprächs' }, ctl);
+  var segBtns = STAGES.map(function (st, i) {
+    var bt = el('button', { type: 'button', text: st[0] }, seg);
+    bt.addEventListener('click', function () { go(i); });
+    return bt;
+  });
+  function go(i) { state.n = STAGES[i][1]; state.repeated = STAGES[i][2]; segBtns.forEach(function (x, k) { x.setAttribute('aria-pressed', String(k === i)); }); render(); }
+  el('p', { class: 'hint', text: 'Klick dich von links nach rechts durch: Was passiert mit der Regel aus der ersten Nachricht?' }, root);
   var wrap = el('div', { class: 'cr-wrap' }, root);
   var left = el('div', {}, wrap);
   var conv = el('div', { class: 'cr-conv', 'aria-label': 'Gesprächsverlauf' }, left);
@@ -42,12 +48,5 @@ App.widget('context-rot', function (root, ctx) {
     el('span', { html: a[0] }, ans);
     var v = el('div', { class: 'cr-verdict' }, ans); el('b', { class: a === ANS.good ? '' : 'bad', text: a[1] + '. ' }, v); v.appendChild(document.createTextNode(a[2]));
   }
-  add.addEventListener('click', function () { state.n = Math.min(90, state.n + 10); state.repeated = false; render(); });
-  rep.addEventListener('click', function () { state.repeated = true; render(); });
-  reset.addEventListener('click', function () { state.n = 0; state.repeated = false; render(); });
-  render();
-  if (!ctx.reduced) {
-    var k = 0, iv = setInterval(function () { if (!ctx.active()) return; if (k >= 5) { clearInterval(iv); return; } k++; state.n = k * 10; state.repeated = false; render(); }, 1400);
-    root.addEventListener('click', function () { clearInterval(iv); }, { once: true });
-  }
+  go(App.mode === 'print' ? 2 : 0);
 });

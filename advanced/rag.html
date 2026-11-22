@@ -1,47 +1,51 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Wie heutige Chatbots arbeiten – KI-Prompting · Advanced</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="../assets/style.css"></head><body data-mode="multi" data-deck="advanced" data-kind="chapter" data-site="KI-Prompting · Advanced"><div class="app-root"><a class="skip" href="#main">Zum Inhalt springen</a><header class="top"><div class="top-row"><div class="top-left"><a class="home" href="index.html">KI-Prompting · Advanced</a><span class="crumb">Anbindung</span></div><div class="top-right"><button type="button" class="btn-ghost toc-btn" aria-haspopup="dialog">Inhalt</button></div></div><div class="progress"><span style="width:44%"></span></div></header><main id="main"><article class="chapter wide" id="rag" data-title="Wie heutige Chatbots arbeiten" data-prev="teil-4.html" data-next="anbindung.html" data-num="11"><div class="col-text"><div class="eyebrow"><span>Anbindung</span><span class="n">11</span></div><header class="slide"><h1>Wie heutige <em>Chatbots</em> arbeiten</h1><p class="lead">Ein heutiger Chatbot antwortet selten nur aus dem Gedächtnis. Er <strong>sucht zuerst passende Textstellen</strong>, legt sie zur Frage und lässt das Sprachmodell daraus die Antwort schreiben.</p>
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Wie heutige Chatbots arbeiten – KI-Prompting · Advanced</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="../assets/style.css"></head><body data-mode="multi" data-deck="advanced" data-kind="chapter" data-site="KI-Prompting · Advanced"><div class="app-root"><a class="skip" href="#main">Zum Inhalt springen</a><header class="top"><div class="top-row"><div class="top-left"><a class="home" href="index.html">KI-Prompting · Advanced</a><span class="crumb">Anbindung</span></div><div class="top-right"><button type="button" class="btn-ghost toc-btn" aria-haspopup="dialog">Inhalt</button></div></div><div class="progress"><span style="width:44%"></span></div></header><main id="main"><article class="chapter wide" id="rag" data-title="Wie heutige Chatbots arbeiten" data-prev="teil-4.html" data-next="anbindung.html" data-num="11"><div class="col-text"><div class="eyebrow"><span>Anbindung</span><span class="n">11</span></div><header class="slide"><h1>Wie heutige <em>Chatbots</em> arbeiten</h1><p class="lead">Ein heutiger Chatbot antwortet selten nur aus dem Gedächtnis. Er <strong>holt zuerst Kontext</strong>, aus deinen Dokumenten oder mit einer Websuche, legt ihn zur Frage und lässt das Sprachmodell daraus die Antwort schreiben.</p>
 </header><div class="slide-notes">
-  <p>Das Sprachmodell lernt deine Dokumente nicht. Es liest bei jeder Frage die paar Textstellen, die die Suche gefunden hat.</p>
+  <p>Das Sprachmodell lernt weder deine Dokumente noch das Web. Es liest bei jeder Frage den Kontext, den die Suche gefunden hat.</p>
   <p>Findet die Suche die falsche Stelle, schreibt das Modell eine flüssige Antwort auf der falschen Grundlage.</p>
 </div></div><div class="col-fig"><figure class="fig">
   <div class="fig-body w">
-    <svg class="ragd" viewBox="0 0 900 470" role="img" aria-label="Ablauf von Retrieval-Augmented Generation: abrufen, anreichern, erzeugen">
+    <svg class="ragd" viewBox="0 0 900 540" role="img" aria-label="Ablauf: Kontext abrufen aus Dokumenten oder per Websuche, Prompt anreichern, Antwort erzeugen">
       <defs><marker id="ragd-head" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="currentColor"/></marker></defs>
-      <rect class="ragd-sys" x="225" y="14" width="665" height="444" rx="18"/>
-      <rect class="ragd-box" x="10" y="130" width="185" height="230" rx="12"/>
-      <text class="ragd-k" x="102" y="160">Chat</text>
-      <rect class="ragd-pill" x="26" y="210" width="84" height="36" rx="18"/><text class="ragd-t" x="68" y="233">Frage</text>
-      <rect class="ragd-dark" x="84" y="284" width="98" height="36" rx="18"/><text class="ragd-t inv" x="133" y="307">Antwort</text>
+      <rect class="ragd-sys" x="225" y="14" width="665" height="512" rx="18"/>
+      <rect class="ragd-box" x="10" y="150" width="185" height="240" rx="12"/>
+      <text class="ragd-k" x="102" y="182">Chat</text>
+      <rect class="ragd-pill" x="26" y="215" width="84" height="36" rx="18"/><text class="ragd-t" x="68" y="238">Frage</text>
+      <rect class="ragd-dark" x="84" y="300" width="98" height="36" rx="18"/><text class="ragd-t inv" x="133" y="323">Antwort</text>
 
       <g class="ragd-line" marker-end="url(#ragd-head)">
-        <path d="M110 228 H268"/>
-        <path d="M378 228 H418"/>
-        <path d="M552 228 H583"/>
-        <path d="M687 228 H738"/>
-        <path d="M240 228 V104 H712 V168 H738"/>
-        <path d="M795 282 V384 H554"/>
-        <path d="M420 384 H212 V302 H184"/>
+        <path d="M110 233 H240 V190 H268"/>
+        <path d="M240 233 V300 H418"/>
+        <path d="M378 190 H418"/>
+        <path d="M552 190 H640 V228"/>
+        <path d="M552 300 H640 V272"/>
+        <path d="M692 250 H738"/>
+        <path d="M240 190 V104 H712 V176 H738"/>
+        <path d="M800 298 V452 H554"/>
+        <path d="M420 452 H212 V318 H184"/>
       </g>
 
-      <rect class="ragd-dark" x="270" y="196" width="108" height="64" rx="10"/>
-      <text class="ragd-t inv" x="324" y="224">Embedding</text><text class="ragd-s inv" x="324" y="243">Frage als Zahlen</text>
-      <text class="ragd-step" x="485" y="180">(1) Abrufen</text>
-      <rect class="ragd-box" x="420" y="196" width="132" height="64" rx="10"/>
-      <text class="ragd-t" x="486" y="224">Vektordatenbank</text><text class="ragd-s" x="486" y="243">deine Dokumente</text>
-      <rect class="ragd-dash" x="585" y="208" width="102" height="40" rx="20"/><text class="ragd-t" x="636" y="233">Textstellen</text>
+      <text class="ragd-step" x="486" y="138">(1) Abrufen</text>
+      <rect class="ragd-dark" x="270" y="158" width="108" height="64" rx="10"/>
+      <text class="ragd-t inv" x="324" y="186">Embedding</text><text class="ragd-s inv" x="324" y="205">Frage als Zahlen</text>
+      <rect class="ragd-box" x="420" y="158" width="132" height="64" rx="10"/>
+      <text class="ragd-t" x="486" y="186">Vektordatenbank</text><text class="ragd-s" x="486" y="205">deine Dokumente</text>
+      <rect class="ragd-box tool" x="420" y="268" width="132" height="64" rx="10"/>
+      <text class="ragd-t" x="486" y="296">Websuche</text><text class="ragd-s" x="486" y="315">ein Werkzeug</text>
+      <rect class="ragd-dash" x="590" y="230" width="102" height="40" rx="20"/><text class="ragd-t" x="641" y="255">Kontext</text>
 
       <text class="ragd-step" x="800" y="52">(2) Anreichern</text>
-      <rect class="ragd-box" x="725" y="66" width="150" height="216" rx="12"/>
+      <rect class="ragd-box" x="725" y="66" width="150" height="232" rx="12"/>
       <text class="ragd-k" x="800" y="92">Prompt</text>
-      <line class="ragd-rule" x1="745" y1="112" x2="855" y2="112"/><line class="ragd-rule" x1="745" y1="128" x2="820" y2="128"/>
-      <rect class="ragd-pill" x="740" y="150" width="120" height="36" rx="18"/><text class="ragd-t" x="800" y="173">Frage</text>
-      <rect class="ragd-dash" x="740" y="208" width="120" height="40" rx="20"/><text class="ragd-t" x="800" y="233">Textstellen</text>
+      <rect class="ragd-sysp" x="740" y="106" width="120" height="34" rx="6"/><text class="ragd-s" x="800" y="128">Systemprompt</text>
+      <rect class="ragd-pill" x="740" y="158" width="120" height="36" rx="18"/><text class="ragd-t" x="800" y="181">Frage</text>
+      <rect class="ragd-dash" x="740" y="230" width="120" height="40" rx="20"/><text class="ragd-t" x="800" y="255">Kontext</text>
 
-      <rect class="ragd-box" x="420" y="352" width="132" height="64" rx="10"/>
-      <text class="ragd-t" x="486" y="380">Sprachmodell</text><text class="ragd-s" x="486" y="399">LLM</text>
-      <text class="ragd-step" x="680" y="372">(3) Erzeugen</text>
+      <rect class="ragd-box" x="420" y="420" width="132" height="64" rx="10"/>
+      <text class="ragd-t" x="486" y="448">Sprachmodell</text><text class="ragd-s" x="486" y="467">LLM</text>
+      <text class="ragd-step" x="680" y="440">(3) Erzeugen</text>
     </svg>
   </div>
-  <figcaption>Retrieval-Augmented Generation (RAG) in drei Schritten: abrufen, anreichern, erzeugen. So arbeiten Chatbots auf Websites, «Chatte mit deinen Dokumenten» und Assistenten, die auf SharePoint oder Mails zugreifen.<sup class="ref"><a href="quellen.html#src-rag" title="Quelle 20">20</a></sup> Darstellung nach L. Monigatti.</figcaption>
+  <figcaption>Retrieval-Augmented Generation (RAG) in drei Schritten: abrufen, anreichern, erzeugen. Der Kontext kommt aus deinen Dokumenten oder aus einer Websuche. So arbeiten Chatbots auf Websites, «Chatte mit deinen Dokumenten», Assistenten mit Zugriff auf SharePoint und jede KI, die «im Web sucht».<sup class="ref"><a href="quellen.html#src-rag" title="Quelle 20">20</a></sup> Darstellung nach L. Monigatti.</figcaption>
 </figure></div>
 
 
@@ -50,14 +54,15 @@
   <div class="prose">
     <h2>Die drei Schritte</h2>
     <ul>
-      <li><b>Abrufen.</b> Die Frage wird in ein Embedding umgerechnet: eine Zahlenreihe, die ihre Bedeutung beschreibt. In der Vektordatenbank liegen alle Absätze deiner Dokumente ebenfalls als Zahlenreihen. Die Software holt die Absätze, die der Frage am ähnlichsten sind.</li>
-      <li><b>Anreichern.</b> Frage und gefundene Textstellen kommen zusammen in einen Prompt. Diesen Prompt siehst du nicht.</li>
+      <li><b>Abrufen.</b> Zwei Wege führen zum Kontext. Für deine Dokumente wird die Frage in ein Embedding umgerechnet: eine Zahlenreihe, die ihre Bedeutung beschreibt. In der Vektordatenbank liegen alle Absätze deiner Dokumente ebenfalls als Zahlenreihen, und die Software holt die ähnlichsten. Für aktuelles Wissen ruft das Tool eine Websuche auf und holt die Texte der gefundenen Seiten.</li>
+      <li><b>Anreichern.</b> Systemprompt, Frage und gefundener Kontext kommen zusammen in einen Prompt. Diesen Prompt siehst du nicht.</li>
       <li><b>Erzeugen.</b> Das Sprachmodell schreibt die Antwort aus dem, was im Prompt steht, und nennt im besten Fall die Stelle.</li>
     </ul>
     <h2>Was das für dich heisst</h2>
     <ul>
       <li><b>Frag so, wie es im Dokument steht.</b> Die Suche findet, was ähnlich klingt. «Kurzzeitvermietung» trifft das Reglement besser als «Airbnb».</li>
       <li><b>Verlange die Fundstelle</b> und schlag sie nach. Eine Antwort mit Artikelangabe kannst du prüfen, eine ohne nicht.</li>
+      <li><b>Bei der Websuche zählt die Quelle.</b> Das Modell fasst zusammen, was die Suche gefunden hat, auch wenn es ein Forum oder eine veraltete Seite war. Öffne die verlinkten Quellen.</li>
       <li><b>Alte Dokumente geben alte Antworten.</b> Liegt das aufgehobene Reglement noch in der Ablage, findet die Suche auch dieses.</li>
       <li><b>Zugriff bleibt Zugriff.</b> Ein Assistent, der auf deine Ablage zugreift, findet alles, was du öffnen darfst, auch das, was dort nicht hingehört.</li>
     </ul>

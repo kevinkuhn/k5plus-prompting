@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Vom Chatbot zum Agenten – KI-Prompting · Intermediate</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="../assets/style.css"></head><body data-mode="multi" data-deck="intermediate" data-kind="chapter" data-site="KI-Prompting · Intermediate"><div class="app-root"><a class="skip" href="#main">Zum Inhalt springen</a><header class="top"><div class="top-row"><div class="top-left"><a class="home" href="index.html">KI-Prompting · Intermediate</a><span class="crumb">Mehr als Frage und Antwort</span></div><div class="top-right"><button type="button" class="btn-ghost toc-btn" aria-haspopup="dialog">Inhalt</button></div></div><div class="progress"><span style="width:76%"></span></div></header><main id="main"><article class="chapter wide" id="agenten" data-title="Vom Chatbot zum Agenten" data-prev="formate.html" data-next="teil-7.html" data-num="19"><div class="col-text"><div class="eyebrow"><span>Mehr als Frage und Antwort</span><span class="n">19</span></div><header class="slide"><h1>Vom Chatbot zum <em>Agenten</em></h1><p class="lead">Ein Chatbot beantwortet eine Frage. Ein Agent bekommt <strong>einen Auftrag und entscheidet selbst</strong>, welche Schritte und Werkzeuge er dafür braucht, Runde um Runde.</p>
+</header><div class="slide-notes">
+  <p>Beim Chatbot legst du den Ablauf fest: eine Frage, eine Suche, eine Antwort. Beim Agenten legt das Modell den Ablauf fest.</p>
+  <p>Das macht ihn mächtig und fehleranfällig zugleich. Jede Runde kann schiefgehen, und ein Fehler in Runde zwei steckt in allen folgenden.</p>
+</div></div><div class="col-fig"><figure class="fig">
+  <div class="fig-body w">
+    <svg class="ragd" viewBox="0 0 900 470" role="img" aria-label="Ein Agent: Das Sprachmodell plant, ruft Werkzeuge auf, liest das Ergebnis und wiederholt das, bis die Aufgabe erledigt ist. Ein Mensch gibt frei.">
+      <defs><marker id="agd-head" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="currentColor"/></marker></defs>
+      <rect class="ragd-sys" x="225" y="14" width="665" height="442" rx="18"/>
+      <rect class="ragd-box" x="10" y="110" width="185" height="270" rx="12"/>
+      <text class="ragd-k" x="102" y="142">Chat</text>
+      <rect class="ragd-pill" x="26" y="172" width="84" height="36" rx="18"/><text class="ragd-t" x="68" y="195">Auftrag</text>
+      <rect class="ragd-dark" x="72" y="312" width="110" height="36" rx="18"/><text class="ragd-t inv" x="127" y="335">Ergebnis</text>
+
+      <g class="ragd-line" marker-end="url(#agd-head)">
+        <path d="M110 190 H288"/>
+        <path d="M440 170 H598"/>
+        <path d="M598 250 H440"/>
+        <path d="M364 262 V318"/>
+        <path d="M288 348 H184"/>
+      </g>
+      <path class="agd-loop" d="M520 148 C 470 96, 400 96, 380 138" marker-end="url(#agd-head)"/>
+      <text class="agd-looptxt" x="450" y="92">wiederholen, bis die Aufgabe erledigt ist</text>
+
+      <rect class="ragd-dark" x="290" y="140" width="150" height="122" rx="12"/>
+      <text class="ragd-t inv" x="365" y="190">Sprachmodell</text><text class="ragd-s inv" x="365" y="210">plant den nächsten</text><text class="ragd-s inv" x="365" y="226">Schritt selbst</text>
+      <text class="ragd-step" x="520" y="160">(1) Handeln</text>
+      <text class="ragd-step" x="520" y="276">(2) Beobachten</text>
+
+      <text class="ragd-k" x="735" y="104">Werkzeuge</text>
+      <rect class="ragd-box" x="600" y="118" width="270" height="212" rx="12"/>
+      <rect class="ragd-pill" x="618" y="134" width="234" height="36" rx="18"/><text class="ragd-t" x="735" y="157">Dokumente durchsuchen</text>
+      <rect class="ragd-pill" x="618" y="182" width="234" height="36" rx="18"/><text class="ragd-t" x="735" y="205">Im Web suchen</text>
+      <rect class="ragd-pill" x="618" y="230" width="234" height="36" rx="18"/><text class="ragd-t" x="735" y="253">Rechnen</text>
+      <rect class="ragd-pill" x="618" y="278" width="234" height="36" rx="18"/><text class="ragd-t" x="735" y="301">Entwurf ablegen</text>
+
+      <rect class="ragd-box tool" x="290" y="320" width="150" height="58" rx="12"/>
+      <text class="ragd-t" x="365" y="346">Mensch gibt frei</text><text class="ragd-s" x="365" y="364">vor jedem Versand</text>
+      <text class="ragd-step" x="365" y="412">(3) Prüfen</text>
+    </svg>
+  </div>
+  <figcaption>Dieselben Bausteine wie beim Chatbot mit Suche: Sprachmodell, Prompt, Werkzeuge. Neu ist die Schleife. Das Modell wählt ein Werkzeug, liest das Ergebnis und entscheidet, wie es weitergeht.<sup class="ref"><a href="quellen.html#src-anthropic-agents" title="Quelle 36">36</a></sup></figcaption>
+</figure></div>
+
+
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Ein Beispiel aus der Gemeinde</h2>
+    <p>Der Auftrag lautet: «Bearbeite die neue Anfrage aus dem Kontaktformular.» Der Agent liest die Anfrage, schlägt in der Zuständigkeitsliste das Amt nach, sucht im Merkblatt die passende Auskunft, entwirft eine Antwort und legt sie der Sachbearbeiterin zur Freigabe vor. Niemand hat ihm diese vier Schritte einzeln vorgegeben. Findet er im Merkblatt nichts, entscheidet er selbst, ob er weitersucht oder die Angabe als offen markiert.</p>
+    <h2>Woran du einen Agenten erkennst</h2>
+    <ul>
+      <li><b>Er hat Werkzeuge.</b> Er kann suchen, rechnen, Dateien lesen oder etwas ablegen. Ohne Werkzeuge bleibt es ein Chat.</li>
+      <li><b>Er arbeitet in einer Schleife.</b> Handeln, beobachten, neu entscheiden, bis das Ziel erreicht ist.</li>
+      <li><b>Er hat eine dauerhafte Instruktion.</b> Zweck, Regeln und Ablauf sind hinterlegt und gelten für jeden Lauf.</li>
+      <li><b>Er kann von selbst starten.</b> Nach Zeitplan oder wenn etwas eintrifft, auch wenn niemand hinschaut.</li>
+    </ul>
+    <h2>Brauche ich einen?</h2>
+    <p>Meistens nicht. Für viele Aufgaben reicht ein guter Prompt oder ein Assistent mit hinterlegtem Wissen. Ein Agent lohnt sich, wenn die Schritte von Fall zu Fall verschieden sind und sich der Weg nicht vorab festlegen lässt. Beginne mit dem Einfachsten, das funktioniert.</p>
+    <h2>Was schiefgehen kann</h2>
+    <p>Alles, was ein Agent liest, kann Anweisungen enthalten: eine Mail, ein Dokument, eine Website. Das Modell kann Material und Befehl nicht sicher unterscheiden. Ein Chatbot, der darauf hereinfällt, sagt etwas Peinliches. Ein Agent kann Dateien lesen und Mails verschicken, mit deinen Berechtigungen. Darum gilt: so wenig Zugriff wie nötig, und kein Versand ohne Freigabe durch einen Menschen.</p>
+    <p>Wie das Abrufen von Kontext im Einzelnen arbeitet, zeigt die Seite <a href="rag.html">So arbeiten Chatbots</a>. Mehr zu Agenten gibt es in der Advanced-Schulung.</p>
+  </div>
+</details>
+</article></main><footer class="nav"><div class="nav-row"><a class="prev" href="formate.html"><span class="k">← Zurück</span><span class="t">Tabellen, Protokolle, Bilder</span></a><span class="count">26 / 34</span><a class="next" href="teil-7.html"><span class="k">Weiter →</span><span class="t">Übungen</span></a></div></footer></div><dialog class="toc" aria-label="Inhalt"><div class="toc-head"><h2>Inhalt</h2><button class="toc-close" aria-label="Schliessen">×</button></div><div class="toc-grid"><div class="toc-part"><h3>Start</h3><ol><li><a href="i-ablauf.html"><span class="n">·</span><span>Ablauf</span></a></li></ol></div><div class="toc-part"><h3>Warum Prompts wirken</h3><ol><li><a href="schritte.html"><span class="n">01</span><span>Kleine Schritte</span></a></li><li><a href="eingabe-ausgabe.html"><span class="n">02</span><span>Eingabe und Ausgabe</span></a></li><li><a href="kontextfenster.html"><span class="n">03</span><span>Kontextfenster</span></a></li><li><a href="context-rot.html"><span class="n">04</span><span>Lange Gespräche</span></a></li></ol></div><div class="toc-part"><h3>Techniken</h3><ol><li><a href="kontext-statt-rolle.html"><span class="n">05</span><span>Kontext statt Rolle</span></a></li><li><a href="techniken.html"><span class="n">06</span><span>Beispiele und Techniken</span></a></li><li><a href="rueckfragen.html"><span class="n">07</span><span>Rückfragen</span></a></li><li><a href="briefing.html"><span class="n">08</span><span>Sprechen statt tippen</span></a></li><li><a href="prompt-hilfe.html"><span class="n">09</span><span>KI als Prompt-Hilfe</span></a></li><li><a href="system-prompt.html"><span class="n">10</span><span>Vorlagen hinterlegen</span></a></li></ol></div><div class="toc-part"><h3>Qualität</h3><ol><li><a href="rag.html"><span class="n">11</span><span>So arbeiten Chatbots (RAG)</span></a></li><li><a href="kontext-mitgeben.html"><span class="n">12</span><span>Kontext mitgeben</span></a></li><li><a href="ki-ton.html"><span class="n">13</span><span>Kein KI-Ton</span></a></li></ol></div><div class="toc-part"><h3>Tool und Datenschutz</h3><ol><li><a href="drei-kis.html"><span class="n">14</span><span>Ein Prompt, drei KIs</span></a></li><li><a href="tool-wahl.html"><span class="n">15</span><span>Welches Tool wofür</span></a></li><li><a href="gratis.html"><span class="n">16</span><span>Gratis oder bezahlt</span></a></li><li><a href="organisation.html"><span class="n">17</span><span>Die Ampel</span></a></li></ol></div><div class="toc-part"><h3>Mehr als Frage und Antwort</h3><ol><li><a href="formate.html"><span class="n">18</span><span>Tabellen, Protokolle, Bilder</span></a></li><li><a href="agenten.html" aria-current="page"><span class="n">19</span><span>Was ist ein Agent</span></a></li></ol></div><div class="toc-part"><h3>Übungen</h3><ol><li><a href="i-uebung-1.html"><span class="n">·</span><span>Übung 1: Sprach-Briefing</span></a></li><li><a href="i-uebung-2.html"><span class="n">·</span><span>Übung 2: Zwei Tools</span></a></li><li><a href="ideen.html"><span class="n">·</span><span>Ideen sammeln</span></a></li></ol></div><div class="toc-part"><h3>Fragen</h3><ol><li><a href="i-spickzettel.html"><span class="n">·</span><span>Spickzettel</span></a></li></ol></div><div class="toc-part"><h3>Mehr</h3><ol><li><a href="index.html"><span class="n">·</span><span>Titelseite</span></a></li><li><a href="quellen.html"><span class="n">·</span><span>Quellen</span></a></li><li><a href="danke.html"><span class="n">·</span><span>Kontakt</span></a></li><li><a href="../index.html"><span class="n">·</span><span>Alle drei Stufen</span></a></li></ol></div></div></dialog><script src="../assets/app.js"></script><script src="../assets/widgets.js"></script></body></html>

@@ -19,6 +19,7 @@ App.widget('prompt-builder', function (root, ctx) {
   el('span', { class: 'k', text: 'Vage' }, v); v.appendChild(document.createTextNode('«' + VAGUE + '»'));
   el('span', { class: 'k', text: 'Konkret' }, b);
   SEGS.forEach(function (s, i) {
+    el('span', { class: 'pr-tag p' + i, text: s[1] }, b);
     var sp = el('span', { class: 'pr-seg p' + i, text: s[0], tabindex: 0 }, b); b.appendChild(document.createTextNode(' '));
     var e = el('div', { class: 'p' + i }, exp); el('b', { text: s[1] }, e); e.appendChild(document.createTextNode(s[2]));
     [sp, e].forEach(function (x) { x.addEventListener('mouseenter', function () { set(i); }); x.addEventListener('focus', function () { set(i); }); x.addEventListener('click', function () { set(i); }); });

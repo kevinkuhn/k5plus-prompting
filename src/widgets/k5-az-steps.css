@@ -27,3 +27,5 @@
 .az-legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
 .az-legend i { font-style: normal; display: inline-flex; }
 @media (max-width: 640px) { .az-l:nth-child(even) { display: none; } }
+.az.split .az-end:last-child { display: none; }
+.az.split .az-letters { padding-right: 1.2rem; }

@@ -197,3 +197,13 @@ html:has([data-mode="print"]) { font-size: 16px; }
   .chapter.wide .col-fig { margin-top: 1.5rem; }
   .chapter.wide .ragd { max-width: 60rem; margin: 0 auto; }
 }
+
+/* Etiketten an den Teilen des konkreten Prompts */
+.pr-tag { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; border: 0; border-radius: 3px; padding: 0.22em 0.45em 0.08em; margin-right: 0.3em; vertical-align: 0.15em; line-height: 1.2; }
+.pr-tag.p0 { background: var(--s1); } .pr-tag.p1 { background: var(--s2); } .pr-tag.p2 { background: var(--s3); } .pr-tag.p3 { background: #b07a00; } .pr-tag.p4 { background: #c9588a; } .pr-tag.p5 { background: var(--s6); }
+.slide-notes .nudge { border-left: 3px solid var(--accent); padding-left: 0.8rem; font-size: 0.98rem; margin-top: 1rem; }
+kbd { font-family: var(--mono); font-size: 0.85em; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 0.35em; background: var(--surface); }
+.ragd-box.tool { stroke: var(--accent); stroke-width: 2.2; }
+.ragd-sysp { fill: var(--surface-2); stroke: none; }
+.agd-loop { fill: none; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; color: var(--accent); }
+.ragd .agd-looptxt { font-size: 13px; fill: var(--accent); font-weight: 600; }
