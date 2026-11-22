@@ -1,0 +1,24 @@
+.cr-wrap { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+.cr-conv { position: relative; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); padding: 0.75rem 0.85rem; min-height: 14rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.cr-rule { padding: 0.5rem 0.7rem; border-radius: 8px; background: var(--accent-soft-2); border: 1px solid var(--accent-soft); font-size: 0.88rem; line-height: 1.4; transition: opacity 0.5s; }
+.cr-rule .who { display: block; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.15rem; }
+.cr-stack { display: flex; flex-direction: column; gap: 3px; }
+.cr-stack i { display: block; height: 7px; border-radius: 4px; background: var(--surface-2); animation: cr-in 0.25s ease both; }
+.cr-stack i:nth-child(odd) { width: 62%; align-self: flex-end; background: var(--line); }
+.cr-stack i:nth-child(even) { width: 78%; }
+@keyframes cr-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.cr-rule.repeat { border-color: var(--accent); }
+.cr-count { font-size: 0.8rem; color: var(--ink-3); display: flex; gap: 1rem; flex-wrap: wrap; }
+.cr-count b { font-family: var(--mono); font-weight: 500; color: var(--ink); }
+.cr-att { margin-top: 0.25rem; }
+.cr-att .k { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.3rem; display: flex; justify-content: space-between; }
+.cr-att .k b { color: var(--accent); font-weight: 600; letter-spacing: 0; text-transform: none; font-family: var(--mono); }
+.cr-att .bar { height: 10px; border-radius: 5px; background: var(--surface-2); overflow: hidden; }
+.cr-att .bar span { display: block; height: 100%; background: var(--accent); width: 100%; transition: width 0.5s ease, background-color 0.5s; }
+.cr-att .bar span.low { background: var(--warm); }
+.cr-ans { border-radius: 12px; padding: 0.8rem 0.9rem; font-size: 0.92rem; line-height: 1.55; background: var(--accent-soft-2); border: 1px solid var(--accent-soft); min-height: 9rem; white-space: pre-line; }
+.cr-ans .k { display: block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.4rem; }
+.cr-ans mark { background: var(--warm-soft); color: var(--warm); padding: 0 0.15rem; border-radius: 3px; font-weight: 600; }
+.cr-verdict { margin-top: 0.6rem; font-size: 0.82rem; color: var(--ink-2); border-top: 1px solid var(--accent-soft); padding-top: 0.45rem; }
+.cr-verdict b { color: var(--ok); } .cr-verdict b.bad { color: var(--warm); }
+@container (min-width: 720px) { .cr-wrap { grid-template-columns: 1fr 1fr; gap: 1.25rem; } }

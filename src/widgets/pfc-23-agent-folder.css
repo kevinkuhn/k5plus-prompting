@@ -1,0 +1,10 @@
+.af-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.af-tree { font-family: var(--mono); font-size: 0.8rem; display: flex; flex-direction: column; gap: 1px; border-bottom: 1px solid var(--line-soft); padding-bottom: 0.75rem; }
+.af-row { display: block; width: fit-content; max-width: 100%; overflow-wrap: anywhere; text-align: left; border: 0; background: transparent; padding: 0.3rem 0.5rem 0.3rem 0.9rem; border-radius: 6px; cursor: pointer; color: var(--accent); font-family: var(--mono); font-size: 0.8rem; position: relative; }
+.af-row:hover { background: var(--accent-soft-2); }
+.af-row[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+.af-dir { color: var(--ink-2); cursor: default; padding-left: 0.4rem; font-weight: 500; }
+.af-dir:hover { background: transparent; }
+.af-what { font-size: 0.9rem; color: var(--ink-2); margin: 0 0 0.6rem; line-height: 1.45; min-height: 2.9em; }
+.af-what b { color: var(--ink); font-family: var(--mono); font-size: 0.85rem; margin-right: 0.25rem; }
+.af-code { margin: 0; font-size: 0.75rem; max-height: 22rem; overflow: auto; white-space: pre-wrap; }

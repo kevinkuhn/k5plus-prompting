@@ -1,0 +1,31 @@
+<p class="lead">Das Modell ist dafür gebaut, <strong>plausiblen Text zu erzeugen, nicht geprüfte Fakten</strong>. Wenn es etwas nicht weiss, ist die plausibelste Fortsetzung oft eine selbstbewusst vorgetragene Erfindung.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="hallucination">
+  <div class="fig-body"></div>
+  <figcaption>Eine Illustration des Anreizes, den OpenAIs Analyse von 2025 beschreibt: Wenn Tests nur richtige Antworten belohnen, lohnt sich Raten mehr als das Eingeständnis von Unsicherheit – also lernen Modelle zu raten. Die Wahrscheinlichkeiten sind illustrativ.[[ref:kalai]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>2023 verhängte ein New Yorker Gericht eine Busse gegen zwei Anwälte, die einen Schriftsatz mit sechs von ChatGPT erfundenen Gerichtsfällen eingereicht hatten – samt Zitaten und Aktenzeichen.[[ref:avianca]]</p>
+  <p>Fehler sind am seltensten bei Dingen, die in den Trainingsdaten oft vorkommen, und am häufigsten bei Details: exakte Zahlen, Quellenangaben, wenig bekannte Personen, aktuelle Ereignisse.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Warum es passiert</h2>
+    <p>Drei Gründe kommen zusammen. Erstens belohnt die Vorhersage des nächsten Tokens Flüssigkeit: Ein Satz, der sich gut liest, schneidet gut ab – ob er nun wahr ist oder nicht. Zweitens sind seltene Fakten nur schwach gespeichert – ein Fachartikel, der im Web zweimal erwähnt wird, hinterlässt eine schwächere Spur als einer, der zehntausendmal erwähnt wird, und das Modell kann eine schwache Erinnerung nicht von einer Vermutung aufgrund von Mustern unterscheiden. Drittens hat die Art, wie Modelle getestet werden, das Raten belohnt: In den meisten Benchmarks geben eine falsche Antwort und ein «Ich weiss es nicht» beide null Punkte, also sieht ein Modell, das immer rät, besser aus.[[ref:kalai]]</p>
+    <p>OpenAIs Analyse von 2025 liefert ein eindrückliches Beispiel: In einem Faktentest machte ein Modell, das in 52 % der Fälle die Antwort verweigerte, bei 26 % der Fragen Fehler, während ein älteres Modell, das fast nie verweigerte, in 75 % der Fälle falsch lag – und allein nach Trefferquote trotzdem besser abschnitt.[[ref:kalai]]</p>
+    <p>Es ist wie in einer Multiple-Choice-Prüfung: Wenn eine leere und eine falsche Antwort beide null Punkte geben, ist Raten die bessere Strategie. Halluzination ist deshalb nicht nur ein Fehler, sondern eine Folge davon, wie Modelle trainiert und bewertet werden. Bessere Anreize, das Abstützen auf Quellen und Werkzeuge können sie verringern, aber nicht ganz beseitigen.[[ref:kalai]]</p>
+    <h2>Zwei Arten, falsch zu liegen</h2>
+    <p>Die Forschung unterscheidet zwei Arten von Halluzination; bei beiden liest sich die Antwort gleich flüssig.[[ref:huang-survey]]</p>
+    <ul>
+      <li><strong>Faktentreue – falsch über die Welt:</strong> ein falsches Datum, eine falsche Zahl oder ein falsches Gesetz; ein erfundener Fachartikel, ein erfundenes Buch oder Gerichtsurteil; ein erfundenes Detail über eine reale Person oder Firma. Abhilfe: dem Modell die Fakten geben (<a href="@kontext-mitgeben">Dokumente</a>, Suche, Werkzeuge).</li>
+      <li><strong>Quellentreue – falsch über deine Eingabe:</strong> Es ignoriert die Anweisung (aus «drei Sätzen» werden zehn), widerspricht dem Dokument, das du ihm gegeben hast (im Dokument steht 15. März, in der Antwort 31. März), oder widerspricht sich innerhalb einer Antwort selbst. Abhilfe: die Antwort mit der Quelle abgleichen.</li>
+    </ul>
+    <h2>Keine Lüge</h2>
+    <p>Es gibt keine Täuschungsabsicht; das Modell hat keine Ahnung, dass es falsch liegt. Forschende bevorzugen manchmal das Wort «Konfabulation», entlehnt aus der Neurologie: eine flüssige Erfindung, die eine Lücke füllt.</p>
+    <h2>Wo besondere Vorsicht gilt</h2>
+    <p>Quellenangaben, Zitate, URLs, Gerichtsfälle, exakte Zahlen und Daten, medizinische Dosierungen, Biografien wenig bekannter Personen, alles in einer kleinen Sprache, alles, was nach dem Ende der Trainingsdaten des Modells geschehen ist – und jede Frage, deren wahre Antwort lautet: «Das gibt es nicht.»</p>
+    <h2>Was hilft</h2>
+    <p>Gib dem Modell das <a href="@kontext-mitgeben">Quellenmaterial</a>, statt dich auf sein Gedächtnis zu verlassen. Lass es im Web suchen oder Code ausführen. Verlange Quellenangaben, und prüfe diese. Bitte es, Unsicherheit zu benennen, und verwende für Aufgaben mit Logik ein Reasoning-Modell. Insgesamt sinken die Halluzinationsraten, aber neuer heisst nicht automatisch sicherer: OpenAIs Reasoning-Modell o3 halluzinierte bei 33 % der Fragen zu Personen, doppelt so oft wie sein Vorgänger o1 (16 %) – teils, weil es mehr Fragen zu beantworten versucht.[[ref:o3-card]] Die Rate ist nicht null und wird es auch nicht werden. <a href="@best-practices">Überprüfe</a> deshalb alles, was wichtig ist. Nur eine von fünf Personen, die Chatbots für Nachrichten nutzen, sagt, sie vertraue den Antworten – vorläufig ein gesunder Instinkt.[[ref:reuters-dnr]]</p>
+  </div>
+</details>

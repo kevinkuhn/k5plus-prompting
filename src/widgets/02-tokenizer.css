@@ -1,0 +1,9 @@
+.tz-cmp { margin-top: 0.9rem; padding-top: 0.75rem; border-top: 1px solid var(--line-soft); font-size: 0.85rem; color: var(--ink-2); display: grid; grid-template-columns: 1fr; gap: 0.35rem 1rem; }
+.tz-cmp .row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.75rem; }
+.tz-cmp .lang { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); min-width: 5rem; }
+.tz-cmp .txt { flex: 1 1 14rem; color: var(--ink-2); }
+.tz-cmp b { font-family: var(--display); font-size: 1.1rem; color: var(--ink); font-weight: 600; white-space: nowrap; }
+.tz-cmp .more { color: var(--warm); font-weight: 600; }
+.tz-cmp .tz-bar { height: 8px; border-radius: 4px; background: var(--surface-2); overflow: hidden; flex: 1 1 100%; }
+.tz-cmp .tz-bar span { display: block; height: 100%; background: var(--accent); transition: width 0.5s ease; }
+.tz-cmp .tz-bar.en span { background: var(--ink-3); }

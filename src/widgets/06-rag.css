@@ -1,0 +1,17 @@
+.rg-svg { width: 100%; height: auto; display: block; }
+.rg-box { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; rx: 10; }
+.rg-box.on { stroke: var(--accent); stroke-width: 2; }
+.rg-box.model { fill: var(--accent-soft-2); }
+.rg-box.tool { fill: var(--warm-soft); }
+.rg-t { font-size: 12.5px; fill: var(--ink); text-anchor: middle; }
+.rg-t.sub { font-size: 10.5px; fill: var(--ink-3); }
+.rg-edge { fill: none; stroke: var(--line); stroke-width: 1.5; }
+.rg-edge.on { stroke: var(--accent); }
+.rg-ball { fill: var(--accent); }
+.rg-cap { margin-top: 0.75rem; min-height: 2.8em; color: var(--ink-2); font-size: 0.95rem; }
+.rg-cap b { color: var(--accent); font-family: var(--mono); font-weight: 500; margin-right: 0.4rem; }
+.rg-ans { margin-top: 0.75rem; border-radius: 12px; padding: 0.75rem 0.9rem; font-size: 0.92rem; line-height: 1.5; border: 1px solid var(--accent-soft); background: var(--accent-soft-2); }
+.rg-ans.weak { border-color: transparent; background: var(--warm-soft); }
+.rg-ans .k { display: block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.3rem; }
+.rg-ans .tag { display: inline-block; margin-left: 0.4rem; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.05rem 0.4rem; border-radius: 4px; background: var(--warm); color: #fff; }
+.rg-ans .tag.ok { background: var(--ok); }

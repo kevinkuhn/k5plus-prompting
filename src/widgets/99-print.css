@@ -1,0 +1,58 @@
+/* PDF / print version (print.html, data-mode="print") */
+@page { size: A4 landscape; margin: 10mm 12mm; }
+[data-mode="print"] *, [data-mode="print"] *::before, [data-mode="print"] *::after { animation: none !important; transition: none !important; }
+[data-mode="print"] main > article { break-before: page; }
+[data-mode="print"] main > article:first-child { break-before: auto; }
+[data-mode="print"] .chapter, [data-mode="print"] .page { padding-top: 0; padding-bottom: 0; }
+[data-mode="print"] .more summary { pointer-events: none; padding: 0.5rem 0; }
+[data-mode="print"] .more summary::before { display: none; }
+[data-mode="print"] .chapter > .more { max-width: none; column-count: 2; column-gap: 2.5rem; font-size: 0.92rem; }
+[data-mode="print"] .chapter > .more summary { column-span: all; }
+[data-mode="print"] .prose h2 { break-after: avoid; }
+[data-mode="print"] .shot-item { break-inside: avoid; margin-bottom: 1rem; }
+[data-mode="print"] .shot { max-height: 16rem; }
+[data-mode="print"] .cover .start { display: none; }
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .fig, .card, .cs-card, .ft tr, .flow li { break-inside: avoid; }
+  a { color: inherit; }
+}
+/* slide layout (text | figure) regardless of page width, compact enough for one landscape page */
+[data-mode="print"] { font-size: 14px; }
+[data-mode="print"] .chapter { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); grid-template-areas: "text fig" "more more"; column-gap: 2rem; align-items: start; max-width: none; padding-left: 0; padding-right: 0; }
+[data-mode="print"] .col-text { display: block; grid-area: text; }
+[data-mode="print"] .col-fig { display: block; grid-area: fig; }
+[data-mode="print"] .chapter > .more { grid-area: more; }
+[data-mode="print"] .num { font-size: 2.6rem; }
+[data-mode="print"] .slide h1 { font-size: 2rem; }
+[data-mode="print"] .lead { font-size: 1.15rem; margin-bottom: 1rem; }
+[data-mode="print"] .slide-notes { font-size: 0.95rem; }
+[data-mode="print"] .fig { margin-bottom: 0; }
+[data-mode="print"] .fig-body { padding: 1rem 1.1rem; min-height: 0; }
+[data-mode="print"] .fig figcaption { padding: 0.5rem 1.1rem; font-size: 0.75rem; }
+[data-mode="print"] .page { max-width: none; padding-left: 0; padding-right: 0; }
+[data-mode="print"] .cover { padding-top: 0; }
+[data-mode="print"] .chapter > .more { font-size: 0.84rem; line-height: 1.45; margin-top: 0.9rem; }
+[data-mode="print"] .chapter > .more .prose p, [data-mode="print"] .chapter > .more .prose li { margin-bottom: 0.45rem; }
+[data-mode="print"] .chapter > .more .prose h2 { font-size: 1rem; margin: 0.6rem 0 0.25rem; }
+[data-mode="print"] .chapter > .more .prose h2:first-child { margin-top: 0; }
+[data-mode="print"] .chapter > .more .prose table { font-size: 0.8rem; }
+[data-mode="print"] .slide h1 { margin-bottom: 0.6rem; }
+/* 14: four prompt levels as 2×2 */
+[data-mode="print"] .pl { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1rem; }
+[data-mode="print"] .pl-print { margin: 0; }
+[data-mode="print"] .pl-print .pl-grid { grid-template-columns: 1fr; gap: 0.3rem; }
+[data-mode="print"] .pl-print .pl-code { font-size: 0.62rem; line-height: 1.4; padding: 0.5rem 0.6rem; min-height: 0; }
+[data-mode="print"] .pl-print .ticks li { font-size: 0.72rem; margin-bottom: 0.1rem; }
+[data-mode="print"] .pl-print .pl-note, [data-mode="print"] .pl-print .pl-side > .k { display: none; }
+[data-mode="print"] .pl-print > .k { margin-bottom: 0.2rem; }
+/* 19: screenshots as 2×2 */
+[data-mode="print"] [data-widget="shots"] .fig-body { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+[data-mode="print"] .shot-item { margin: 0; }
+[data-mode="print"] .shot { max-height: 11rem; }
+[data-mode="print"] .shot-item .hint { font-size: 0.72rem; margin-top: 0.3rem; }
+/* appendix: glossary and sources in two columns */
+[data-mode="print"] .glossary, [data-mode="print"] .sources { max-width: none; column-count: 2; column-gap: 2.5rem; font-size: 0.85rem; }
+[data-mode="print"] .glossary .term, [data-mode="print"] .sources li { break-inside: avoid; }
+[data-mode="print"] .sources h2 { break-after: avoid; }
+[data-mode="print"] .gl-filter { display: none; }

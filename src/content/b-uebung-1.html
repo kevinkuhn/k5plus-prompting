@@ -1,0 +1,45 @@
+<div class="ex" data-widget="copy">
+  <div>
+    <p class="ex-meta"><span class="t">15 Minuten</span><span>allein</span><span>ein KI-Tool deiner Wahl</span></p>
+    <p class="lead">Eine Einwohnerin fragt nach der Kehrichtgebühr. Du beantwortest dieselbe Anfrage <strong>dreimal</strong> und vergleichst.</p>
+    <ol class="steps">
+      <li><b>Runde 1: ein Satz.</b> Kopiere die Anfrage und den Prompt 1 in ein neues Gespräch. Lies die Antwort. Woher hat das Modell seine Angaben?</li>
+      <li><b>Runde 2: drei Bausteine.</b> Neues Gespräch. Kopiere Prompt 2 mit Anweisung, Material und Form. Was ist jetzt anders?</li>
+      <li><b>Runde 3: nachbessern.</b> Bleib im Gespräch und gib eine Rückmeldung, zum Beispiel: «Kürzer, und nenne die neue Gebühr im ersten Satz.»</li>
+      <li><b>Prüfen.</b> Vergleiche jede Zahl mit der Mitteilung. Beantwortet das Modell die Frage «Muss ich etwas tun?», obwohl die Mitteilung dazu nichts sagt?</li>
+    </ol>
+    <p class="ex-done"><b>Fertig?</b> Verlange dieselbe Antwort in einfacher Sprache oder auf Englisch.</p>
+  </div>
+  <div>
+    <div class="ex-box material">
+      <p class="k">Die Anfrage (erfunden)</p>
+<pre class="cs-tpl">Guten Tag
+Ich habe gehört, dass die Kehrichtgebühr sinkt. Stimmt das? Ab wann gilt das, und muss ich etwas tun?
+Freundliche Grüsse
+R. Huber</pre>
+    </div>
+    <div class="ex-box">
+      <p class="k">Prompt 1</p>
+<pre class="cs-tpl">Antworte auf diese Mail.
+
+[Anfrage einfügen]</pre>
+    </div>
+    <div class="ex-box">
+      <p class="k">Prompt 2</p>
+<pre class="cs-tpl">Schreibe eine Antwort auf die folgende Anfrage einer Einwohnerin der Gemeinde Ebikon.
+
+Anfrage:
+Guten Tag
+Ich habe gehört, dass die Kehrichtgebühr sinkt. Stimmt das? Ab wann gilt das, und muss ich etwas tun?
+Freundliche Grüsse
+R. Huber
+
+Stütze dich nur auf diese Mitteilung der Gemeinde vom 18. November 2026:
+«Der Einwohnerrat hat das Budget 2027 mit einem Ertragsüberschuss von 2,14 Millionen Franken genehmigt. Der Steuerfuss bleibt bei 2,05 Einheiten. Stattdessen sinken ab 2027 mehrere Gebühren, etwa die Kehrichtgrundgebühr von 110 auf 80 Franken pro Jahr und die Abwassergebühr von 1.90 auf 1.30 Franken pro Kubikmeter.»
+
+Form: höflich, Sie-Form, mit Anrede und Grussformel, höchstens 100 Wörter, Schweizer Rechtschreibung.
+Wenn die Mitteilung eine Frage nicht beantwortet, schreib das offen und erfinde nichts.</pre>
+    </div>
+    <p class="src-note">Zitat aus der Mitteilung der Gemeinde Ebikon.[[ref:ebikon-budget-2027]] Der Text ist öffentlich und darf in jedes Tool.</p>
+  </div>
+</div>

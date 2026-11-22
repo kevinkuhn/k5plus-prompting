@@ -1,0 +1,163 @@
+/* KI-Prompting K5Plus: Erscheinungsbild nach den Google-Slides-Vorlagen von Gopf.
+   Weisser Grund, League Spartan, ein violetter Akzent. Nur helles Design.
+   Wird als letztes Stylesheet geladen und überschreibt die Tokens der Kurs-Engine. */
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f3f2f8;
+  --ink: #000000;
+  --ink-2: #33333b;
+  --ink-3: #7b7b85;
+  --line: #d8d8de;
+  --line-soft: #e4e4e9;
+  --accent: #3000b1;
+  --accent-ink: #ffffff;
+  --accent-soft: #d9d0f5;
+  --accent-soft-2: #f2effc;
+  --s1: #3000b1;
+  --s6: #5a2fd0;
+  --grad: linear-gradient(160deg, #3d0fbd 0%, #5a2fd0 62%, #3000b1 100%);
+  --display: "League Spartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --body: "League Spartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --wide: 76rem;
+}
+
+body { font-size: 1.15rem; line-height: 1.5; font-weight: 400; }
+strong, b { font-weight: 700; }
+.top { background: rgba(255, 255, 255, 0.92); }
+.home { font-weight: 700; }
+
+/* Titel: schwarz, ein Ausdruck im Akzent (<em>) */
+.slide h1, .page h1, .cover h1, .home-page h1 { font-weight: 700; letter-spacing: -0.01em; line-height: 1.05; }
+h1 em { font-style: normal; color: var(--accent); }
+.slide h1 { max-width: 16ch; }
+.page h1 { max-width: 24ch; }
+.lead { font-weight: 400; line-height: 1.3; }
+.lead strong { font-weight: 700; }
+.slide-notes { font-size: 1.1rem; }
+
+/* Dachzeile mit Haarlinie, wie «BEGINNER-KURS» auf der Titelfolie */
+.eyebrow {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-2);
+  border-bottom: 1px solid var(--line); padding-bottom: 0.55rem; margin: 0 0 1.4rem; max-width: var(--measure);
+}
+.eyebrow .n { color: var(--accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.page > .eyebrow { max-width: none; }
+
+/* Karten und Figuren: weisse Fläche, feiner grauer Rand */
+.fig { border-color: var(--line); border-radius: 4px; }
+.fig figcaption { font-size: 0.9rem; }
+.card, .cs-card { border-radius: 4px; }
+.card { background: var(--surface); border-color: var(--line); }
+.card h3 { font-weight: 700; color: var(--accent); font-size: 1.15rem; }
+.card p { font-size: 0.98rem; }
+.k { font-weight: 700; }
+.code, pre.cs-tpl { font-size: 0.85rem; }
+.ft { font-size: 0.95rem; }
+.steps li, .ticks li, .callout { font-size: 1rem; }
+.btn, .seg button, .btn-ghost { font-family: var(--body); font-weight: 600; padding-top: 0.45rem; }
+
+/* ---------- Titelseite: Foto links, Text rechts ---------- */
+[data-kind="cover"] main { display: flex; }
+.cover { max-width: none; width: 100%; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; }
+.cover-photo { position: relative; min-height: 14rem; background: var(--surface-2); }
+.cover-photo img:first-child { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cover-logo { position: absolute; left: clamp(1rem, 3vw, 2.5rem); top: clamp(1rem, 3vw, 2rem); width: clamp(6rem, 11vw, 10rem); }
+.cover-text { padding: clamp(1.5rem, 5vw, 5rem) var(--gutter); display: flex; flex-direction: column; justify-content: center; }
+.cover h1 { font-size: clamp(2.2rem, 4.6vw, 4.2rem); max-width: 15ch; margin: 0.5rem 0 2rem; }
+.cover-date { font-size: 1.2rem; margin: 0 0 2rem; }
+.cover .start { align-self: flex-start; font-weight: 700; padding-top: 0.95rem; }
+.cover-hint { font-size: 0.9rem; color: var(--ink-3); margin: 1.5rem 0 0; }
+.cover-hint kbd { font-family: var(--mono); border: 1px solid var(--line); border-radius: 4px; padding: 0 0.35rem; }
+@media (min-width: 900px) { .cover { grid-template-columns: 44fr 56fr; } .cover-photo { min-height: 0; } }
+
+/* ---------- Trennseite: Violett, ein Wort unten links ---------- */
+[data-kind="divider"] main { display: flex; background: var(--grad); }
+.divider { width: 100%; display: flex; align-items: flex-end; min-height: 60vh; }
+.divider-in { max-width: var(--wide); width: 100%; margin: 0 auto; padding: 3rem var(--gutter) clamp(3rem, 12vh, 8rem); }
+.divider h1 { color: #fff; font-family: var(--display); font-weight: 700; font-size: clamp(2.8rem, 6.5vw, 5.5rem); line-height: 1; margin: 0; }
+.divider p { color: rgba(255, 255, 255, 0.85); font-size: clamp(1.1rem, 1.8vw, 1.5rem); margin: 1rem 0 0; max-width: 34rem; }
+
+/* ---------- freie Seiten (Ablauf, Übungen, Spickzettel) ---------- */
+.page .lead { max-width: 46rem; }
+.agenda { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+.agenda-list { list-style: none; margin: 0; padding: 0; }
+.agenda-list > li { padding: 0 0 1.1rem; }
+.agenda-list b { display: block; font-size: 1.25rem; margin-bottom: 0.3rem; }
+.agenda-list ul { margin: 0; padding-left: 1.2rem; color: var(--ink-2); }
+.agenda-list ul li { margin-bottom: 0.3rem; }
+.agenda-photo { width: 100%; max-height: 34rem; object-fit: cover; border-radius: 4px; }
+@media (min-width: 900px) { .agenda { grid-template-columns: 55fr 45fr; } }
+
+/* Umfrage: drei Stufenkarten, die eigene hervorgehoben */
+.survey { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1rem; margin: 0 0 1.5rem; }
+.survey-card { border: 1px solid var(--line); border-radius: 4px; padding: 1.4rem 1.5rem; }
+.survey-card.dim { opacity: 0.38; }
+.survey-card .k { margin-bottom: 0.2rem; }
+.survey-card h2 { font-family: var(--display); font-weight: 800; font-size: 1.9rem; color: var(--accent); margin: 0 0 0.8rem; }
+.survey-card p { margin: 0 0 0.75rem; line-height: 1.35; }
+.survey-foot { font-size: 1.15rem; margin: 0 0 0.75rem; }
+.survey-foot em { font-style: normal; color: var(--accent); }
+.src-note { font-size: 0.85rem; color: var(--ink-3); }
+
+/* Übung */
+.ex { display: grid; grid-template-columns: 1fr; gap: 1.5rem 2.5rem; align-items: start; }
+@media (min-width: 1000px) { .ex { grid-template-columns: 5fr 7fr; } }
+.ex-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 1.25rem; }
+.ex-meta span { border: 1px solid var(--line); border-radius: 999px; padding: 0.3rem 0.8rem 0.15rem; font-size: 0.9rem; }
+.ex-meta span.t { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+.ex h2 { font-family: var(--display); font-weight: 700; font-size: 1.25rem; margin: 0 0 0.6rem; }
+.ex .steps li { padding-bottom: 0.9rem; }
+.ex-box { border: 1px solid var(--line); border-radius: 4px; padding: 1rem 1.1rem; margin: 0 0 1rem; position: relative; }
+.ex-box > .k { margin-bottom: 0.5rem; }
+.ex-box pre { font-family: var(--mono); font-size: 0.85rem; line-height: 1.55; white-space: pre-wrap; word-break: break-word; margin: 0; }
+.ex-box.material { background: var(--surface-2); border-color: var(--surface-2); }
+.ex-done { border-left: 3px solid var(--accent); padding: 0.2rem 0 0.2rem 0.9rem; color: var(--ink-2); }
+.copy-btn { position: absolute; top: 0.6rem; right: 0.6rem; }
+
+/* Dank */
+.closing { text-align: center; padding-top: clamp(2rem, 8vh, 6rem); }
+.closing h1 { max-width: none; font-size: clamp(2rem, 4.4vw, 3.6rem); margin-bottom: clamp(2rem, 6vh, 4rem); }
+.closing-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2rem 3rem; text-align: left; }
+.closing-photo { width: 11rem; height: 11rem; border-radius: 50%; object-fit: cover; }
+.closing-qr { width: 11rem; height: 11rem; }
+.closing-contact p { margin: 0 0 0.9rem; }
+.closing-icons { display: flex; align-items: center; gap: 0.75rem; }
+.closing-icons img { height: 2rem; width: auto; display: block; }
+.closing-icons .closing-logo { height: 1.5rem; margin-left: 0.25rem; }
+.closing-links { margin-top: 3rem; font-size: 0.95rem; }
+
+/* Startseite mit den drei Stufen */
+.home-page { max-width: var(--wide); margin: 0 auto; padding: clamp(2rem, 6vw, 4.5rem) var(--gutter) 4rem; }
+.home-logo { height: 2rem; width: auto; display: block; margin: 0 0 3rem; }
+.home-page .eyebrow { max-width: none; }
+.home-page h1 { font-family: var(--display); font-size: clamp(2.4rem, 5.5vw, 4.4rem); margin: 0 0 1.25rem; max-width: 18ch; }
+.levels { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.level { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 4px; padding: 1.5rem; color: var(--ink); }
+.level:hover { text-decoration: none; border-color: var(--accent); }
+.level h2 { font-family: var(--display); font-weight: 800; font-size: 2rem; color: var(--accent); margin: 0 0 1rem; }
+.level ul { margin: 0 0 1.25rem; padding-left: 1.1rem; color: var(--ink-2); flex: 1; }
+.level li { margin-bottom: 0.4rem; line-height: 1.35; }
+.level .take { margin: 0 0 1.5rem; line-height: 1.35; }
+.level .go { font-weight: 700; color: var(--accent); }
+
+/* Hinweis auf offene Punkte, sichtbar bis sie geklärt sind */
+.todo { background: #ffe45c; padding: 0.1em 0.4em; border-radius: 3px; font-family: var(--mono); font-size: 0.85em; }
+
+/* Druck */
+[data-mode="print"] .cover { grid-template-columns: 44fr 56fr; min-height: 17cm; }
+[data-mode="print"] .cover .start, [data-mode="print"] .cover-hint, [data-mode="print"] .closing-links, [data-mode="print"] .copy-btn { display: none; }
+[data-mode="print"] .divider { min-height: 17cm; background: var(--grad); }
+[data-mode="print"] .eyebrow { margin-bottom: 0.8rem; }
+
+/* Projektor und Bildschirmfreigabe: Schrift wächst mit der Fensterbreite */
+@media (min-width: 1000px) { html { font-size: clamp(16px, 1.18vw, 24px); } }
+html:has([data-mode="print"]) { font-size: 16px; }
+
+/* Umfrage: die Stufe des Decks steht im Vordergrund */
+[data-deck="beginner"] .survey-card:not(.lv-beginner),
+[data-deck="intermediate"] .survey-card:not(.lv-intermediate),
+[data-deck="advanced"] .survey-card:not(.lv-advanced) { opacity: 0.4; }
+.cards.rows { grid-template-columns: 1fr; }

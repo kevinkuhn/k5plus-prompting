@@ -1,0 +1,27 @@
+<p class="lead">Das Modell weiss nur, was in seinen Trainingsdaten stand – und was du ihm in den Prompt legst. <strong>Kontext mitgeben</strong> heisst: das Reglement, das Protokoll, die Vorlage einfügen, statt zu hoffen, dass das Modell sie kennt.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="rag">
+  <div class="fig-body"></div>
+  <figcaption>Dieselbe Frage, zweimal. Ohne Dokumente antwortet das Modell aus dem Gedächtnis seiner Trainingsdaten – allgemein und ungesichert. Mit Dokumenten sucht die Software zuerst die passenden Textstellen und legt sie dem Modell vor; die Antwort nennt die Quelle. Das Verfahren heisst Retrieval-Augmented Generation, kurz RAG.[[ref:rag]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Das Modell hat in beiden Fällen nichts gelernt. Im zweiten Fall hat es gelesen – und zwar genau die drei Absätze, die zur Frage passen.</p>
+  <p>Kontext kann von überall kommen: eingefügt, hochgeladen oder automatisch aus einer Datenbank geholt. Für das Modell ist es immer dasselbe: Text im Prompt.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Die Grenze des einfachen Systems</h2>
+    <p>Ein Sprachmodell ohne Kontext ist wie eine belesene Person ohne Aktenzugang. Fragst du nach der Einsprachefrist gegen eine Baubewilligung, bekommst du eine Antwort, die für irgendeinen Kanton irgendwann stimmte. Das Modell kennt weder dein Baureglement noch die Änderung vom letzten Jahr. Und es sagt nicht von sich aus, dass es das nicht weiss.</p>
+    <p>Die Lösung ist einfach und wirkt oft unspektakulär: Gib dem Modell das, was es lesen soll. Der Prompt ist der einzige Kanal – was nicht darin steht, existiert für das Modell nicht (siehe das Kapitel zum <a href="@prompt">Prompt</a>).</p>
+    <h2>Drei Wege, Kontext zu liefern</h2>
+    <p><strong>Einfügen.</strong> Kopiere den Absatz aus dem Reglement, den bisherigen Briefwechsel, die Stichworte aus der Sitzung direkt in die Nachricht. Das ist der schnellste Weg und reicht in den meisten Fällen.</p>
+    <p><strong>Hochladen.</strong> Die meisten Chat-Assistenten nehmen PDF- und Word-Dateien an. Das Dokument wird in Text umgewandelt und in den Prompt gelegt. Grosse Dateien brauchen viel Platz im <a href="@kontextfenster">Kontextfenster</a>.</p>
+    <p><strong>Automatisch holen (RAG).</strong> Bei grossen Sammlungen – alle Reglemente einer Gemeinde, ein Archiv von Merkblättern – sucht die Software vor jeder Antwort die passendsten Textstellen und legt nur diese dem Modell vor.[[ref:rag]] Das ist die Technik hinter den meisten «KI-Assistenten für unsere Dokumente», die Organisationen einführen.</p>
+    <h2>Beispiele sind auch Kontext</h2>
+    <p>Kontext ist nicht nur Sachinformation. Zwei, drei Beispiele dafür, wie eine gute Antwort aussieht, gehören ebenfalls in den Prompt – ein früherer Brief, ein gelungenes Protokoll, deine Vorlage. Modelle übernehmen Stil und Struktur aus Beispielen deutlich zuverlässiger als aus Beschreibungen.[[ref:gpt3-fewshot]] Mehr dazu im Kapitel <a href="@techniken">Techniken</a>.</p>
+    <h2>Prüfbar statt plausibel</h2>
+    <p>Der eigentliche Gewinn: Wenn das Modell aus dem antwortet, was du ihm gegeben hast, kannst du die Antwort prüfen. «Art. 14 Baureglement» lässt sich nachschlagen. «In der Regel 30 Tage» nicht. Das gilt auch umgekehrt – ist das eingefügte Dokument veraltet, ist die Antwort ebenso sicher falsch.</p>
+    <p>Anthropic nennt die Kunst, das Richtige in den Prompt zu legen, «Context Engineering»: nicht möglichst viel, sondern genau das Nötige.[[ref:anthropic-context-eng]] Für den Alltag heisst das: das aktuelle Reglement statt der ganzen Gesetzessammlung, den letzten Brief statt des ganzen Dossiers.</p>
+  </div>
+</details>

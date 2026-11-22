@@ -1,0 +1,13 @@
+.se-wrap { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+.se-ladder { display: grid; gap: 0.35rem; }
+.se-ladder button { text-align: left; border: 1.5px solid var(--line); background: var(--bg); border-radius: 10px; padding: 0.55rem 0.75rem; font-size: 0.9rem; cursor: pointer; color: var(--ink-2); display: grid; grid-template-columns: 1.1rem 1fr; gap: 0.6rem; align-items: start; line-height: 1.4; }
+.se-ladder button i { width: 0.85rem; height: 0.85rem; border-radius: 50%; margin-top: 0.2rem; display: inline-block; }
+.se-ladder button[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); background: var(--surface); }
+.se-l0 i, .se-l1 i { background: var(--ok); } .se-l2 i { background: var(--s4); } .se-l3 i { background: var(--warm); } .se-l4 i, .se-l5 i { background: #c0242a; }
+.se-panel { border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1rem; font-size: 0.92rem; line-height: 1.5; min-height: 14rem; }
+.se-panel .lvl { display: inline-block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; padding: 0.15rem 0.6rem; border-radius: 999px; color: #fff; margin-bottom: 0.7rem; }
+.se-panel h4 { margin: 0.6rem 0 0.2rem; font-family: var(--display); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+.se-panel p { margin: 0; color: var(--ink-2); }
+.se-panel ul { margin: 0; padding-left: 1.1rem; color: var(--ink-2); }
+.se-meta { margin-top: 0.75rem; font-size: 0.8rem; color: var(--ink-3); border-top: 1px solid var(--line-soft); padding-top: 0.5rem; font-style: italic; }
+@container (min-width: 720px) { .se-wrap { grid-template-columns: 1fr 1.1fr; gap: 1.25rem; } }

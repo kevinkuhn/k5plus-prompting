@@ -1,0 +1,17 @@
+.ab-wrap { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+.ab-chat { display: grid; gap: 0.6rem; }
+.ab-chat .msg { animation: pop 0.3s ease both; }
+.ab-chat .msg ol { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+.ab-chat .msg li { margin: 0.15rem 0; }
+.ab-chat .msg.draft { white-space: pre-line; font-size: 0.92rem; }
+.ab-side { border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1rem; }
+.ab-side .k { display: block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.4rem; }
+.ab-side b { font-family: var(--display); font-weight: 600; font-size: 2.4rem; line-height: 1; color: var(--accent); display: block; margin: 0.2rem 0 0.5rem; font-variant-numeric: tabular-nums; }
+.ab-side ul { margin: 0; padding: 0; list-style: none; font-size: 0.88rem; color: var(--ink-3); }
+.ab-side li { padding: 0.25rem 0; border-top: 1px solid var(--line-soft); }
+.ab-side li.ok { color: var(--ink); }
+.ab-side li.ok::before { content: "✓ "; color: var(--ok); font-weight: 600; }
+.ab-side li::before { content: "? "; color: var(--ink-3); font-weight: 600; }
+.ab-ctl { margin-top: 0.9rem; display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+.ab-step { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-3); }
+@container (min-width: 720px) { .ab-wrap { grid-template-columns: 1.5fr 1fr; gap: 1.25rem; } }

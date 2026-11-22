@@ -1,0 +1,25 @@
+<p class="lead">Ein Modell kann nur eine begrenzte Menge Text auf einmal berücksichtigen: das Kontextfenster. Alles muss hineinpassen – <strong>Hausordnung, Gespräch, Dokumente und die Antwort</strong>, gemessen in Tokens.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="context-window">
+  <div class="fig-body"></div>
+  <figcaption>Das Fenster füllt sich mit allem, was im Gespräch liegt. Wähle eine Fenstergrösse und leg Dinge hinein. Grössen und Token-Zahlen sind gerundete Richtwerte; die Tokenzählung folgt der Faustregel der Anbieter.[[ref:openai-tokens,claude-1m]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>2026 sind rund 200’000 Tokens üblich, einzelne Modelle fassen eine Million – grob 1’500 Seiten Text.[[ref:claude-1m,gemini-1m]] Das klingt nach unendlich, ist es aber nicht: Ein langes Gespräch mit drei angehängten PDFs ist schnell voll.</p>
+  <p>Und was hineinpasst, wird nicht automatisch gut verarbeitet. Je voller das Fenster, desto eher übersieht das Modell etwas – dazu das Kapitel <a href="@context-rot">Context Rot</a>.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Was alles zählt</h2>
+    <p>Das Kontextfenster ist die maximale Anzahl Tokens, die das Modell in einem Durchlauf lesen und schreiben kann. Dazu gehört mehr, als man denkt: der <a href="@system-prompt">System-Prompt</a> des Betreibers, jede deiner bisherigen Nachrichten, jede bisherige Antwort des Modells, jedes hochgeladene Dokument – und die Antwort, die gerade entsteht. Weil das Modell kein Gedächtnis hat, schickt die Software bei jeder neuen Nachricht das ganze Paket erneut (siehe <a href="@eingabe-ausgabe">Eingabe und Ausgabe</a>). Das Fenster ist also nicht «pro Frage», sondern «pro Gespräch».</p>
+    <h2>Wie gross ist gross?</h2>
+    <p>Mit der Faustregel von rund vier Zeichen pro Token[[ref:openai-tokens]] entsprechen 200’000 Tokens grob 300 Seiten englischem Text, eine Million grob 1’500 Seiten. Auf Deutsch ist es weniger, weil deutsche Wörter mehr Tokens brauchen (siehe das Kapitel über Tokens). Aktuelle Modelle von Anthropic und Google bieten solche Fenster an[[ref:claude-1m,gemini-1m]]; viele Werkzeuge im Alltag begrenzen sie aber enger, etwa auf 32’000 oder 128’000 Tokens, um Kosten und Antwortzeit zu senken. Welches Limit für dich gilt, steht in der Dokumentation deines Werkzeugs – und nicht selten merkt man es erst, wenn ein Upload abgelehnt wird.</p>
+    <h2>Was passiert, wenn es voll ist</h2>
+    <p>Das hängt vom Werkzeug ab. Manche verweigern eine weitere Nachricht oder einen Upload. Andere schneiden still den Anfang des Gesprächs ab: Die ältesten Nachrichten fallen aus dem Fenster, und das Modell sieht sie nicht mehr – ohne dass du eine Warnung bekommst. Wieder andere fassen das bisherige Gespräch automatisch zusammen und arbeiten mit der Zusammenfassung weiter, wobei Details verloren gehen. In allen drei Fällen entsteht derselbe Eindruck: «Es hat vergessen, was ich am Anfang gesagt habe.»</p>
+    <h2>Grösser ist nicht automatisch besser</h2>
+    <p>Ein grosses Fenster erlaubt, ein ganzes Gesetz mitzugeben. Es garantiert nicht, dass das Modell jeden Artikel gleich sorgfältig beachtet. Untersuchungen zeigen, dass die Leistung mit zunehmender Füllung sinkt, selbst bei einfachen Aufgaben.[[ref:anthropic-context-eng]] Kontext ist eine begrenzte Ressource mit abnehmendem Ertrag: Was du hineinlegst, sollte die Aufgabe wirklich brauchen.</p>
+    <h2>Praktische Regeln</h2>
+    <p>Ein Thema pro Gespräch – für die nächste Aufgabe ein neues Fenster öffnen. Nur die Dokumente hochladen, die für die Frage relevant sind, und bei langen Dokumenten den relevanten Abschnitt einfügen statt alles. Wichtige Vorgaben nicht nur am Anfang, sondern bei langen Gesprächen zwischendurch wiederholen. Und wenn das Werkzeug beim Upload streikt: Das ist kein Fehler, sondern das Fenster.</p>
+  </div>
+</details>

@@ -1,0 +1,14 @@
+.sy-layer { border: 1px solid var(--line); border-radius: 12px; padding: 0.8rem 1rem; margin-bottom: 0.6rem; }
+.sy-layer.sys { background: var(--surface-2); border-style: dashed; }
+.sy-layer.user { background: var(--bg); }
+.sy-layer .k { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.5rem; }
+.sy-layer .k .eye { letter-spacing: 0; text-transform: none; font-size: 0.75rem; }
+.sy-rules { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sy-rules button { border: 1.5px solid var(--line); background: var(--surface); border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.82rem; cursor: pointer; color: var(--ink-3); text-decoration: line-through; }
+.sy-rules button[aria-pressed="true"] { color: var(--ink); border-color: var(--accent); background: var(--accent-soft-2); text-decoration: none; }
+.sy-q { font-size: 0.98rem; line-height: 1.5; }
+.sy-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin: 0.4rem 0 0.8rem; }
+.sy-ans { border: 1px solid var(--accent-soft); background: var(--accent-soft-2); border-radius: 12px; padding: 0.8rem 1rem; font-size: 0.95rem; line-height: 1.6; min-height: 5.5rem; white-space: pre-line; }
+.sy-ans .k { display: block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.4rem; }
+.sy-ans .why { display: block; margin-top: 0.6rem; padding-top: 0.5rem; border-top: 1px solid var(--accent-soft); font-size: 0.82rem; color: var(--ink-2); }
+.sy-ans .why b { color: var(--accent); }

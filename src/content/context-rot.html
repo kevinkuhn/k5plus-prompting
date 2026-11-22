@@ -1,0 +1,33 @@
+<p class="lead">Je länger ein Gespräch wird, desto schlechter hält sich das Modell an das, was am Anfang stand. Das nennt man <strong>Context Rot</strong> – und es ist normal, nicht dein Fehler.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="context-rot">
+  <div class="fig-body"></div>
+  <figcaption>Ein Gespräch mit einer Regel am Anfang. Lass es wachsen: Die Aufmerksamkeit für die Regel nimmt ab, und die Antworten beginnen, sie zu verletzen. Vereinfachte Darstellung; die Wirkung ist gemessen: Je mehr Text im Kontext, desto unzuverlässiger wird das Modell, auch weit unterhalb der Höchstgrenze.[[ref:context-rot]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Du kennst das Gefühl: «Das habe ich ihm doch gesagt.» Das Modell hat es nicht vergessen – es liest die Regel noch, aber unter tausend anderen Sätzen fällt sie weniger ins Gewicht.</p>
+  <p>Die einfachste Abhilfe: ein neues Gespräch beginnen, mit einem frischen, vollständigen Prompt.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Was Context Rot ist</h2>
+    <p>Das <a href="@kontextfenster">Kontextfenster</a> sagt, wie viel Text das Modell höchstens auf einmal sehen kann. Es sagt nicht, wie gut es diesen Text nutzt. Messungen zeigen: Die Leistung sinkt gleichmässig, je mehr Text im Kontext liegt – lange bevor das Fenster voll ist.[[ref:context-rot]] Besonders schlecht schneidet ab, was in der Mitte eines langen Gesprächs steht; Anfang und Ende werden noch am ehesten beachtet.[[ref:lost-in-middle]]</p>
+    <p>Dazu kommt: Bei jeder neuen Nachricht liest das Modell das ganze Gespräch von vorn (siehe das Kapitel zum <a href="@prompt">Prompt</a>). Deine Regel vom Anfang konkurriert dann mit allen Zwischenfragen, Korrekturen und Antwortentwürfen, die seither dazugekommen sind.</p>
+    <h2>Woran du es erkennst</h2>
+    <ul>
+      <li>Das Modell verletzt eine Vorgabe, die es zuvor lange eingehalten hat – plötzlich wieder Aufzählungen, wieder «du», wieder ein anderer Ton.</li>
+      <li>Es wiederholt Vorschläge, die du schon abgelehnt hast.</li>
+      <li>Es widerspricht einer früheren Antwort, ohne das zu bemerken.</li>
+      <li>Du korrigierst, es bessert kurz, und zwei Nachrichten später ist der Fehler zurück – die Schlaufe.</li>
+    </ul>
+    <p>Wer in einem solchen Gespräch weiterkorrigiert, macht es meist schlimmer: Jede Korrektur ist noch mehr Text, den das Modell bei der nächsten Antwort abwägen muss.</p>
+    <h2>Was hilft</h2>
+    <p><strong>Neu beginnen.</strong> Öffne ein neues Gespräch und schreib einen vollständigen Prompt: Aufgabe, Material, Regeln, Stand der Dinge. Das dauert zwei Minuten und löst die meisten Schlaufen.</p>
+    <p><strong>Zusammenfassen lassen.</strong> Bevor du neu beginnst: «Fasse zusammen, was wir entschieden haben und was noch offen ist.» Diese Zusammenfassung fügst du in das neue Gespräch ein. So geht nichts verloren, aber der Ballast bleibt zurück.</p>
+    <p><strong>Regeln wiederholen.</strong> Wenn du im selben Gespräch bleiben willst: Wiederhole die Vorgaben in der aktuellen Nachricht, statt nur auf den Anfang zu verweisen. Was am Ende steht, wirkt am stärksten.</p>
+    <p><strong>Ein Thema pro Gespräch.</strong> Das Protokoll in einem Chat, die Medienmitteilung im nächsten. Und lade nur hoch, was die Aufgabe braucht – das Reglement, nicht die ganze Sammlung.[[ref:anthropic-context-eng]]</p>
+    <h2>Kein Grund zur Sorge</h2>
+    <p>Context Rot ist eine Eigenschaft der heutigen Technik, keine Folge falscher Bedienung. Die Anbieter arbeiten daran, aber auch die neusten Modelle sind davon betroffen.[[ref:context-rot]] Wer den Effekt kennt, arbeitet entspannter: kurze, fokussierte Gespräche und ein Neustart, sobald es hakt.</p>
+  </div>
+</details>

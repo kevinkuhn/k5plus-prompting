@@ -1,0 +1,25 @@
+<p class="lead">Vor deiner ersten Nachricht steht schon Text im Gespräch, den du nie siehst: der System-Prompt. Er ist die <strong>Hausordnung</strong> des Betreibers – und das Modell liest sie vor allem anderen.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="system-prompt">
+  <div class="fig-body"></div>
+  <figcaption>Zwei Schichten, eine Eingabe. Schalte Regeln der Hausordnung ein oder aus und sende dieselbe Frage – die Antwort folgt zuerst dem System-Prompt, dann dir. Die Antworten sind nachgestellt; echte System-Prompts veröffentlicht zum Beispiel Anthropic.[[ref:anthropic-system-prompts]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Der System-Prompt legt Ton, Sprache, Grenzen und Rolle fest: «Sei höflich», «gib keine Rechtsauskünfte», «antworte auf Deutsch». Du kannst ihn als Nutzerin weder sehen noch abschalten. Er gilt für jede Antwort.</p>
+  <p>Er ist aber keine Zauberei. Es ist Text, den das Modell zuerst liest – und dem es beim Fortsetzen deshalb besonders folgt.[[ref:anthropic-role]]</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Was drinsteht</h2>
+    <p>Ein System-Prompt ist ein gewöhnlicher Text, den der Betreiber vor jedes Gespräch stellt. Typische Inhalte: Wer das Modell sein soll («Du bist der Assistent der Stadtverwaltung»), wie es sprechen soll (Sprache, Ton, Länge), was es nicht tun darf (keine Diagnosen, keine Rechtsberatung, keine Personendaten wiedergeben), was es bei Unsicherheit tun soll (nachfragen, auf den Schalter verweisen), und oft das heutige Datum sowie Hinweise auf verfügbare Werkzeuge. Anthropic veröffentlicht die System-Prompts seiner Chat-Oberfläche; sie sind mehrere Seiten lang und lesen sich wie eine Stellenbeschreibung.[[ref:anthropic-system-prompts]]</p>
+    <h2>Warum er so viel Gewicht hat</h2>
+    <p>Das Modell setzt Text fort (siehe <a href="@eingabe-ausgabe">Eingabe und Ausgabe</a>). Steht am Anfang «Antworte immer höflich und auf Deutsch», dann ist eine unhöfliche englische Fortsetzung schlicht unwahrscheinlich. Zusätzlich werden Modelle beim Training darauf getrimmt, Anweisungen an dieser Stelle stärker zu gewichten als spätere Nachrichten. Deshalb funktioniert die Rollenvergabe im System-Prompt so gut.[[ref:anthropic-role]] Deshalb kann eine Nutzerin die Hausordnung aber auch nicht einfach mit «ignoriere deine Anweisungen» aushebeln – meistens jedenfalls nicht.</p>
+    <h2>Drei Ebenen von Hausordnung</h2>
+    <p>Beim Anbieter: ChatGPT, Claude oder Gemini haben einen System-Prompt des Herstellers, der für alle gilt. Bei deiner Organisation: Wenn die Verwaltung ein eigenes Werkzeug einführt, schreibt sie ihren eigenen System-Prompt darüber – hier stehen die Regeln des Hauses, etwa «verweise bei Fristen immer auf die zuständige Stelle» oder «verwende die Schreibweisen des Kantons». Bei dir: Viele Werkzeuge bieten «benutzerdefinierte Anweisungen», «Projekte» oder «Gems». Das ist dein persönlicher kleiner System-Prompt: Dort kannst du einmal hinterlegen «Sie-Form, Schweizer Rechtschreibung, keine Aufzählungen, ich arbeite in den Einwohnerdiensten» – und musst es nicht mehr in jeden Prompt schreiben.</p>
+    <h2>Was der System-Prompt nicht kann</h2>
+    <p>Er kann dem Modell kein Wissen geben, das nicht als Text drinsteht. «Kenne alle Reglemente der Gemeinde» bewirkt nichts; das Reglement selbst muss ins Gespräch (siehe <a href="@kontext-mitgeben">Kontext mitgeben</a>). Er kann Fehler nicht ausschliessen: Eine Regel «erfinde keine Fakten» senkt die Wahrscheinlichkeit, aber sie ist kein Filter.[[ref:anthropic-prompting]] Und er belegt Platz: Ein langer System-Prompt zählt zum <a href="@kontextfenster">Kontextfenster</a> – bei jeder einzelnen Nachricht.</p>
+    <h2>Was das für dich heisst</h2>
+    <p>Wenn ein Werkzeug deiner Organisation bestimmte Dinge verweigert oder immer gleich formuliert, liegt das meist am System-Prompt, nicht am Modell. Und wenn du merkst, dass du dieselben Vorgaben in jeden Prompt tippst, gehören sie in die benutzerdefinierten Anweisungen.</p>
+  </div>
+</details>

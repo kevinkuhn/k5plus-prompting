@@ -1,0 +1,34 @@
+<p class="lead">Ein Sprachmodell ist ein Programm, das eine einzige Sache tut: Es <strong>sagt das nächste Wort voraus</strong>. Alles andere – Fragen beantworten, übersetzen, Code schreiben – ergibt sich daraus.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="next-word">
+  <div class="fig-body"></div>
+  <figcaption>Das Modell gibt jedem möglichen nächsten Token eine Wahrscheinlichkeit, wählt eines aus, hängt es an und beginnt von vorn. Die gezeigten Wahrscheinlichkeiten sind illustrativ und stammen nicht aus einem echten Modell.</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Es hat riesige Mengen Text gelesen und dabei gelernt, welche Wörter üblicherweise auf welche folgen. Frag es etwas, und es setzt deinen Text fort – ein Token nach dem anderen.</p>
+  <p>Es ist keine Datenbank und keine Suchmaschine. Es kann vor allem eines: sehr gut raten.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Ein Wort nach dem anderen</h2>
+    <p>Wenn du eine Nachricht sendest, schlägt das Modell keine Antwort nach. Es schaut sich den gesamten bisherigen Text an – deine Nachricht plus alles, was es selbst schon geschrieben hat – und berechnet für jeden Eintrag in seinem Vokabular, wie wahrscheinlich dieser Eintrag als Nächstes folgt. Es wählt einen aus, fügt ihn an den Text an und beginnt von vorn. Eine Antwort von 200 Wörtern bedeutet rund 250 solcher Runden (Wörter und Tokens sind nicht ganz dasselbe).</p>
+    <p>Nichts wird aus einem Speicher fertiger Sätze abgerufen. Jedes Token wird neu berechnet – aus den Zahlen im Inneren des Modells und dem Text, der vor ihm liegt.</p>
+    <h2>Ein Schritt, immer wieder</h2>
+    <p>Alles, was ein Sprachmodell tut, ist dieser eine Schritt, der immer wieder abläuft:</p>
+    <ol>
+      <li><strong>Dein Text.</strong> Der bisherige Text, wie du ihn eingegeben hast: «Legen weisse Hühner weisse».</li>
+      <li><strong>Tokens.</strong> Der Text wird in Stücke aus einer festen Liste zerlegt, und jedes Stück ist eine Zahl.</li>
+      <li><strong>Das Modell.</strong> Ein Transformer: Milliarden gelernter Zahlen, eingestellt durch das Erraten verdeckter Wörter in Milliarden von Texten.</li>
+      <li><strong>Wahrscheinlichkeiten.</strong> Eine Bewertung für jedes Token, das es kennt: «Eier» 0,72, «Federn» 0,11, «Küken» 0,06 … «Käse» 0,01.</li>
+      <li><strong>Eines auswählen.</strong> «Eier» wird gewählt, an den Text angehängt – und alles läuft mit dem längeren Text noch einmal durch.</li>
+    </ol>
+    <p>Die einzige Ausgabe des Modells ist jedes Mal diese Liste von Wahrscheinlichkeiten für das nächste Token. Es gibt keinen eigenen Schritt, in dem zuerst die ganze Antwort entworfen und dann ausgeschrieben würde.</p>
+    <h2>Woher kommt das Wissen?</h2>
+    <p>Aus Mustern im Text, mit dem es trainiert wurde. Während des Trainings sieht das Modell Billionen von Wörtern und passt Milliarden interner Zahlen so an, dass seine Vorhersagen besser werden. Was es «weiss», ist in diesen Zahlen als statistische Tendenz gespeichert, nicht als Fakten in einer Tabelle. Deshalb kann es auch mit voller Überzeugung falsch liegen: Eine plausible Fortsetzung und eine wahre sind nicht dasselbe.</p>
+    <h2>Warum sieht Vorhersage wie Verstehen aus?</h2>
+    <p>Weil gutes Vorhersagen schwierig ist. Um das nächste Wort in einem Physiklehrbuch, einem Gerichtsurteil, einem Rezept oder einem Witz zu erraten, muss das Modell Grammatik, Fakten, Stil und einen Teil der Logik erfassen, die Sätze miteinander verbindet. Niemand hat diese Fähigkeiten bewusst eingebaut; es sind schlicht die Fähigkeiten, die dem Modell beim Vorhersagen von Text geholfen haben. Ob das schon «Verstehen» ist, wird ernsthaft diskutiert – aber es reicht, um nützlich zu sein.</p>
+    <h2>Was es nicht ist</h2>
+    <p>Ein Sprachmodell surft nicht im Web, benutzt keinen Taschenrechner und erinnert sich nicht an dein letztes Gespräch – es sei denn, die Software um es herum fügt diese Fähigkeiten hinzu. Es hat keine Absichten und keinen Zugang zur Wahrheit – nur zu Text und den Mustern darin.</p>
+  </div>
+</details>

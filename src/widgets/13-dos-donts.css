@@ -1,0 +1,15 @@
+.dd-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+@media (max-width: 640px) { .dd-grid { grid-template-columns: 1fr 1fr; } }
+.dd { text-align: left; border: 1px solid var(--line); background: var(--bg); border-radius: 12px; padding: 0.8rem 0.9rem; cursor: pointer; font-size: 0.92rem; color: var(--ink); min-height: 5rem; display: flex; flex-direction: column; gap: 0.3rem; transition: border-color 0.15s; }
+.dd:hover { border-color: var(--ink-3); }
+.dd .tag { font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.dd.do .tag { color: var(--ok); }
+.dd.dont .tag { color: var(--warm); }
+.dd .h { font-family: var(--display); font-weight: 600; font-size: 1rem; line-height: 1.25; }
+.dd .b, .dd .ex { display: none; font-size: 0.88rem; color: var(--ink-2); line-height: 1.45; }
+.dd .ex { border-left: 3px solid var(--line); padding-left: 0.6rem; }
+.dd .ex b { color: var(--ink-3); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; display: block; }
+.dd[aria-expanded="true"] { grid-column: span 2; background: var(--surface); }
+.dd.do[aria-expanded="true"] { border-color: var(--ok); }
+.dd.dont[aria-expanded="true"] { border-color: var(--warm); }
+.dd[aria-expanded="true"] .b, .dd[aria-expanded="true"] .ex { display: block; }

@@ -1,0 +1,12 @@
+.pl-seg { display: flex; width: 100%; margin-bottom: 0.5rem; }
+.pl-seg button { flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.35rem; padding: 0.35rem 0.4rem; }
+.pl-n { font-family: var(--display); font-weight: 700; }
+.pl-meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; margin: 0 0 1rem; }
+.pl-meter span { height: 4px; border-radius: 2px; background: var(--surface-2); transition: background 0.3s; }
+.pl-meter span.on { background: var(--accent); }
+.pl-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+.pl-code { min-height: 6rem; margin: 0; font-size: 0.78rem; }
+.pl-note { font-size: 0.85rem; color: var(--ink-3); margin: 0.6rem 0 0; line-height: 1.45; }
+@media (min-width: 640px) { .pl-grid { grid-template-columns: 1.55fr 1fr; } }
+@media (max-width: 520px) { .pl-name { display: none; } }
+.pl-print { break-inside: avoid; margin-bottom: 1rem; }

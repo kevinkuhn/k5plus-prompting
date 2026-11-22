@@ -1,0 +1,25 @@
+<p class="lead">Ein Prompt ist alles, was du dem Modell schreibst: die Frage, die Anweisung, der eingefügte Text. Er ist <strong>der einzige Weg</strong>, dem Modell zu sagen, was du willst – und er ist nur so gut wie das, was du hineinlegst.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="prompt-anatomy">
+  <div class="fig-body"></div>
+  <figcaption>Ein Prompt aus drei Bausteinen: Anweisung, Material, gewünschte Form. Schalte Bausteine aus und ein und sende – die Antwort zeigt, was das Modell mit dem Rest anfangen kann. Die Antworten sind nachgestellt; die Prinzipien stammen aus den Leitfäden der Anbieter.[[ref:anthropic-prompting,openai-prompting]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Das Modell sieht weder deinen Bildschirm noch deine Ablage noch die E-Mail, die du gerade gelesen hast. Es kennt nur den Text im Eingabefeld. Fehlt dort etwas, muss es raten – oder nachfragen.</p>
+  <p>Ein Prompt kann ein Satz sein oder zwanzig Seiten. Was zählt, ist nicht die Länge, sondern ob Anweisung, Material und gewünschte Form drin sind.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Drei Bausteine</h2>
+    <p>Fast jeder brauchbare Prompt enthält drei Dinge. Die <strong>Anweisung</strong> sagt, was zu tun ist: beantworten, zusammenfassen, übersetzen, prüfen, entwerfen. Das <strong>Material</strong> ist das, worauf sich die Anweisung bezieht: die Anfrage einer Einwohnerin, ein Protokoll, ein Reglement, deine Stichworte. Die <strong>Form</strong> beschreibt, wie die Antwort aussehen soll: Länge, Ton, Sprache, Aufbau, Anrede.</p>
+    <p>Lässt du einen Baustein weg, ersetzt das Modell ihn durch eine Annahme. Ohne Anweisung fragt es zurück oder fasst zusammen. Ohne Material erfindet es Beispiele oder schreibt allgemein. Ohne Form bekommst du den Standard: mittellang, mit Aufzählungspunkten, in der Tonlage, die das Modell am häufigsten gesehen hat.</p>
+    <h2>Alles im Gespräch ist Prompt</h2>
+    <p>Der Prompt ist nicht nur deine erste Nachricht. Bei jeder weiteren Nachricht schickt die Software das ganze bisherige Gespräch mit – deine Fragen, die Antworten des Modells, hochgeladene Dokumente. Das Modell «erinnert» sich nicht; es liest jedes Mal alles von vorn. Deshalb wirkt eine Korrektur («kürzer, förmlicher») so gut: Sie wird Teil des Prompts für die nächste Antwort. Wie viel in dieses Gespräch passt, zeigt das Kapitel zum <a href="@kontextfenster">Kontextfenster</a>.</p>
+    <h2>Was ein Prompt nicht ist</h2>
+    <p>Ein Prompt ist keine Suchanfrage. Bei einer Suchmaschine reichen drei Stichworte, weil sie nur Dokumente findet. Ein Sprachmodell schreibt selbst und braucht dafür Absicht und Zusammenhang. Ein Prompt ist auch kein Befehl an eine Maschine, die ihn exakt ausführt: Zweimal derselbe Prompt gibt zwei leicht verschiedene Antworten. Und ein Prompt ist kein Zauberspruch. Es gibt keine geheimen Formeln; es gibt nur klar oder unklar gesagt, was du willst.</p>
+    <h2>Ein Beispiel aus dem Alltag</h2>
+    <p>Eine Sachbearbeiterin der Einwohnerdienste erhält die Anfrage: «Ich habe gehört, die Parkkarten werden teurer. Stimmt das, und wo verlängere ich?» Der schwache Prompt lautet: «Antworte auf diese Mail.» Das Modell kennt weder den neuen Preis noch die Öffnungszeiten und wird höflich um die Anfrage herumschreiben. Der starke Prompt enthält die Anfrage, die zwei Fakten aus dem Gemeinderatsbeschluss und die Vorgabe «höflich, Sie-Form, maximal 120 Wörter». Erst dann hat das Modell alles, was auch eine neue Kollegin bräuchte.</p>
+    <p>Genau das ist die Grundhaltung dieses Kurses: Behandle das Modell wie eine fähige neue Mitarbeiterin, die alles gelesen hat, aber nichts über deine Stelle, deine Akten und deine Gemeinde weiss.[[ref:anthropic-prompting]]</p>
+  </div>
+</details>

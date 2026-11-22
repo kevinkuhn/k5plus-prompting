@@ -1,0 +1,11 @@
+build/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.playwright-mcp/
+.claude/
+service_account.json
+*_service_account.json
+# Arbeitskopien der Quellkapitel aus «Prompting verstehen» (Sie-Form), nur zum Nachschlagen
+src/ref-content/

@@ -1,0 +1,16 @@
+.pb-role { margin-top: 1rem; border-top: 1px solid var(--line-soft); padding-top: 0.9rem; }
+.pb-role .ctl { margin-bottom: 0.6rem; }
+.pb-cmp { display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+.pb-card { border: 1px solid var(--line); border-radius: 10px; padding: 0.7rem 0.85rem; font-size: 0.9rem; line-height: 1.5; }
+.pb-card .k { display: block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 0.3rem; }
+.pb-card q { font-style: italic; }
+.pb-card q::before, .pb-card q::after { content: ""; }
+.pb-card ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+.pb-card li { margin: 0.1rem 0; }
+.pb-card li.no { color: var(--ink-3); text-decoration: line-through; }
+.pb-card li.yes { color: var(--ink); }
+.pb-card.role { border-style: dashed; }
+.pb-card.ctx { border-color: var(--s1); }
+.pb-verdict { font-size: 0.85rem; color: var(--ink-2); margin-top: 0.5rem; }
+.pb-verdict b { color: var(--accent); }
+@container (min-width: 720px) { .pb-cmp { grid-template-columns: 1fr 1fr; } }

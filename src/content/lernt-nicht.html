@@ -1,0 +1,30 @@
+<p class="lead">Ein Sprachmodell wird durch deine Fragen nicht klüger. Es ist nach dem Training <strong>eingefroren</strong> – was sich mit jedem Gespräch verändert, ist nicht das Modell, sondern das, was der Anbieter über dich speichert.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="static-model">
+  <div class="fig-body"></div>
+  <figcaption>Acht Wochen Nutzung. Oben das Modell: dieselbe Grösse, derselbe Wissensstand, bis der Anbieter eine neue Version veröffentlicht. Unten dein Konto beim Anbieter: gespeicherte Chats, Memory-Einträge und ein wachsendes Bild davon, wer du bist.[[ref:openai-memory,openai-data-controls]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Wenn der Assistent nach ein paar Wochen «besser zu dir passt», dann nicht, weil das Modell gelernt hat – sondern weil die Software deine früheren Gespräche in den Prompt legt.</p>
+  <p>Das Modell kennt weder die Chats deiner Kollegin noch die von gestern, es sei denn, jemand fügt sie ein.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Ein Modell ist ein fertiges Produkt</h2>
+    <p>Ein Sprachmodell wird einmal trainiert, auf einem festen Datensatz, der an einem bestimmten Datum endet – dem Wissensstand oder «Knowledge Cut-off». Die Anbieter veröffentlichen dieses Datum für jedes Modell.[[ref:knowledge-cutoff]] Was danach geschah, weiss das Modell nicht: keine neue Verordnung, kein Wahlergebnis, kein Beschluss deiner Gemeinde. Es sei denn, du legst es in den Prompt (siehe <a href="@kontext-mitgeben">Kontext mitgeben</a>).</p>
+    <p>Nach dem Training werden die Milliarden Zahlen im Modell nicht mehr verändert. Jede deiner Fragen läuft durch dasselbe, unveränderte Modell. Die Antwort auf die tausendste Frage entsteht genau gleich wie die auf die erste.</p>
+    <h2>Warum es sich trotzdem wie Lernen anfühlt</h2>
+    <p>Drei Dinge erzeugen den Eindruck, das System werde mit der Zeit klüger:</p>
+    <ul>
+      <li><strong>Das laufende Gespräch.</strong> Innerhalb eines Chats liest das Modell alles Bisherige mit. Korrekturen wirken – bis der Kontext zu lang wird (siehe <a href="@context-rot">Context Rot</a>).</li>
+      <li><strong>Memory und Personalisierung.</strong> Viele Assistenten speichern Notizen über dich – Beruf, Vorlieben, wiederkehrende Aufgaben – und fügen sie unsichtbar in jeden neuen Prompt ein.[[ref:openai-memory]] Das Modell «erinnert» sich nicht; es bekommt einen Zettel.</li>
+      <li><strong>Neue Versionen.</strong> Alle paar Monate erscheint ein neues Modell. Das ist ein Sprung, kein Wachstum – und er kommt aus dem Rechenzentrum des Anbieters, nicht aus deinen Chats.</li>
+    </ul>
+    <h2>Und die Sache mit «zum Training verwendet»?</h2>
+    <p>Bei vielen frei zugänglichen Diensten dürfen deine Gespräche für das Training künftiger Modelle verwendet werden; oft lässt sich das in den Einstellungen abschalten.[[ref:openai-data-controls]] Aber auch dann geschieht nichts sofort: Die Daten fliessen – wenn überhaupt – Monate später in eine neue Version ein, gemischt mit Milliarden anderer Texte. Dein Prompt von heute verändert nicht die Antwort von morgen.</p>
+    <p>Das Modell kennt auch nicht die Gespräche anderer Personen. Fragst du, was deine Kollegin gestern eingegeben hat, bekommst du eine Erfindung, keine Auskunft. Was du eingibst, ist nicht öffentlich – es liegt in der Datenbank eines Unternehmens, das nicht deines ist.</p>
+    <h2>Was das für den Datenschutz bedeutet</h2>
+    <p>Die Trennung ist wichtig: Das <em>Modell</em> lernt nichts über dich. Die <em>Plattform</em> dagegen sammelt: jeden Chat, jede Korrektur, jedes hochgeladene Dokument, plus abgeleitete Merkmale. Ob und wie lange das gespeichert wird, wer Zugriff hat und wofür es verwendet werden darf, ist keine technische, sondern eine vertragliche Frage – das Thema des Kapitels <a href="@fremde-person">Wohin deine Eingaben gehen</a>.</p>
+  </div>
+</details>

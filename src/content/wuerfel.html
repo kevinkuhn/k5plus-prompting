@@ -1,0 +1,23 @@
+<p class="lead">Das Modell liefert Wahrscheinlichkeiten, keine einzelne Antwort. Welches Token gewählt wird, ist <strong>ein gewichteter Würfelwurf</strong> – deshalb kann dieselbe Frage verschiedene Antworten ergeben.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="sampling">
+  <div class="fig-body"></div>
+  <figcaption>Die Temperatur formt die Wahrscheinlichkeiten vor dem Wurf um: Eine tiefe macht das wahrscheinlichste Token fast sicher, eine hohe flacht die Auswahl ab. Die Verteilung dient nur der Veranschaulichung.[[ref:holtzman]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Temperatur 0: jedes Mal dieselbe Antwort – nicht unbedingt die beste.</p>
+  <p>Höhere Temperatur: mehr Vielfalt und Überraschung, mehr Fehler. Chat-Produkte laufen irgendwo dazwischen.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Warum nicht immer das wahrscheinlichste Token nehmen?</h2>
+    <p>Es scheint naheliegend: jedes Mal die beste Vermutung wählen. In der Praxis entsteht so flacher, repetitiver Text – das Modell gerät in Schleifen («Ich denke, dass ich denke, dass …»), weil die sicherste Fortsetzung eines faden Satzes ein weiterer fader Satz ist. Menschlicher Text ist voller mässig überraschender Entscheidungen. Sampling aus den Wahrscheinlichkeiten bildet das nach; ein Paper von 2019 hat das begründet und «Nucleus Sampling» eingeführt, das nur aus der Spitzengruppe jener Tokens zieht, die zusammen, sagen wir, 90 % der Wahrscheinlichkeit auf sich vereinen.[[ref:holtzman]]</p>
+    <h2>Was die Temperatur bewirkt</h2>
+    <p>Vor dem Wurf werden die rohen Punktzahlen des Modells durch die Temperatur geteilt und in Wahrscheinlichkeiten umgerechnet. Eine tiefe Temperatur übertreibt die Unterschiede – der Spitzenreiter bekommt fast alles; eine hohe gleicht sie an, sodass seltene Tokens eine echte Chance erhalten. Temperatur 0 heisst «immer das wahrscheinlichste Token»: deterministisch, aber nicht gegen Fehler gefeit.</p>
+    <h2>Was das für dich bedeutet</h2>
+    <p>Eine Antwort neu generieren zu lassen heisst, eine neue Stichprobe zu ziehen – nicht, das Modell zu bitten, sich mehr Mühe zu geben. Für Fakten, Zusammenfassungen und Code willst du eine tiefe Temperatur (die meisten Produkte wählen das für dich); für Brainstorming und Geschichtenideen willst du mehr. Forschende, die reproduzierbare Ergebnisse brauchen, setzen die Temperatur auf 0 und fixieren den Zufallsstartwert (Seed) – und finden trotzdem kleine Unterschiede, weil das Rechnen auf grosser Hardware nicht perfekt wiederholbar ist.</p>
+    <h2>Der Zufall ist nicht die Hauptquelle von Fehlern</h2>
+    <p>Auch bei Temperatur 0 kann das Modell mit voller Überzeugung falschliegen: Ist eine falsche Aussage die wahrscheinlichste Fortsetzung, wird sie jedes Mal gewählt.</p>
+  </div>
+</details>

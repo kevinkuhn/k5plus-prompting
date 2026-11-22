@@ -1,0 +1,28 @@
+<p class="lead">Zero-Shot, Few-Shot, Chain-of-Thought – hinter den Fachwörtern stecken einfache Handgriffe. Der wichtigste: <strong>Beispiele zeigen</strong> statt beschreiben.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="techniques">
+  <div class="fig-body"></div>
+  <figcaption>Dieselbe Aufgabe – eingehende Anfragen dem richtigen Amt zuordnen – mit fünf Techniken. Die markierten Zeilen sind das, was die jeweilige Technik dem Prompt hinzufügt. Die Ausgaben sind nachgestellt.[[ref:gpt3-fewshot,cot]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Keine dieser Techniken ist ein Zauberwort. Alle tun dasselbe: Sie legen mehr von dem in den Prompt, was das Modell sonst raten müsste.</p>
+  <p>Faustregel: Ein gutes Beispiel schlägt einen Absatz Beschreibung. Und Kontext schlägt jede Formel.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Zero-Shot: nur die Anweisung</h2>
+    <p>«Ordne diese Anfrage dem zuständigen Amt zu.» Kein Beispiel, keine Erklärung. Das funktioniert für Aufgaben, die das Modell tausendfach gesehen hat: übersetzen, zusammenfassen, Rechtschreibung prüfen. Sobald deine Kategorien, dein Ton oder deine Vorlage eine Rolle spielen, reicht es nicht.</p>
+    <h2>One-Shot und Few-Shot: Beispiele mitgeben</h2>
+    <p>Du zeigst ein Beispiel (one-shot) oder mehrere (few-shot): «Anfrage: ‹Mein Nachbar baut ohne Bewilligung.› → Bauamt.» Das Modell erkennt das Muster und wendet es an. Dass grosse Sprachmodelle aus wenigen Beispielen im Prompt lernen können, ohne neu trainiert zu werden, war eine der zentralen Entdeckungen von 2020.[[ref:gpt3-fewshot]] Drei bis fünf gute, unterschiedliche Beispiele wirken meist besser als eine lange Regelbeschreibung; die Anbieter empfehlen das ausdrücklich.[[ref:anthropic-examples]]</p>
+    <p>Beispiele sind auch der Weg zu deinem Stil: Füg einen gelungenen Brief ein und sag «so». Oder gib die Vorlage mit – Aufbau, Anrede, Grussformel – und lass sie ausfüllen.</p>
+    <h2>Schritt für Schritt: Chain-of-Thought</h2>
+    <p>Bei Aufgaben mit mehreren Schritten – eine Gebühr nach Tarifordnung berechnen, eine Frist prüfen, Widersprüche in einem Protokoll finden – hilft die Aufforderung, zuerst den Gedankengang aufzuschreiben und erst dann zu antworten. Modelle machen dann deutlich weniger Fehler.[[ref:cot]] Neuere Modelle haben dafür einen «Denkmodus», der das automatisch tut; er ist langsamer und teurer, lohnt sich aber bei allem, was Rechnen oder Abwägen verlangt.</p>
+    <h2>Rolle und Kontext</h2>
+    <p>«Du bist Sachbearbeiterin im Steueramt einer Gemeinde mit 8’000 Einwohnern.» Eine Rolle setzt Ton und Blickwinkel. Sie wirkt aber nur, weil sie Kontext liefert – und genau darum ist ein konkreter Kontext meist besser als eine Rolle allein. Mehr dazu im Kapitel <a href="@kontext-statt-rolle">Kontext statt Rolle</a>.</p>
+    <h2>Zwei Techniken, die oft vergessen gehen</h2>
+    <p><strong>Vorlage mitgeben.</strong> Statt Struktur zu beschreiben, gibst du sie vor: Überschriften, Platzhalter, Länge pro Abschnitt. Das Modell füllt aus.</p>
+    <p><strong>Rückfragen verlangen.</strong> «Bevor du schreibst, stell mir die Fragen, die du brauchst.» So liefert das Modell selbst den Kontext, an den du nicht gedacht hast – siehe das Kapitel <a href="@rueckfragen">Rückfragen</a>.</p>
+    <p>Alle Techniken lassen sich kombinieren. Ein Prompt mit Kontext, zwei Beispielen, einer Vorlage und der Bitte um Rückfragen ist nicht kompliziert – er ist einfach vollständig.</p>
+  </div>
+</details>

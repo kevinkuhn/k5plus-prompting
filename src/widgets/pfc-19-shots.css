@@ -1,0 +1,3 @@
+.shots-seg { display: flex; flex-wrap: wrap; margin-bottom: 1rem; }
+.shots-seg button { flex: 1 1 auto; }
+.shot-item .hint { text-align: center; }
