@@ -1,34 +1,38 @@
-<p class="lead">Ein Prompt, der funktioniert, gehört nicht in einen einzelnen Chatverlauf. Eine <strong>gemeinsame Sammlung</strong> macht aus Einzelwissen ein Werkzeug fürs Team.</p>
+<p class="lead">Sobald KI einen Arbeitsablauf mitträgt, muss für alle klar sein, <strong>was dieser Ablauf tut</strong>. Dafür braucht es ein gemeinsames Verzeichnis: eine Karte pro Ablauf.</p>
 <!-- /slide -->
 <figure class="fig" data-widget="copy">
   <div class="fig-body">
-<pre class="cs-tpl">Titel: [Was der Prompt tut, in fünf Wörtern]
-Zweck: [Wofür, für wen, wie oft]
-Prompt: [der Text, mit [Platzhaltern] für das, was jedes Mal wechselt]
-Beispiel: [eine Eingabe und die Ausgabe, die wir gut fanden]
-Daten: [grün, gelb oder rot gemäss Ampel]
-Tool: [in welchem Tool getestet und freigegeben]
+<pre class="cs-tpl">Name: [Was der Ablauf tut, in fünf Wörtern]
+Zweck: [Was er erledigt, und was ausdrücklich nicht]
+Auslöser: [Wer oder was startet ihn: Person, Zeitplan, Ereignis]
+Daten: [Was er liest und schreibt; grün, gelb oder rot gemäss Ampel]
+Schritte: [Ablauf in drei bis sechs Zeilen, mit den Werkzeugen]
+Instruktion: [Ablageort und Version]
+Freigabe: [Wo ein Mensch prüft, bevor etwas hinausgeht]
+Testfall: [Eine Eingabe und das Ergebnis, das wir gut fanden]
 Verantwortlich: [Name]
 Zuletzt geprüft: [Datum]</pre>
     <div class="cards" style="margin-top:1rem">
-      <div class="card"><h3>Wo</h3><p>Dort, wo das Team ohnehin arbeitet: ein gemeinsamer Ordner, eine Liste, ein Projekt im KI-Tool.</p></div>
-      <div class="card"><h3>Wer</h3><p>Eine Person pro Prompt. Sie prüft ihn nach jedem Modellwechsel mit dem Beispiel.</p></div>
-      <div class="card"><h3>Wie viele</h3><p>Lieber zehn gepflegte als hundert vergessene. Was niemand braucht, fliegt raus.</p></div>
+      <div class="card"><h3>Wofür</h3><p>Für Agenten und Abläufe, die mehrere Personen nutzen oder die von selbst laufen. Nicht für die persönliche Prompt-Sammlung.</p></div>
+      <div class="card"><h3>Wer</h3><p>Eine verantwortliche Person pro Ablauf. Sie lässt nach jedem Modellwechsel den Testfall laufen.</p></div>
+      <div class="card"><h3>Wo</h3><p>An einem Ort, den alle Beteiligten kennen. Wer den Ablauf nutzt, findet dort, was er tut und wen man fragt.</p></div>
     </div>
   </div>
-  <figcaption>Eine Karte pro Prompt. Das Beispiel ist der wichtigste Teil: Es zeigt, wie «gut» aussieht, und dient als Test.</figcaption>
+  <figcaption>Die Karte beantwortet die Fragen, die später kommen: Was macht der Agent genau? Mit welchen Daten? Wer hat das freigegeben?</figcaption>
 </figure>
 <div class="slide-notes">
-  <p>Ein Prompt ohne Beispiel und ohne Datum ist ein Gerücht. Mit beidem ist er eine Arbeitsanweisung.</p>
+  <p>Ein Agent ohne Karte ist ein Ablauf, den nur eine Person versteht. Verlässt sie das Team, läuft er weiter, und niemand weiss mehr, warum.</p>
 </div>
 <details class="more">
   <summary>Mehr lesen</summary>
   <div class="prose">
+    <h2>Nachvollziehbar für die, die damit arbeiten</h2>
+    <p>Wer einen Entwurf vom Agenten bekommt, muss wissen, woher die Angaben stammen und was er selbst noch prüfen muss. Die Zeilen «Daten», «Schritte» und «Freigabe» sagen genau das.</p>
     <h2>Warum das Datum zählt</h2>
-    <p>Die Anbieter wechseln die Modelle hinter ihren Tools laufend. Ein Prompt, der im Frühling zuverlässig lief, kann im Herbst andere Ergebnisse liefern. Das Beispiel in der Karte ist dein Test: Lauf lassen, vergleichen, Datum nachführen.</p>
-    <h2>Vom Prompt zum Agenten</h2>
-    <p>Die meisten Agenten beginnen als Prompt, den jemand zum zehnten Mal kopiert hat. Die Karte enthält schon fast alles, was ein Agent braucht: Zweck, Instruktion, Testfall, Datenklasse, verantwortliche Person. Siehe <a href="@checkliste">Checkliste vor dem Produktivstart</a>.</p>
+    <p>Die Anbieter wechseln die Modelle hinter ihren Tools laufend. Ein Ablauf, der im Frühling zuverlässig lief, kann im Herbst andere Ergebnisse liefern. Der Testfall auf der Karte ist die Kontrolle: laufen lassen, vergleichen, Datum nachführen.</p>
+    <h2>Vor dem Start</h2>
+    <p>Die Karte ist die halbe <a href="@checkliste">Checkliste vor dem Produktivstart</a>: Zweck, Verantwortung, Daten, Freigabe und Testfall stehen schon drin.</p>
     <h2>K5Plus</h2>
-    <p>Fünf Gemeinden haben viele gleiche Aufgaben. Eine Sammlung, die über die Gemeindegrenze geteilt wird, erspart fünfmal dieselbe Arbeit.</p>
+    <p>Fünf Gemeinden haben viele gleiche Aufgaben. Ein Verzeichnis, das über die Gemeindegrenze geteilt wird, zeigt, was es schon gibt, und erspart fünfmal dieselbe Arbeit.</p>
   </div>
 </details>

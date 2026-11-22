@@ -1,33 +1,79 @@
-<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Werkzeuge, Connectors, MCP und Skills – KI-Prompting · Advanced</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="../assets/style.css"></head><body data-mode="multi" data-deck="advanced" data-kind="chapter" data-site="KI-Prompting · Advanced"><div class="app-root"><a class="skip" href="#main">Zum Inhalt springen</a><header class="top"><div class="top-row"><div class="top-left"><a class="home" href="index.html">KI-Prompting · Advanced</a><span class="crumb">Anbindung</span></div><div class="top-right"><button type="button" class="btn-ghost toc-btn" aria-haspopup="dialog">Inhalt</button></div></div><div class="progress"><span style="width:47%"></span></div></header><main id="main"><article class="chapter" id="anbindung" data-title="Werkzeuge, Connectors, MCP und Skills" data-prev="rag.html" data-next="it-freigabe.html" data-num="12"><div class="col-text"><div class="eyebrow"><span>Anbindung</span><span class="n">12</span></div><header class="slide"><h1>Werkzeuge, Connectors, <em>MCP und Skills</em></h1><p class="lead">Ein Agent wird nützlich, sobald er an deine Systeme kommt. Vier Begriffe beschreiben, <strong>wie er dorthin kommt</strong>, und jede Anbindung ist auch ein Risiko.</p>
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Werkzeuge, Connectors, MCP und Skills – KI-Prompting · Advanced</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"><link rel="stylesheet" href="../assets/style.css"></head><body data-mode="multi" data-deck="advanced" data-kind="chapter" data-site="KI-Prompting · Advanced"><div class="app-root"><a class="skip" href="#main">Zum Inhalt springen</a><header class="top"><div class="top-row"><div class="top-left"><a class="home" href="index.html">KI-Prompting · Advanced</a><span class="crumb">Anbindung</span></div><div class="top-right"><button type="button" class="btn-ghost toc-btn" aria-haspopup="dialog">Inhalt</button></div></div><div class="progress"><span style="width:50%"></span></div></header><main id="main"><article class="chapter wide" id="anbindung" data-title="Werkzeuge, Connectors, MCP und Skills" data-prev="rag.html" data-next="it-freigabe.html" data-num="12"><div class="col-text"><div class="eyebrow"><span>Anbindung</span><span class="n">12</span></div><header class="slide"><h1>Werkzeuge, Connectors, <em>MCP und Skills</em></h1><p class="lead">Ein Agent wird nützlich, sobald er an deine Systeme kommt. <strong>MCP ist der gemeinsame Stecker</strong> dafür: Sobald ein Anbieter ihn bereitstellt, kann jedes KI-Tool mit seiner Software sprechen.</p>
 </header><div class="slide-notes">
-  <p>Werkzeuge und Connectors geben dem Agenten Hände. Skills geben ihm Erfahrung. MCP ist der Stecker, der beides übertragbar macht.</p>
+  <p>Werkzeuge und Connectors geben dem Agenten Hände. Skills geben ihm Erfahrung. MCP macht beides übertragbar.</p>
+  <p>Jede Anbindung erweitert, was der Agent lesen und tun kann. Darum: so wenig Zugriff wie nötig.</p>
 </div></div><div class="col-fig"><figure class="fig">
-  <div class="fig-body">
-    <div class="cards">
-      <div class="card"><h3>Werkzeug</h3><p>Eine Funktion, die das Modell aufrufen kann: suchen, rechnen, eine Datei lesen, einen Entwurf ablegen. Das Modell schreibt den Aufruf, die Software führt ihn aus.</p></div>
-      <div class="card"><h3>Connector</h3><p>Eine fertige Anbindung an ein System, etwa SharePoint, Outlook oder Teams. Ein Admin muss sie zuerst aktivieren.<sup class="ref"><a href="quellen.html#src-ms-agent-builder" title="Quelle 13">13</a></sup></p></div>
-      <div class="card"><h3>MCP</h3><p>Das «Model Context Protocol»: ein offener Standard, um Werkzeuge an verschiedene Modelle anzuschliessen. Einmal gebaut, mehrfach nutzbar.</p></div>
-      <div class="card"><h3>Skill</h3><p>Eine gespeicherte Anleitung mit Beispielen und Dateien, die das Modell bei Bedarf lädt: «So schreiben wir Medienmitteilungen».</p></div>
+  <div class="fig-body w">
+    <svg class="ragd mcpd" viewBox="0 0 900 300" role="img" aria-label="Dein KI-Tool spricht über MCP mit der Schnittstelle eines Systems">
+      <defs><marker id="mcp-head" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9 Z" fill="currentColor"/></marker></defs>
+      <text class="ragd-k" x="100" y="28">Dein KI-Tool</text>
+      <text class="ragd-step" x="345" y="28">MCP</text>
+      <text class="ragd-k" x="545" y="28">Schnittstelle (API)</text>
+      <text class="ragd-k" x="765" y="28">System</text>
+      <rect class="ragd-box" x="10" y="44" width="180" height="236" rx="12"/>
+      <rect class="ragd-pill" x="28" y="76" width="144" height="36" rx="18"/><text class="ragd-t" x="100" y="99">Copilot</text>
+      <rect class="ragd-pill" x="28" y="144" width="144" height="36" rx="18"/><text class="ragd-t" x="100" y="167">Claude</text>
+      <rect class="ragd-pill" x="28" y="212" width="144" height="36" rx="18"/><text class="ragd-t" x="100" y="235">ChatGPT</text>
+      <rect class="ragd-dark" x="270" y="44" width="150" height="236" rx="12"/>
+      <text class="ragd-t inv" x="345" y="150">ein gemeinsamer</text><text class="ragd-t inv" x="345" y="172">Stecker</text>
+      <text class="ragd-s inv" x="345" y="200">«Das kann ich,</text><text class="ragd-s inv" x="345" y="216">so rufst du mich auf»</text>
+      <g class="ragd-line" marker-end="url(#mcp-head)">
+        <path d="M190 162 H268"/>
+        <path d="M420 94 H488"/><path d="M420 162 H488"/><path d="M420 230 H488"/>
+        <path d="M600 94 H648"/><path d="M600 162 H648"/><path d="M600 230 H648"/>
+      </g>
+      <rect class="ragd-dash" x="490" y="74" width="110" height="40" rx="20"/><text class="ragd-t" x="545" y="99">API</text>
+      <rect class="ragd-dash" x="490" y="142" width="110" height="40" rx="20"/><text class="ragd-t" x="545" y="167">API</text>
+      <rect class="ragd-dash" x="490" y="210" width="110" height="40" rx="20"/><text class="ragd-t" x="545" y="235">API</text>
+      <rect class="ragd-box" x="650" y="66" width="230" height="56" rx="10"/><text class="ragd-t" x="765" y="90">Abacus</text><text class="ragd-s" x="765" y="108">Finanzen, Personal</text>
+      <rect class="ragd-box" x="650" y="134" width="230" height="56" rx="10"/><text class="ragd-t" x="765" y="158">ISE</text><text class="ragd-s" x="765" y="176">Fachanwendung</text>
+      <rect class="ragd-box" x="650" y="202" width="230" height="56" rx="10"/><text class="ragd-t" x="765" y="226">Microsoft 365</text><text class="ragd-s" x="765" y="244">SharePoint, Outlook, Teams</text>
+    </svg>
+    <p class="callout" style="margin-bottom:1.25rem"><b>Ohne MCP</b> braucht jedes KI-Tool für jedes System eine eigene Anbindung. <b>Mit MCP</b> baut der Anbieter sie einmal, und alle Tools können sie nutzen. Ob und wann die Hersteller eurer Fachanwendungen das anbieten, entscheidet, wie leicht ein Agent dort lesen und schreiben kann.</p>
+    <div class="cards ex4">
+      <div class="card"><h3>Werkzeug</h3><p>Eine Funktion, die das Modell aufrufen kann. Das Modell schreibt den Aufruf, die Software führt ihn aus.</p>
+<pre class="code">zuständigkeit_nachschlagen(
+  thema: "Sperrgut"
+)
+→ "Werkhof"</pre></div>
+      <div class="card"><h3>Connector</h3><p>Eine fertige Anbindung, die ein Admin freischaltet.<sup class="ref"><a href="quellen.html#src-ms-agent-builder" title="Quelle 13">13</a></sup> Du wählst nur noch aus, was der Agent sehen darf.</p>
+<pre class="code">Wissen: SharePoint
+  Ordner «Reglemente»
+  Ordner «Merkblätter»
+Nur diese Quellen: ein</pre></div>
+      <div class="card"><h3>MCP-Server</h3><p>Die Adresse, unter der ein System seine Werkzeuge anbietet. Einmal eingetragen, kennt das KI-Tool alle davon.</p>
+<pre class="code">{ "mcpServers": {
+    "fachanwendung": {
+      "url": "https://…/mcp"
+    } } }</pre></div>
+      <div class="card"><h3>Skill</h3><p>Eine Anleitung als Markdown-Datei, die das Modell bei Bedarf lädt. Die Beschreibung sagt ihm, wann.</p>
+<pre class="code">---
+name: medienmitteilung
+description: Schreibt Medien-
+  mitteilungen der Gemeinde.
+---
+# Aufbau
+1. Titel: eine Aussage
+2. Lead: wer, was, wann</pre></div>
     </div>
-    <p class="callout warm"><b>So wenig Zugriff wie nötig.</b> Lesen ist heikel, Schreiben und Senden noch mehr. Ein Agent, der Mails lesen und versenden darf, kann von einer Mail dazu gebracht werden.</p>
   </div>
-  <figcaption>Die Namen unterscheiden sich je nach Plattform, die Bausteine sind dieselben.</figcaption>
+  <figcaption>Schema und Beispiele sind vereinfacht. Abacus und ISE stehen für Fachanwendungen in den Gemeinden; ob sie MCP anbieten, sagt dir der Hersteller oder deine IT.</figcaption>
 </figure></div>
 
 
 <details class="more">
   <summary>Mehr lesen</summary>
   <div class="prose">
+    <h2>Was MCP ist</h2>
+    <p>Das «Model Context Protocol» ist ein offener Standard. Ein System, das ihn spricht, teilt dem KI-Tool mit, welche Werkzeuge es anbietet und wie man sie aufruft: «Kreditor suchen», «Beleg lesen», «Dossier öffnen». Das Modell wählt dann selbst, welches Werkzeug es für einen Auftrag braucht.</p>
+    <h2>Warum das für Fachanwendungen zählt</h2>
+    <p>Heute kommt ein Agent an die meisten Fachanwendungen nur über Umwege: ein Export, eine Datei, ein eigens gebauter Ablauf. Stellt der Hersteller einen MCP-Server bereit, fällt dieser Umweg weg. Die Rechte bleiben dieselben: Der Agent sieht, was das Konto sehen darf, mit dem er angemeldet ist.</p>
     <h2>Mit wessen Rechten?</h2>
     <p>Wissen aus SharePoint wird mit den Rechten der fragenden Person abgerufen. Dateien, die direkt in einen Agenten hochgeladen werden, sieht dagegen jede Person, die den Agenten nutzt. Mehr dazu auf der Seite <a href="it-freigabe.html">Was die IT freigeben muss</a>.</p>
-    <h2>Welche Anbindung wofür</h2>
-    <ul>
-      <li><b>Nachschlagen in Reglementen und Merkblättern:</b> Wissen hinterlegen oder eine Ablage anbinden. Wie die Suche arbeitet, zeigt <a href="rag.html">So arbeiten Chatbots</a>.</li>
-      <li><b>Etwas ausrechnen:</b> ein Werkzeug, das rechnet. Das Modell selbst <a href="rechnet-nicht.html">rechnet nicht</a>.</li>
-      <li><b>Etwas auslösen:</b> ein Entwurf im Postfach, ein Eintrag in einer Liste. Immer mit Freigabe durch einen Menschen.</li>
-    </ul>
-    <h2>Eingeschleuste Anweisungen</h2>
-    <p>Alles, was ein Agent liest, kann Anweisungen enthalten: eine Mail, ein Dokument, eine Website. Das Modell kann Material und Befehl nicht sicher unterscheiden. Die wirksamste Vorsorge ist, dem Agenten wenig zu erlauben. Siehe <a href="risiken.html">Risiken</a>.</p>
+    <h2>Lesen, schreiben, auslösen</h2>
+    <p>Lesen ist heikel, Schreiben und Senden noch mehr. Ein Agent, der Mails lesen und versenden darf, kann von einer Mail dazu gebracht werden. Alles, was er liest, kann Anweisungen enthalten, und das Modell kann Material und Befehl nicht sicher unterscheiden. Siehe <a href="risiken.html">Risiken</a>.</p>
+    <h2>Skills</h2>
+    <p>Ein Skill ist ein Ordner mit einer Markdown-Datei und, wenn nötig, Vorlagen oder Beispielen. Das Modell liest zuerst nur Name und Beschreibung aller Skills und lädt den ganzen Inhalt erst, wenn die Aufgabe dazu passt. So bleibt das Gespräch schlank. Wie die Bausteine je Plattform heissen, zeigt <a href="gleiche-bausteine.html">Gleiche Bausteine, andere Namen</a>.</p>
   </div>
 </details>
-</article></main><footer class="nav"><div class="nav-row"><a class="prev" href="rag.html"><span class="k">← Zurück</span><span class="t">So arbeiten Chatbots (RAG)</span></a><span class="count">17 / 35</span><a class="next" href="it-freigabe.html"><span class="k">Weiter →</span><span class="t">Was die IT freigibt</span></a></div></footer></div><dialog class="toc" aria-label="Inhalt"><div class="toc-head"><h2>Inhalt</h2><button class="toc-close" aria-label="Schliessen">×</button></div><div class="toc-grid"><div class="toc-part"><h3>Start</h3><ol><li><a href="a-ablauf.html"><span class="n">·</span><span>Ablauf</span></a></li></ol></div><div class="toc-part"><h3>Formate</h3><ol><li><a href="markdown.html"><span class="n">01</span><span>Markdown</span></a></li><li><a href="html-ergebnis.html"><span class="n">02</span><span>HTML als Ergebnis</span></a></li><li><a href="prompt-stufen.html"><span class="n">03</span><span>Vier Stufen</span></a></li></ol></div><div class="toc-part"><h3>Agenten</h3><ol><li><a href="schritte.html"><span class="n">04</span><span>Kleine Schritte</span></a></li><li><a href="spektrum.html"><span class="n">05</span><span>Vom Chat zum Agenten</span></a></li><li><a href="bausteine.html"><span class="n">06</span><span>Sechs Bausteine</span></a></li><li><a href="schleife.html"><span class="n">07</span><span>Die Schleife</span></a></li><li><a href="ausloeser.html"><span class="n">08</span><span>Auslöser</span></a></li><li><a href="agent-builder.html"><span class="n">09</span><span>Agent Builder</span></a></li><li><a href="gleiche-bausteine.html"><span class="n">10</span><span>Gleiche Bausteine</span></a></li></ol></div><div class="toc-part"><h3>Anbindung</h3><ol><li><a href="rag.html"><span class="n">11</span><span>So arbeiten Chatbots (RAG)</span></a></li><li><a href="anbindung.html" aria-current="page"><span class="n">12</span><span>Werkzeuge, MCP, Skills</span></a></li><li><a href="it-freigabe.html"><span class="n">13</span><span>Was die IT freigibt</span></a></li></ol></div><div class="toc-part"><h3>Prüfen</h3><ol><li><a href="rechnet-nicht.html"><span class="n">14</span><span>Rechnet nicht</span></a></li><li><a href="fehlerkette.html"><span class="n">15</span><span>Die Fehlerkette</span></a></li><li><a href="quellen-wertung.html"><span class="n">16</span><span>Fakten von Wertung trennen</span></a></li><li><a href="agent-pruefen.html"><span class="n">17</span><span>Sechs Prüfwege</span></a></li><li><a href="risiken.html"><span class="n">18</span><span>Risiken</span></a></li></ol></div><div class="toc-part"><h3>Governance</h3><ol><li><a href="prompt-bibliothek.html"><span class="n">19</span><span>Prompt-Bibliothek</span></a></li><li><a href="checkliste.html"><span class="n">20</span><span>Checkliste</span></a></li></ol></div><div class="toc-part"><h3>Übungen</h3><ol><li><a href="a-uebung-1.html"><span class="n">·</span><span>Übung 1: Agenten-Instruktion</span></a></li><li><a href="a-uebung-2.html"><span class="n">·</span><span>Übung 2: Dreimal laufen lassen</span></a></li><li><a href="ideen.html"><span class="n">·</span><span>Ideen sammeln</span></a></li></ol></div><div class="toc-part"><h3>Fragen</h3><ol><li><a href="a-spickzettel.html"><span class="n">·</span><span>Spickzettel</span></a></li></ol></div><div class="toc-part"><h3>Mehr</h3><ol><li><a href="index.html"><span class="n">·</span><span>Titelseite</span></a></li><li><a href="quellen.html"><span class="n">·</span><span>Quellen</span></a></li><li><a href="danke.html"><span class="n">·</span><span>Kontakt</span></a></li><li><a href="../index.html"><span class="n">·</span><span>Alle drei Stufen</span></a></li></ol></div></div></dialog><script src="../assets/app.js"></script><script src="../assets/widgets.js"></script></body></html>
+</article></main><footer class="nav"><div class="nav-row"><a class="prev" href="rag.html"><span class="k">← Zurück</span><span class="t">So arbeiten Chatbots (RAG)</span></a><span class="count">17 / 33</span><a class="next" href="it-freigabe.html"><span class="k">Weiter →</span><span class="t">Was die IT freigibt</span></a></div></footer></div><dialog class="toc" aria-label="Inhalt"><div class="toc-head"><h2>Inhalt</h2><button class="toc-close" aria-label="Schliessen">×</button></div><div class="toc-grid"><div class="toc-part"><h3>Start</h3><ol><li><a href="a-ablauf.html"><span class="n">·</span><span>Ablauf</span></a></li></ol></div><div class="toc-part"><h3>Formate</h3><ol><li><a href="markdown.html"><span class="n">01</span><span>Markdown</span></a></li><li><a href="html-ergebnis.html"><span class="n">02</span><span>HTML als Ergebnis</span></a></li><li><a href="prompt-stufen.html"><span class="n">03</span><span>Vier Stufen</span></a></li></ol></div><div class="toc-part"><h3>Agenten</h3><ol><li><a href="schritte.html"><span class="n">04</span><span>Kleine Schritte</span></a></li><li><a href="spektrum.html"><span class="n">05</span><span>Vom Chat zum Agenten</span></a></li><li><a href="bausteine.html"><span class="n">06</span><span>Sechs Bausteine</span></a></li><li><a href="schleife.html"><span class="n">07</span><span>Die Schleife</span></a></li><li><a href="ausloeser.html"><span class="n">08</span><span>Auslöser</span></a></li><li><a href="agent-builder.html"><span class="n">09</span><span>Agent Builder</span></a></li><li><a href="gleiche-bausteine.html"><span class="n">10</span><span>Gleiche Bausteine</span></a></li></ol></div><div class="toc-part"><h3>Anbindung</h3><ol><li><a href="rag.html"><span class="n">11</span><span>So arbeiten Chatbots (RAG)</span></a></li><li><a href="anbindung.html" aria-current="page"><span class="n">12</span><span>Werkzeuge, MCP, Skills</span></a></li><li><a href="it-freigabe.html"><span class="n">13</span><span>Was die IT freigibt</span></a></li></ol></div><div class="toc-part"><h3>Prüfen</h3><ol><li><a href="rechnet-nicht.html"><span class="n">14</span><span>Rechnet nicht</span></a></li><li><a href="fehlerkette.html"><span class="n">15</span><span>Die Fehlerkette</span></a></li><li><a href="agent-pruefen.html"><span class="n">16</span><span>Sechs Prüfwege</span></a></li><li><a href="risiken.html"><span class="n">17</span><span>Risiken</span></a></li></ol></div><div class="toc-part"><h3>Governance</h3><ol><li><a href="prompt-bibliothek.html"><span class="n">18</span><span>Verzeichnis der KI-Abläufe</span></a></li><li><a href="checkliste.html"><span class="n">19</span><span>Checkliste</span></a></li></ol></div><div class="toc-part"><h3>Übung</h3><ol><li><a href="a-uebung-1.html"><span class="n">·</span><span>Übung: Agenten-Instruktion</span></a></li><li><a href="ideen.html"><span class="n">·</span><span>Ideen sammeln</span></a></li></ol></div><div class="toc-part"><h3>Fragen</h3><ol><li><a href="a-spickzettel.html"><span class="n">·</span><span>Spickzettel</span></a></li></ol></div><div class="toc-part"><h3>Mehr</h3><ol><li><a href="index.html"><span class="n">·</span><span>Titelseite</span></a></li><li><a href="quellen.html"><span class="n">·</span><span>Quellen</span></a></li><li><a href="danke.html"><span class="n">·</span><span>Kontakt</span></a></li><li><a href="../index.html"><span class="n">·</span><span>Alle drei Stufen</span></a></li></ol></div></div></dialog><script src="../assets/app.js"></script><script src="../assets/widgets.js"></script></body></html>

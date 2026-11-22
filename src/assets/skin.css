@@ -207,3 +207,13 @@ kbd { font-family: var(--mono); font-size: 0.85em; border: 1px solid var(--line)
 .ragd-sysp { fill: var(--surface-2); stroke: none; }
 .agd-loop { fill: none; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; color: var(--accent); }
 .ragd .agd-looptxt { font-size: 13px; fill: var(--accent); font-weight: 600; }
+
+/* Agent Builder: hochformatiger Screenshot in voller Breite, damit der Text lesbar ist */
+.shot[src*="ab-configure"] { width: 100%; max-height: none; }
+.mcpd { max-width: 58rem; margin: 0 auto 1.25rem; }
+.cards.ex4 { grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+.cards.ex4 .card { display: flex; flex-direction: column; }
+.cards.ex4 .card p { flex: 1; margin-bottom: 0.6rem; }
+.cards.ex4 .code { margin: 0; font-size: 0.74rem; line-height: 1.45; }
+.ex-solution summary { cursor: pointer; font-weight: 700; color: var(--accent); padding: 0.4rem 0; }
+.ex-solution .ex-box { margin-top: 0.5rem; }
