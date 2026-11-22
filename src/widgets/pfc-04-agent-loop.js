@@ -1,13 +1,13 @@
 App.widget('agent-loop', function (root, ctx) {
   var el = App.el;
-  // Illustrative run of the variance agent: per round a thought, a tool call and an observation.
+  // Illustrative run of the enquiry agent (municipal contact form): per round a thought, a tool call and an observation.
   // ctxAdd = tokens the round adds to the context (tool results etc.), illustrative.
   var ROUNDS = [
-    { think: 'Ich brauche die Budget-vs.-Ist-Datei für September.', act: 'Werkzeug «Datei lesen»: BvI_2026-09.xlsx', obs: '6 Positionen geladen, Werte in TCHF.', ctxAdd: 6000 },
-    { think: 'Abweichungen nicht selbst rechnen – das Werkzeug aufrufen.', act: 'Werkzeug «Abweichungen_berechnen» (5 % / 50 TCHF)', obs: 'Über beiden Schwellen: Marketing +190 (+30.6 %). EBIT −720 (−38.9 %).', ctxAdd: 4000 },
-    { think: 'Ursache für Marketing in den Kommentaren suchen.', act: 'Werkzeug «Kommentare durchsuchen»: Kostenstelle Marketing', obs: '«Messe vom Q4 ins Q3 vorgezogen.»', ctxAdd: 9000 },
-    { think: 'Der Umsatz treibt das EBIT – gibt es dazu einen Kommentar?', act: 'Werkzeug «Kommentare durchsuchen»: Vertrieb', obs: 'Kein Kommentar gefunden → «Ursache offen – Rückfrage Kostenstelle».', ctxAdd: 8000 },
-    { think: 'Entwurf schreiben, dann jede Zahl prüfen.', act: 'Selbstprüfung: Zahlen mit dem Werkzeug-Resultat abgleichen', obs: 'Alle Zahlen stimmen mit dem Werkzeug-Resultat überein.', ctxAdd: 5000 }
+    { think: 'Ich brauche die neue Anfrage aus dem Kontaktformular.', act: 'Werkzeug «Anfrage lesen»: neuester Eintrag im Kontaktformular', obs: 'Anfrage geladen: Sperrgut abholen lassen – wie anmelden, was kostet es?', ctxAdd: 6000 },
+    { think: 'Das Amt nicht raten – das Werkzeug aufrufen.', act: 'Werkzeug «Zuständigkeit_nachschlagen» (Stichwort Sperrgut)', obs: 'Zuständig: Werkhof. Nicht zuständig: Bauverwaltung.', ctxAdd: 4000 },
+    { think: 'Wie die Anmeldung läuft, im Merkblatt suchen.', act: 'Werkzeug «Merkblätter durchsuchen»: Werkhof, Sperrgut', obs: '«Sperrgut wird nur auf Anmeldung abgeholt.»', ctxAdd: 9000 },
+    { think: 'Die Einwohnerin fragt auch nach dem Preis – steht dazu etwas im Merkblatt?', act: 'Werkzeug «Merkblätter durchsuchen»: Gebühren Sperrgut', obs: 'Kein Eintrag gefunden → «Angabe offen – Rückfrage Werkhof».', ctxAdd: 8000 },
+    { think: 'Entwurf schreiben, dann jede Aussage prüfen.', act: 'Selbstprüfung: Aussagen mit den Werkzeug-Resultaten abgleichen', obs: 'Alle Aussagen stimmen mit den Werkzeug-Resultaten überein.', ctxAdd: 5000 }
   ];
   var BASE = 6000, OUT = 1500, PIN = 2 / 1e6, POUT = 10 / 1e6; // Sonnet 5.5 list prices (USD per token)
   var PH = [{ k: 'think', t: 'Denken', s: 'Was ist der nächste Schritt?' }, { k: 'act', t: 'Handeln', s: 'Werkzeug aufrufen' }, { k: 'obs', t: 'Beobachten', s: 'Resultat in Kontext übernehmen' }];
@@ -47,8 +47,8 @@ App.widget('agent-loop', function (root, ctx) {
     nEnd.classList.toggle('on', step === last);
     nodes.forEach(function (n, i) { n.classList.toggle('on', step >= 0 && step < last && step % 3 === i); });
     now.innerHTML = '';
-    if (step === -1) { el('b', { text: 'Start' }, now); now.appendChild(document.createTextNode('Neue Datei «BvI_2026-09.xlsx» in SharePoint. Der Agent erhält Instruktion und Auftrag.')); }
-    else if (step === last) { el('b', { text: 'Ergebnis' }, now); now.appendChild(document.createTextNode('Entwurf mit Tabelle und Kommentaren an die Controllerin zur Freigabe – nie direkt an die GL.')); }
+    if (step === -1) { el('b', { text: 'Start' }, now); now.appendChild(document.createTextNode('Neue Anfrage im Kontaktformular der Gemeinde. Der Agent erhält Instruktion und Auftrag.')); }
+    else if (step === last) { el('b', { text: 'Ergebnis' }, now); now.appendChild(document.createTextNode('Zuweisung an den Werkhof und Antwortentwurf an die Sachbearbeiterin zur Freigabe – nie direkt an die Einwohnerin.')); }
     else { var p = PH[step % 3]; el('b', { text: 'Runde ' + (st.r + 1) + ' · ' + p.t }, now); now.appendChild(document.createTextNode(ROUNDS[st.r][p.k])); }
     sRound.innerHTML = '<span>Modellaufrufe</span><b>' + st.calls + '</b>';
     sCtx.innerHTML = '<span>Kontext</span><b>' + App.fmt(st.ctx) + ' Tokens</b>';

@@ -1,0 +1,20 @@
+<p class="lead">Ein Agent arbeitet in einer Schleife: <strong>denken, handeln, beobachten</strong> – und wieder von vorn, bis das Ziel erreicht ist. Jede Runde ist ein neuer Modellaufruf.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="agent-loop">
+  <div class="fig-body"></div>
+  <figcaption>Schematischer Ablauf am Beispiel einer Anfrage aus dem Kontaktformular der Gemeinde. Das Muster «Reasoning + Acting» stammt aus der Forschung (ReAct).[[ref:react,anthropic-agents]] Die Token-Zahlen sind illustrativ.</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Drei Folgen für dich: Jede Runde kostet. Der Kontext wächst und wird an den nächsten Schritt weitergereicht. Und ein Fehler in einer Runde fliesst in alle folgenden ein.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Denken, Handeln, Beobachten</h2>
+    <p>Yao et al. haben 2022 gezeigt, dass Sprachmodelle bessere Resultate liefern, wenn sie abwechselnd einen Gedanken formulieren («Ich muss zuerst wissen, welches Amt zuständig ist»), eine Aktion ausführen (Werkzeug aufrufen) und das Resultat beobachten.[[ref:react]] Fast alle heutigen Agenten-Plattformen funktionieren nach diesem Prinzip.</p>
+    <h2>Warum der Kontext wächst</h2>
+    <p>Ein Sprachmodell hat kein Gedächtnis zwischen zwei Aufrufen. Damit es in Runde 5 weiss, was in Runde 1 bis 4 geschah, schickt die Plattform den ganzen bisherigen Verlauf jedes Mal mit: Instruktion, Daten, alle Werkzeugaufrufe und deren Resultate. Deshalb steigen die Kosten pro Runde.</p>
+    <h2>Warum Fehler mitwandern</h2>
+    <p>Weil alles im Kontext bleibt, bleibt auch ein Fehler darin. Liest der Agent in Runde 2 das falsche Amt aus der Zuständigkeitsliste, bauen alle folgenden Runden darauf auf – und formulieren das Resultat überzeugend.[[ref:anthropic-agents]] Mehr dazu unter <a href="@fehlerkette">Fehlerkette</a>.</p>
+  </div>
+</details>

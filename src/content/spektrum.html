@@ -1,0 +1,27 @@
+<p class="lead">Zwischen einem Chat und einem autonomen Agenten liegt ein Spektrum. Je weiter rechts, desto <strong>flexibler</strong> – aber auch teurer, langsamer und fehleranfälliger.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <ol class="flow">
+      <li><b>Chat</b>Eine Frage, eine Antwort. Mensch steuert jeden Schritt.<br><span class="muted">«Erkläre mir dieses Reglement»</span></li>
+      <li><b>Assistent mit Wissen</b>Fester Auftrag plus hinterlegte Dokumente. Reagiert nur auf Fragen.<br><span class="muted">Agent Builder, Claude-Projekt</span></li>
+      <li><b>Workflow</b>Das Modell arbeitet in vordefinierten Schritten, die Reihenfolge ist fix.<br><span class="muted">Agent Flow, Prompt-Kette</span></li>
+      <li class="hl"><b>Agent</b>Das Modell plant selbst, wählt Werkzeuge, wiederholt Schritte bis zum Ziel.<br><span class="muted">Copilot Studio, Claude Code</span></li>
+    </ol>
+    <div class="spec-axis" aria-hidden="true"><span>vorhersehbar, günstig, prüfbar</span><span>flexibel – aber mehr Kosten, Latenz und Fehlerrisiko</span></div>
+    <p class="callout"><b>Faustregel:</b> Mit der einfachsten Lösung beginnen und Autonomie nur dort zulassen, wo sie das Resultat nachweislich verbessert.[[ref:anthropic-agents]]</p>
+  </div>
+  <figcaption>Vier Stufen der Autonomie mit Produktbeispielen. Einordnung nach Schluntz &amp; Zhang, «Building effective agents».[[ref:anthropic-agents]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Für viele Aufgaben in der Verwaltung reicht ein Assistent mit Wissen oder ein Workflow. Ein echter Agent lohnt sich erst, wenn der Weg zum Ziel nicht vorab bekannt ist.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Warum nicht immer «ganz rechts»?</h2>
+    <p>Jeder Schritt nach rechts gibt dem Modell mehr Entscheidungsfreiheit. Das kostet in drei Währungen: Jede zusätzliche Runde ist ein Modellaufruf (Kosten), dauert (Latenz) und kann danebengehen (Fehlerrisiko).[[ref:anthropic-agents]] Ein Workflow, der stets dieselben drei Schritte ausführt, ist dagegen vorhersehbar und lässt sich Schritt für Schritt prüfen – genau das, was eine Verwaltung von einem Prozess erwartet.</p>
+    <h2>Im Fallbeispiel</h2>
+    <p>Unser Beispiel in diesem Teil ist ein Agent für Anfragen aus dem Kontaktformular der Gemeinde: Er weist jede Anfrage dem richtigen Amt zu (Steueramt, Bauverwaltung, Einwohnerdienste, Sozialdienst, Werkhof) und entwirft eine Antwort, die ein Mensch freigibt. Er lässt sich auf zwei Arten bauen: einfach als Assistent mit Wissen (Agent Builder, Claude-Projekt), dem du jede Anfrage selbst hineinkopierst, und komplex als Agent, der selbst startet, die Zuständigkeit mit einem Werkzeug nachschlägt und die Auskunft in den Merkblättern sucht (Copilot Studio, Claude Code). Vergleiche am Ende, ob die zusätzliche Autonomie den Aufwand rechtfertigt.</p>
+  </div>
+</details>

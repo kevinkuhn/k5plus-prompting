@@ -148,7 +148,7 @@ App.widget('pipeline', function (root, ctx) {
   var ANSWER = 'Das Bauamt hat am 3. September den Kredit von CHF 480’000 für die Sanierung der Schulhausstrasse genehmigt. Ab Januar gelten am Schalter neue Öffnungszeiten: Montag bis Freitag 8 bis 12 Uhr, donnerstags zusätzlich 14 bis 18 Uhr.';
   var TOKS = App.tokenize(ANSWER);
   var STEPS = [
-    { at: 'p', edge: -1, t: 'Dein Prompt kommt an: eine Anweisung plus das Material – als Text.' },
+    { at: 'p', edge: -1, t: 'Dein Prompt kommt an: eine Anweisung plus der Kontext – als Text.' },
     { at: 't', edge: 0, t: 'Der Tokenizer zerlegt den Text in Tokens und macht daraus Zahlen.' },
     { at: 'm', edge: 1, t: 'Das Modell rechnet: Welches Token folgt am wahrscheinlichsten auf alles, was bisher dasteht?' },
     { at: 'o', edge: 2, t: 'Das gewählte Token erscheint als Teil der Antwort …' },
@@ -346,35 +346,35 @@ App.widget('rag', function (root, ctx) {
   var FLOWS = {
     plain: {
       boxes: [
-        { id: 'q', t: 'Deine Frage', sub: '«Wie lange ist die Einsprachefrist?»' },
+        { id: 'q', t: 'Deine Frage', sub: '«Kurzzeitvermietung: ab wann Bewilligung?»' },
         { id: 'm', t: 'Modell', sub: 'nur Trainingsdaten', cls: 'model' },
         { id: 'a', t: 'Antwort', sub: 'aus dem Gedächtnis' }
       ],
       edges: [['q', 'm'], ['m', 'a']],
       steps: [
-        { at: 'q', txt: 'Die Frage geht direkt ans Modell. Dein Baureglement ist nirgends im Prompt.' },
-        { at: 'm', edge: 0, txt: 'Das Modell greift auf das zurück, was in seinen Trainingsdaten über Baurecht stand – irgendwo, irgendwann.' },
-        { at: 'a', edge: 1, txt: 'Die Antwort klingt sicher, ist aber ungesichert. Ob 20 oder 30 Tage, weiss das Modell nicht.' }
+        { at: 'q', txt: 'Die Frage geht direkt ans Modell. Das Wohnbaureglement ist nirgends im Prompt.' },
+        { at: 'm', edge: 0, txt: 'Das Modell greift auf das zurück, was in seinen Trainingsdaten über Kurzzeitvermietung stand – irgendwo, irgendwann.' },
+        { at: 'a', edge: 1, txt: 'Die Antwort klingt sicher, ist aber ungesichert. Was in Kriens gilt, weiss das Modell nicht.' }
       ],
-      answer: { weak: true, tag: 'unsicher', txt: 'In der Regel beträgt die Einsprachefrist gegen eine Baubewilligung 30 Tage. Die genaue Frist hängt vom Kanton und der Gemeinde ab; bitte prüfen Sie das zuständige Baureglement.' }
+      answer: { weak: true, tag: 'unsicher', txt: 'Das ist je nach Gemeinde unterschiedlich geregelt. Viele Gemeinden kennen keine besondere Bewilligung, andere setzen eine Obergrenze. Bitte prüfen Sie das Reglement Ihrer Gemeinde.' }
     },
     rag: {
       boxes: [
-        { id: 'q', t: 'Deine Frage', sub: '«Wie lange ist die Einsprachefrist?»' },
+        { id: 'q', t: 'Deine Frage', sub: '«Kurzzeitvermietung: ab wann Bewilligung?»' },
         { id: 's', t: 'Suche', sub: 'in deinen Dokumenten', cls: 'tool' },
-        { id: 'p', t: '3 Textstellen', sub: 'Baureglement, Merkblatt, …' },
+        { id: 'p', t: '3 Textstellen', sub: 'Wohnbaureglement, …' },
         { id: 'm', t: 'Modell', sub: 'Frage + Textstellen', cls: 'model' },
         { id: 'a', t: 'Antwort', sub: 'mit Quelle' }
       ],
       edges: [['q', 's'], ['s', 'p'], ['p', 'm'], ['m', 'a']],
       steps: [
-        { at: 'q', txt: 'Die Frage kommt an. Deine Dokumente liegen in einer Sammlung: Baureglement, Merkblatt Baugesuch, Verfahrensordnung.' },
+        { at: 'q', txt: 'Die Frage kommt an. Deine Dokumente liegen in einer Sammlung, darunter das Wohnbaureglement der Stadt Kriens.' },
         { at: 's', edge: 0, txt: 'Die Software vergleicht die Frage mit jedem Absatz der Sammlung und sucht die inhaltlich nächsten.' },
-        { at: 'p', edge: 1, txt: 'Die drei passendsten Textstellen werden geholt – unter anderem Art. 14 des Baureglements.' },
+        { at: 'p', edge: 1, txt: 'Die drei passendsten Textstellen werden geholt – unter anderem Art. 10 des Wohnbaureglements.' },
         { at: 'm', edge: 2, txt: 'Das Modell liest Frage und Textstellen zusammen und schreibt daraus die Antwort.' },
         { at: 'a', edge: 3, txt: 'Die Antwort nennt die Quelle, damit du sie prüfen kannst. Das Modell hat nichts gelernt; es hat gelesen.' }
       ],
-      answer: { weak: false, tag: 'mit Quelle', txt: 'Die Einsprachefrist beträgt 20 Tage ab Publikation des Baugesuchs im amtlichen Anzeiger (Art. 14 Abs. 2 Baureglement). Die Einsprache ist schriftlich an die Baubehörde zu richten (Merkblatt Baugesuch, Ziff. 5).' }
+      answer: { weak: false, tag: 'mit Quelle', txt: 'Wer Räumlichkeiten für mehr als 90 Nächte pro Kalenderjahr kurzzeitig vermietet oder dafür anbietet, braucht eine Bewilligung (Art. 10 Abs. 1 Wohnbaureglement der Stadt Kriens).' }
     }
   };
   var LAYOUT = {
@@ -1264,14 +1264,14 @@ App.widget('chat-rounds', function (root, ctx) {
 /* ---- pfc-04-agent-loop.js ---- */
 App.widget('agent-loop', function (root, ctx) {
   var el = App.el;
-  // Illustrative run of the variance agent: per round a thought, a tool call and an observation.
+  // Illustrative run of the enquiry agent (municipal contact form): per round a thought, a tool call and an observation.
   // ctxAdd = tokens the round adds to the context (tool results etc.), illustrative.
   var ROUNDS = [
-    { think: 'Ich brauche die Budget-vs.-Ist-Datei für September.', act: 'Werkzeug «Datei lesen»: BvI_2026-09.xlsx', obs: '6 Positionen geladen, Werte in TCHF.', ctxAdd: 6000 },
-    { think: 'Abweichungen nicht selbst rechnen – das Werkzeug aufrufen.', act: 'Werkzeug «Abweichungen_berechnen» (5 % / 50 TCHF)', obs: 'Über beiden Schwellen: Marketing +190 (+30.6 %). EBIT −720 (−38.9 %).', ctxAdd: 4000 },
-    { think: 'Ursache für Marketing in den Kommentaren suchen.', act: 'Werkzeug «Kommentare durchsuchen»: Kostenstelle Marketing', obs: '«Messe vom Q4 ins Q3 vorgezogen.»', ctxAdd: 9000 },
-    { think: 'Der Umsatz treibt das EBIT – gibt es dazu einen Kommentar?', act: 'Werkzeug «Kommentare durchsuchen»: Vertrieb', obs: 'Kein Kommentar gefunden → «Ursache offen – Rückfrage Kostenstelle».', ctxAdd: 8000 },
-    { think: 'Entwurf schreiben, dann jede Zahl prüfen.', act: 'Selbstprüfung: Zahlen mit dem Werkzeug-Resultat abgleichen', obs: 'Alle Zahlen stimmen mit dem Werkzeug-Resultat überein.', ctxAdd: 5000 }
+    { think: 'Ich brauche die neue Anfrage aus dem Kontaktformular.', act: 'Werkzeug «Anfrage lesen»: neuester Eintrag im Kontaktformular', obs: 'Anfrage geladen: Sperrgut abholen lassen – wie anmelden, was kostet es?', ctxAdd: 6000 },
+    { think: 'Das Amt nicht raten – das Werkzeug aufrufen.', act: 'Werkzeug «Zuständigkeit_nachschlagen» (Stichwort Sperrgut)', obs: 'Zuständig: Werkhof. Nicht zuständig: Bauverwaltung.', ctxAdd: 4000 },
+    { think: 'Wie die Anmeldung läuft, im Merkblatt suchen.', act: 'Werkzeug «Merkblätter durchsuchen»: Werkhof, Sperrgut', obs: '«Sperrgut wird nur auf Anmeldung abgeholt.»', ctxAdd: 9000 },
+    { think: 'Die Einwohnerin fragt auch nach dem Preis – steht dazu etwas im Merkblatt?', act: 'Werkzeug «Merkblätter durchsuchen»: Gebühren Sperrgut', obs: 'Kein Eintrag gefunden → «Angabe offen – Rückfrage Werkhof».', ctxAdd: 8000 },
+    { think: 'Entwurf schreiben, dann jede Aussage prüfen.', act: 'Selbstprüfung: Aussagen mit den Werkzeug-Resultaten abgleichen', obs: 'Alle Aussagen stimmen mit den Werkzeug-Resultaten überein.', ctxAdd: 5000 }
   ];
   var BASE = 6000, OUT = 1500, PIN = 2 / 1e6, POUT = 10 / 1e6; // Sonnet 5.5 list prices (USD per token)
   var PH = [{ k: 'think', t: 'Denken', s: 'Was ist der nächste Schritt?' }, { k: 'act', t: 'Handeln', s: 'Werkzeug aufrufen' }, { k: 'obs', t: 'Beobachten', s: 'Resultat in Kontext übernehmen' }];
@@ -1311,8 +1311,8 @@ App.widget('agent-loop', function (root, ctx) {
     nEnd.classList.toggle('on', step === last);
     nodes.forEach(function (n, i) { n.classList.toggle('on', step >= 0 && step < last && step % 3 === i); });
     now.innerHTML = '';
-    if (step === -1) { el('b', { text: 'Start' }, now); now.appendChild(document.createTextNode('Neue Datei «BvI_2026-09.xlsx» in SharePoint. Der Agent erhält Instruktion und Auftrag.')); }
-    else if (step === last) { el('b', { text: 'Ergebnis' }, now); now.appendChild(document.createTextNode('Entwurf mit Tabelle und Kommentaren an die Controllerin zur Freigabe – nie direkt an die GL.')); }
+    if (step === -1) { el('b', { text: 'Start' }, now); now.appendChild(document.createTextNode('Neue Anfrage im Kontaktformular der Gemeinde. Der Agent erhält Instruktion und Auftrag.')); }
+    else if (step === last) { el('b', { text: 'Ergebnis' }, now); now.appendChild(document.createTextNode('Zuweisung an den Werkhof und Antwortentwurf an die Sachbearbeiterin zur Freigabe – nie direkt an die Einwohnerin.')); }
     else { var p = PH[step % 3]; el('b', { text: 'Runde ' + (st.r + 1) + ' · ' + p.t }, now); now.appendChild(document.createTextNode(ROUNDS[st.r][p.k])); }
     sRound.innerHTML = '<span>Modellaufrufe</span><b>' + st.calls + '</b>';
     sCtx.innerHTML = '<span>Kontext</span><b>' + App.fmt(st.ctx) + ' Tokens</b>';
@@ -1391,26 +1391,26 @@ App.widget('prompt-levels', function (root) {
   // [text, css class] segments; class c = highlighted addition of this level, m = muted
   var LEVELS = [
     { name: 'Einfach', title: 'Stufe 1 · Der einfache Prompt',
-      prompt: [['Erkläre mir die Abweichungen in der angehängten Tabelle.', '']],
+      prompt: [['Beantworte die angehängte Anfrage aus dem Kontaktformular.', '']],
       head: 'Typisches Resultat', good: false,
-      items: ['allgemeiner, langer Text', 'rechnet Prozente selbst – evtl. falsch', 'erfindet plausible Ursachen', 'Form und Ton jedes Mal anders'],
-      note: 'So beginnen die meisten. Für eine schnelle erste Einschätzung reicht das – für einen Bericht an die Geschäftsleitung nicht.' },
+      items: ['allgemeiner, langer Text', 'rät das Amt und rechnet Fristen selbst – evtl. falsch', 'erfindet plausible Gebühren und Abläufe', 'Form und Ton jedes Mal anders'],
+      note: 'So beginnen die meisten. Für eine schnelle erste Einschätzung reicht das – für eine Antwort an eine Einwohnerin nicht.' },
     { name: 'Strukturiert', title: 'Stufe 2 · Der strukturierte Prompt',
-      prompt: [['Rolle:', 'c'], [' Du bist Controller eines Schweizer Industrie-KMU.\n', ''], ['Kontext:', 'c'], [' Angehängt ist Budget vs. Ist September 2026 in TCHF.\n', ''], ['Aufgabe:', 'c'], [' Kommentiere die drei grössten Abweichungen für die Geschäftsleitung.\n', ''], ['Format:', 'c'], [' Je Abweichung max. 3 Sätze, sachlich, keine Spekulation.', '']],
+      prompt: [['Anweisung:', 'c'], [' Ordne die Anfrage dem zuständigen Amt zu und entwirf eine Antwort.\n', ''], ['Kontext:', 'c'], [' Wir sind die Kanzlei einer Schweizer Gemeinde. Angehängt ist eine Anfrage aus dem Kontaktformular. Ämter: Steueramt, Bauverwaltung, Einwohnerdienste, Sozialdienst, Werkhof.\n', ''], ['Form:', 'c'], [' Zuerst das Amt in einer Zeile, dann max. 5 Sätze in Sie-Form, sachlich, keine Spekulation.', '']],
       head: 'Was sich ändert', good: true,
-      items: ['Fachsprache und Perspektive passen', 'Länge und Form sind steuerbar', 'Fokus auf das Wesentliche'],
-      bad: ['Noch offen: Zahlen und Ursachen'],
-      note: 'Merkhilfe: Rolle · Kontext · Aufgabe · Format.' },
+      items: ['Ton und Perspektive passen', 'Länge und Form sind steuerbar', 'Fokus auf das Wesentliche'],
+      bad: ['Noch offen: Zuständigkeit und Fakten'],
+      note: 'Merkhilfe: Anweisung · Kontext · Form.' },
     { name: 'Fortgeschritten', title: 'Stufe 3 · Der fortgeschrittene Prompt',
-      prompt: [['[Rolle, Kontext, Aufgabe wie Stufe 2]\n', 'm'], ['Gehe Schritt für Schritt vor:\n', 'c'], ['1. Wähle Positionen mit |Abw.| > 5 % UND > 50 TCHF.\n', ''], ['2. Übernimm Werte nur aus Spalte «Abw.» – rechne nicht selbst.\n', 'c'], ['3. Nenne eine Ursache nur, wenn sie in <kommentare> steht,\n   sonst: «Ursache offen – Rückfrage Kostenstelle».\n', 'c'], ['Beispiel:', 'c'], [' «Marketing +190 TCHF (+30.6 %): Messe vom Q4 ins Q3\n   vorgezogen; Verschiebung, kein Mehraufwand im Jahr.»\n', ''], ['Prüfe zum Schluss: Stimmt jede Zahl mit <daten> überein?\n', 'c'], ['<daten> … </daten> <kommentare> … </kommentare>', 'c']],
+      prompt: [['[Anweisung, Kontext, Form wie Stufe 2]\n', 'm'], ['Gehe Schritt für Schritt vor:\n', 'c'], ['1. Bestimme das Amt nur anhand von <zuständigkeiten>.\n', ''], ['2. Übernimm Fristen und Gebühren nur aus <merkblatt> – rechne nicht selbst.\n', 'c'], ['3. Gib eine Auskunft nur, wenn sie in <merkblatt> steht,\n   sonst: «Angabe offen – Rückfrage beim Amt».\n', 'c'], ['Beispiel:', 'c'], [' «Zuständig: Werkhof. Sperrgut holen wir nur auf Anmeldung\n   ab. Zu den Kosten meldet sich der Werkhof bei Ihnen.»\n', ''], ['Prüfe zum Schluss: Steht jede Aussage in <merkblatt>?\n', 'c'], ['<anfrage> … </anfrage> <zuständigkeiten> … </zuständigkeiten>\n<merkblatt> … </merkblatt>', 'c']],
       head: 'Neu auf dieser Stufe', good: true,
       items: ['Schritte vorgeben', 'Regeln gegen Rechnen und Erfinden', 'Beispiel der gewünschten Antwort', 'Daten abgrenzen mit Markierungen', 'Selbstprüfung am Ende'],
-      note: 'Diese Techniken sind gut erforscht – mehr in Kapitel 15.' },
+      note: 'Diese Techniken sind gut erforscht.' },
     { name: 'Instruktion', title: 'Stufe 4 · Die Agenten-Instruktion',
-      prompt: [['# ZWECK\n', 'c'], ['Monatlicher Kommentar Budget vs. Ist für die GL.\n', ''], ['# REGELN\n', 'c'], ['- Zahlen nur aus Tool «Abweichungen_berechnen».\n- Keine Ursache erfinden; Lücken als offen markieren.\n- Schweizer Rechtschreibung (ss statt ß), sachlich.\n', ''], ['# ABLAUF\n', 'c'], ['1. Datei «BvI_<Monat>.xlsx» aus SharePoint laden.\n2. «Abweichungen_berechnen» aufrufen (5 % / 50 TCHF).\n3. Ursachen in Kostenstellen-Kommentaren suchen.\n4. Entwurf an Controller zur Freigabe, nie direkt an GL.\n', ''], ['# AUSGABE\n', 'c'], ['Tabelle + max. 3 Sätze je Position (siehe Beispiel).\n', ''], ['# SELBSTPRÜFUNG\n', 'c'], ['Jede Zahl mit dem Tool-Resultat abgleichen.', '']],
+      prompt: [['# ZWECK\n', 'c'], ['Anfragen aus dem Kontaktformular zuweisen, Antwort entwerfen.\n', ''], ['# REGELN\n', 'c'], ['- Amt nur aus Tool «Zuständigkeit_nachschlagen».\n- Keine Auskunft erfinden; Lücken als offen markieren.\n- Schweizer Rechtschreibung (ss, kein Eszett), Sie-Form, sachlich.\n', ''], ['# ABLAUF\n', 'c'], ['1. Neue Anfrage aus dem Kontaktformular lesen.\n2. «Zuständigkeit_nachschlagen» aufrufen (fünf Ämter).\n3. Auskunft in den Merkblättern des Amts suchen.\n4. Entwurf an Sachbearbeitung zur Freigabe, nie direkt versenden.\n', ''], ['# AUSGABE\n', 'c'], ['Amt + Antwort mit max. 5 Sätzen (siehe Beispiel).\n', ''], ['# SELBSTPRÜFUNG\n', 'c'], ['Jede Aussage mit Merkblatt und Tool-Resultat abgleichen.', '']],
       head: 'Neu auf dieser Stufe', good: true,
       items: ['Dauerhaft hinterlegt statt jedes Mal getippt – gilt für jeden Lauf', 'Benennt Werkzeuge, Wissensquellen und Grenzen ausdrücklich', 'Gegliedert in Markdown'],
-      note: '«Abweichungen_berechnen» ist ein Werkzeug, das separat gebaut wird – je Plattform anders.' }
+      note: '«Zuständigkeit_nachschlagen» ist ein Werkzeug, das separat gebaut wird – je Plattform anders.' }
   ];
   var cur = 0;
   root.classList.add('w', 'pl');

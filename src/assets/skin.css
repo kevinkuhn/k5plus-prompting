@@ -171,3 +171,29 @@ html:has([data-mode="print"]) { font-size: 16px; }
 
 /* Tokenizer ohne Token-Nummern (Beginner) */
 .fig.simple .tk-ids, .fig.simple .hint { display: none; }
+
+/* RAG-Schema */
+.ragd { width: 100%; height: auto; display: block; color: var(--ink); }
+.ragd text { text-anchor: middle; font-family: var(--body); }
+.ragd-sys { fill: none; stroke: var(--ink-3); stroke-width: 1.5; stroke-dasharray: 6 6; }
+.ragd-box { fill: var(--surface); stroke: var(--ink); stroke-width: 1.8; }
+.ragd-pill { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; }
+.ragd-dash { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.ragd-dark { fill: var(--ink); }
+.ragd-line path { fill: none; stroke: var(--ink); stroke-width: 1.5; }
+.ragd-rule { stroke: var(--ink); stroke-width: 2.5; stroke-linecap: round; }
+.ragd .ragd-t { font-size: 15px; font-weight: 600; fill: var(--ink); }
+.ragd .ragd-s { font-size: 11.5px; fill: var(--ink-2); }
+.ragd .inv { fill: #fff; }
+.ragd .ragd-k { font-size: 15px; font-weight: 700; fill: var(--ink); }
+.ragd .ragd-step { font-size: 18px; font-weight: 800; fill: var(--accent); }
+
+/* breite Figur unter dem Text (Schemata) */
+@media (min-width: 1000px) {
+  .chapter.wide { grid-template-columns: minmax(0, 1fr); grid-template-areas: "text" "fig" "more"; }
+  .chapter.wide .slide h1, .chapter.wide .lead, .chapter.wide .eyebrow { max-width: none; }
+  .chapter.wide .col-text { display: grid; grid-template-columns: 5fr 7fr; column-gap: clamp(2rem, 4vw, 4rem); }
+  .chapter.wide .col-text > .eyebrow { grid-column: 1 / -1; }
+  .chapter.wide .col-fig { margin-top: 1.5rem; }
+  .chapter.wide .ragd { max-width: 60rem; margin: 0 auto; }
+}

@@ -1,0 +1,29 @@
+<p class="lead">Bevor du selbst Agenten baust, muss die IT einiges freigeben – <strong>je Gemeinde verschieden</strong>. Sechs Stellen, an denen es hängen kann.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <div class="cards">
+      <div class="card"><h3><span class="n">1</span>M365 Admin Center</h3><p>Agents → Settings: erlaubte Agententypen; wer Agenten nutzen und organisationsweit teilen darf.[[ref:ms-admin]]</p></div>
+      <div class="card"><h3><span class="n">2</span>Copilot → Billing &amp; usage</h3><p>Pay-as-you-go über Azure-Abo. Budgets warnen nur, sie stoppen nicht.[[ref:ms-admin]]</p></div>
+      <div class="card"><h3><span class="n">3</span>Power Platform Admin Center</h3><p>Umgebung, Rolle «Environment Maker», Datenrichtlinien (DLP) – können Trigger und Connectoren sperren.[[ref:ms-dlp]]</p></div>
+      <div class="card accent"><h3><span class="n">4</span>Datenzugriff</h3><p>Agent sieht nur, was der Nutzer sieht – aber hochgeladene Dateien sieht jeder, der den Agenten nutzt.[[ref:ms-knowledge]]</p></div>
+      <div class="card"><h3><span class="n">5</span>Connectors und Dataverse</h3><p>Copilot-Connectors und Business-Daten muss ein Admin zuerst aktivieren.[[ref:ms-agent-builder]]</p></div>
+      <div class="card"><h3><span class="n">6</span>Technik</h3><p>Unterstützte Region der Standardumgebung; Firewall erlaubt <code>*.api.powerplatform.com</code>.[[ref:ms-agent-builder]]</p></div>
+    </div>
+  </div>
+  <figcaption>Quellen: Microsoft Learn, Stand Oktober 2026.[[ref:ms-admin,ms-dlp,ms-knowledge,ms-agent-builder]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Punkt 4 ist der heikelste: Eine hochgeladene Liste mit Dossiers des Sozialdienstes im Agenten-Wissen sieht jeder, mit dem der Agent geteilt wird – unabhängig von seinen SharePoint-Rechten.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Wie du das Gespräch mit der IT vorbereitest</h2>
+    <p>Bring einen konkreten Anwendungsfall mit – etwa den Agenten, der Anfragen aus dem Kontaktformular dem richtigen Amt zuweist und eine Antwort entwirft – und die Antworten auf vier Fragen: Welche Daten braucht der Agent, und wo liegen sie? Wer soll ihn nutzen? Muss er selbst starten (<a href="@ausloeser">Trigger</a>) oder reicht der Chat? Was darf er pro Monat kosten?</p>
+    <h2>Warum Datenrichtlinien Agenten bremsen können</h2>
+    <p>In der Power Platform legt die IT mit Datenrichtlinien (DLP) fest, welche Connectoren miteinander Daten austauschen dürfen. Eine strenge Richtlinie kann einen SharePoint-Trigger oder einen Connector in Copilot Studio sperren – der Agent lässt sich dann bauen, aber nicht auslösen.[[ref:ms-dlp]]</p>
+    <h2>Hochgeladene Dateien sind geteilt</h2>
+    <p>Wissen aus SharePoint wird mit den Rechten der fragenden Person abgerufen. Dateien, die direkt in den Agenten hochgeladen werden, gehören dagegen zum Agenten – und jeder, der ihn nutzen darf, kann ihren Inhalt abfragen.[[ref:ms-knowledge]] Sensible Daten deshalb nie hochladen, sondern in SharePoint mit passenden Rechten ablegen.</p>
+  </div>
+</details>

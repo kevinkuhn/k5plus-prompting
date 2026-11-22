@@ -1,0 +1,27 @@
+<p class="lead">Jeder Agent – egal auf welcher Plattform – besteht aus denselben <strong>sechs Bausteinen</strong>. Wenn du sie kennst, findest du dich in jedem Produkt zurecht.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <div class="cards">
+      <div class="card"><h3><span class="n">1</span>Modell</h3><p>Das Sprachmodell, das plant, entscheidet und formuliert. Bestimmt Qualität und Preis pro Aufruf.</p></div>
+      <div class="card"><h3><span class="n">2</span>Instruktionen</h3><p>Rolle, Ziel, Regeln, Ablauf, Ausgabeformat – das «Profil» des Agenten.[[ref:wang-survey]]</p></div>
+      <div class="card"><h3><span class="n">3</span>Wissen &amp; Gedächtnis</h3><p>Dokumente, Daten und der bisherige Verlauf, auf die der Agent zugreift.[[ref:wang-survey]]</p></div>
+      <div class="card"><h3><span class="n">4</span>Werkzeuge</h3><p>Aktionen in anderen Systemen: rechnen, Dateien lesen, Mails senden, eine Fachanwendung abfragen.[[ref:wang-survey,anthropic-agents]]</p></div>
+      <div class="card"><h3><span class="n">5</span>Planung</h3><p>Zerlegt das Ziel in Teilschritte und passt den Plan an Zwischenresultate an.[[ref:wang-survey]]</p></div>
+      <div class="card"><h3><span class="n">6</span>Auslöser &amp; Kanal</h3><p>Wann der Agent startet (Chat, Zeitplan, Ereignis) und wo er antwortet (Teams, Mail, Datei).</p></div>
+    </div>
+  </div>
+  <figcaption>Die Forschung fasst LLM-Agenten in vier Module: Profil, Gedächtnis, Planung, Aktion.[[ref:wang-survey]] In der Praxis kommen Modellwahl und Auslöser als Konfigurationsentscheide dazu.</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Diese sechs Bausteine kehren immer wieder – im <a href="@gleiche-bausteine">Vergleich der Plattformen</a> stehen sie nebeneinander für alle vier Plattformen.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Woher die Einteilung stammt</h2>
+    <p>Wang et al. haben die Literatur zu LLM-basierten Agenten gesichtet und eine gemeinsame Architektur herausgearbeitet: ein <em>Profil</em> (wer der Agent ist und was er soll), ein <em>Gedächtnis</em>, eine <em>Planung</em> und eine <em>Aktion</em> (Werkzeuge).[[ref:wang-survey]] Anthropic nennt dasselbe Grundelement «augmented LLM»: ein Sprachmodell, erweitert um Suche, Werkzeuge und Gedächtnis.[[ref:anthropic-agents]]</p>
+    <h2>Was für dich daraus folgt</h2>
+    <p>Die Bausteine sind zugleich eine Prüfliste. Wenn du einen Agenten abnimmst, fragst du: Welches Modell? Welche Instruktion, in welcher Version? Auf welches Wissen hat er Zugriff – und wer sonst? Welche Werkzeuge darf er aufrufen, und schreiben diese oder lesen sie nur? Wann startet er, und wohin gehen seine Resultate?</p>
+  </div>
+</details>

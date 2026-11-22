@@ -1,0 +1,27 @@
+<p class="lead">Derselbe Auftrag, vier Mal formuliert. Jede Stufe löst ein Problem der vorherigen – bis die Instruktion <strong>dauerhaft im Agenten</strong> steht.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="prompt-levels">
+  <div class="fig-body"></div>
+  <figcaption>Durchgehendes Beispiel: eine Anfrage aus dem Kontaktformular der Gemeinde dem richtigen Amt zuweisen und eine Antwort entwerfen. Stufe 4 folgt dem Aufbau, den Microsoft für Agenten-Instruktionen empfiehlt.[[ref:ms-instructions]] Begriff «Prompt»: Eingabe an ein generatives Modell, die dessen Ausgabe steuert.[[ref:prompt-report]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Stufe 1 reicht für eine schnelle Einschätzung, nicht für eine Antwort an eine Einwohnerin. Ab Stufe 3 stehen Regeln gegen Rechnen und Erfinden im Prompt. Stufe 4 ist dauerhaft hinterlegt und gilt für jeden Lauf.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Stufe 1: der einfache Prompt</h2>
+    <p>So beginnen die meisten: «Beantworte die angehängte Anfrage aus dem Kontaktformular.» Das typische Resultat ist ein allgemeiner, langer Text. Das Modell rät, welches Amt zuständig ist, rechnet Fristen selbst aus – eventuell falsch (<a href="@rechnet-nicht">ein Sprachmodell rechnet nicht</a>) –, erfindet plausible Gebühren und Abläufe, und Form und Ton sind jedes Mal anders.</p>
+    <h2>Stufe 2: der strukturierte Prompt</h2>
+    <p>Drei Bausteine machen den Unterschied: <b>Anweisung</b>, <b>Kontext</b>, <b>Form</b> – vergleichbar mit den Instruktions-Bausteinen bei Microsoft.[[ref:ms-instructions]] Ton und Perspektive passen, Länge und Form sind steuerbar, der Fokus liegt auf dem Wesentlichen. Noch offen bleiben Zuständigkeit und Fakten.</p>
+    <h2>Stufe 3: der fortgeschrittene Prompt</h2>
+    <p>Hier kommen die Techniken aus der Forschung dazu: Schritte vorgeben[[ref:wei,kojima]], Regeln gegen Rechnen und Erfinden[[ref:pal]], ein Beispiel der gewünschten Antwort[[ref:brown]], Daten mit Markierungen wie <code>&lt;anfrage&gt;</code> abgrenzen und eine Selbstprüfung am Ende.[[ref:ms-instructions]]</p>
+    <h2>Stufe 4: die Agenten-Instruktion</h2>
+    <p>Die Instruktion wird nicht mehr jedes Mal getippt, sondern dauerhaft im Agenten hinterlegt. Sie benennt Werkzeuge, Wissensquellen und Grenzen ausdrücklich und ist in Markdown gegliedert.[[ref:ms-instructions]] Das Werkzeug «Zuständigkeit_nachschlagen» wird separat gebaut – je Plattform anders:</p>
+    <ul>
+      <li><b>Copilot Studio:</b> als Agent Flow</li>
+      <li><b>Agent Builder:</b> keine eigenen Werkzeuge – die Zeile durch «Schlage das Amt in der hinterlegten Zuständigkeitsliste nach» ersetzen (siehe <a href="@agent-builder">Agent Builder</a>)</li>
+      <li><b>Claude Code:</b> als Python-Skript im Projektordner</li>
+    </ul>
+  </div>
+</details>

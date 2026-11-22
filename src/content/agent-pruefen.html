@@ -1,0 +1,29 @@
+<p class="lead">Ein Agent ist erst so gut wie seine Prüfung. Sechs Wege, die Arbeit eines Agenten zu prüfen – von der <strong>deterministischen Nachrechnung</strong> bis zum Protokoll.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <div class="cards">
+      <div class="card"><h3><span class="n">1</span>Abgleich mit der Quelle</h3><p>Jede Zahl deterministisch nachrechnen – per Skript, Flow oder Prüf-Subagent</p></div>
+      <div class="card"><h3><span class="n">2</span>Goldener Testsatz</h3><p>Frühere Anfragen mit freigegebener Zuweisung und Antwort als Referenz[[ref:ms-cs-test]]</p></div>
+      <div class="card"><h3><span class="n">3</span>Wiederholte Läufe</h3><p>Jeden Testfall mehrfach laufen lassen und die Streuung messen[[ref:atil]]</p></div>
+      <div class="card"><h3><span class="n">4</span>Modell als Prüfer</h3><p>Ein zweites Modell bewertet – nützlich, aber mit Verzerrungen bei Position, Länge und eigenen Texten[[ref:zheng]]</p></div>
+      <div class="card accent"><h3><span class="n">5</span>Mensch in der Schleife</h3><p>Keine Ausgabe an Einwohnerinnen und Einwohner, Behörden oder Systeme ohne Freigabe[[ref:anthropic-agents]]</p></div>
+      <div class="card"><h3><span class="n">6</span>Protokoll und Monitoring</h3><p>Jeder Lauf mit Eingaben, Werkzeugaufrufen und Kosten nachvollziehbar[[ref:nist]]</p></div>
+    </div>
+  </div>
+  <figcaption>Rahmen: NIST AI Risk Management Framework – Govern, Map, Measure, Manage.[[ref:nist]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Die Wege 1 bis 3 sind automatisierbar, 5 ist nicht verhandelbar. Weg 4 ergänzt, ersetzt aber keinen der anderen.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Der goldene Testsatz</h2>
+    <p>Nimm sechs bis zwölf frühere Anfragen aus dem Kontaktformular, bei denen Zuweisung und Antwort von einem Menschen freigegeben wurden. Das ist deine Referenz. Jede Änderung an Instruktion, Modell oder Werkzeug muss diesen Testsatz bestehen – und zwar mehrfach, weil die Resultate streuen. In Copilot Studio heisst das «Evaluation»: bis zu 100 Testfragen, auch als CSV.[[ref:ms-cs-test]]</p>
+    <h2>Modell als Prüfer – mit Vorsicht</h2>
+    <p>Ein zweites Modell kann Texte bewerten: Ist der Ton sachlich, wird eine Zuständigkeit erfunden? Zheng et al. zeigen aber, dass solche Prüfer systematisch verzerrt sind: Sie bevorzugen die erste von zwei Antworten, längere Antworten und Texte im eigenen Stil.[[ref:zheng]] <a href="@rechnet-nicht">Zahlen</a> gehören deshalb nie in die Hände eines Modell-Prüfers, sondern in einen deterministischen Abgleich.</p>
+    <h2>Protokoll</h2>
+    <p>Das NIST-Rahmenwerk ordnet das Risikomanagement in vier Funktionen: steuern (Govern), einordnen (Map), messen (Measure), handhaben (Manage).[[ref:nist]] Messen setzt voraus, dass jeder Lauf protokolliert ist: Eingaben, Werkzeugaufrufe, Resultat, Kosten. Ohne Protokoll lässt sich nicht nachweisen, was der Agent getan hat.</p>
+  </div>
+</details>

@@ -1,0 +1,30 @@
+<p class="lead">Ein Sprachmodell rechnet nicht – es <strong>sagt Text voraus</strong>, und bei grösseren Zahlen bricht die Genauigkeit ein. Rechnen gehört deshalb in ein Werkzeug.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <p class="k">Multiplikation, GPT-4 mit Beispielen (2023)[[ref:dziri]]</p>
+    <div class="hbars">
+      <span class="l">2 × 2 Stellen</span><span class="b"><span style="width:88%"></span></span><span class="v">≈ 88 %</span>
+      <span class="l">3 × 3 Stellen</span><span class="b"><span style="width:18%"></span></span><span class="v">≈ 18 %</span>
+      <span class="l">4 × 4 Stellen</span><span class="b"><span style="width:0.5%"></span></span><span class="v">≈ 0 %</span>
+    </div>
+    <p class="callout warm"><b>Regel für Agenten in der Verwaltung: Zahlen nie vom Modell «im Kopf» rechnen lassen.</b> Rechnen gehört in ein Werkzeug: Code-Interpreter, Excel-Formel, Agent Flow oder Datenbank. Das Modell schreibt das Programm, das Programm rechnet.[[ref:pal]]</p>
+  </div>
+  <figcaption>Anteil korrekter Resultate; Werte aus Tabelle gerundet.[[ref:dziri]] Auch 2026 verlieren Spitzenmodelle bei der Addition mit steigender Stellenzahl an Genauigkeit.[[ref:bie]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Die Hauptursachen sind verschobene Stellen und vergessene Überträge.[[ref:bie]] Das Resultat sieht trotzdem plausibel aus – genau das macht es gefährlich.</p>
+  <p>In der Gemeinde betrifft das zum Beispiel Gebühren und Fristen: mehrere Gebührenpositionen zusammenzählen oder aus einem Eingangsdatum das Fristende bestimmen.</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Warum ein Sprachmodell schlecht rechnet</h2>
+    <p>Ein Sprachmodell erzeugt Text Stück für Stück: Es wählt jeweils das wahrscheinlichste nächste Textstück. Für «2 + 2 =» ist «4» extrem wahrscheinlich, weil es unzählige Male in den Trainingsdaten vorkommt. Für «4’837 × 2’916 =» gibt es kein auswendig gelerntes Resultat; das Modell müsste schriftlich multiplizieren, Stelle für Stelle, mit Übertrag. Dziri et al. zeigen, dass genau diese Zusammensetzung vieler Teilschritte die Modelle überfordert.[[ref:dziri]]</p>
+    <h2>Die Lösung: rechnen lassen, nicht rechnen</h2>
+    <p>Gao et al. haben 2023 einen einfachen Ausweg gezeigt: Das Modell schreibt ein kleines Programm, ein Interpreter führt es aus.[[ref:pal]] Diese Arbeitsteilung steckt heute in fast jeder Plattform: im Code-Interpreter von Copilot und Claude, in einem Agent Flow mit Excel-Formeln oder in einem Python-Skript bei Claude Code.</p>
+    <h2>Was du im Resultat prüfst</h2>
+    <p>Prüfe bei jeder Zahl, ob sie aus einem Werkzeug stammt. In Copilot und Claude sieht man, ob Code ausgeführt wurde; in Copilot Studio zeigt die Aktivitätsübersicht die Werkzeugaufrufe. Steht eine Zahl im Text, ohne dass ein Werkzeug lief, ist sie geschätzt.</p>
+    <p>Das gilt auch für den Agenten, der Anfragen aus dem Kontaktformular der Gemeinde beantwortet: Zählt ein Antwortentwurf mehrere Gebührenpositionen zusammen oder nennt er das Datum, an dem eine Frist abläuft, muss diese Rechnung aus einem Werkzeug kommen.</p>
+  </div>
+</details>

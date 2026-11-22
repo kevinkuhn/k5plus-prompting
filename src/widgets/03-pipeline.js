@@ -4,7 +4,7 @@ App.widget('pipeline', function (root, ctx) {
   var ANSWER = 'Das Bauamt hat am 3. September den Kredit von CHF 480’000 für die Sanierung der Schulhausstrasse genehmigt. Ab Januar gelten am Schalter neue Öffnungszeiten: Montag bis Freitag 8 bis 12 Uhr, donnerstags zusätzlich 14 bis 18 Uhr.';
   var TOKS = App.tokenize(ANSWER);
   var STEPS = [
-    { at: 'p', edge: -1, t: 'Dein Prompt kommt an: eine Anweisung plus das Material – als Text.' },
+    { at: 'p', edge: -1, t: 'Dein Prompt kommt an: eine Anweisung plus der Kontext – als Text.' },
     { at: 't', edge: 0, t: 'Der Tokenizer zerlegt den Text in Tokens und macht daraus Zahlen.' },
     { at: 'm', edge: 1, t: 'Das Modell rechnet: Welches Token folgt am wahrscheinlichsten auf alles, was bisher dasteht?' },
     { at: 'o', edge: 2, t: 'Das gewählte Token erscheint als Teil der Antwort …' },

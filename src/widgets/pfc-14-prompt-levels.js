@@ -4,26 +4,26 @@ App.widget('prompt-levels', function (root) {
   // [text, css class] segments; class c = highlighted addition of this level, m = muted
   var LEVELS = [
     { name: 'Einfach', title: 'Stufe 1 · Der einfache Prompt',
-      prompt: [['Erkläre mir die Abweichungen in der angehängten Tabelle.', '']],
+      prompt: [['Beantworte die angehängte Anfrage aus dem Kontaktformular.', '']],
       head: 'Typisches Resultat', good: false,
-      items: ['allgemeiner, langer Text', 'rechnet Prozente selbst – evtl. falsch', 'erfindet plausible Ursachen', 'Form und Ton jedes Mal anders'],
-      note: 'So beginnen die meisten. Für eine schnelle erste Einschätzung reicht das – für einen Bericht an die Geschäftsleitung nicht.' },
+      items: ['allgemeiner, langer Text', 'rät das Amt und rechnet Fristen selbst – evtl. falsch', 'erfindet plausible Gebühren und Abläufe', 'Form und Ton jedes Mal anders'],
+      note: 'So beginnen die meisten. Für eine schnelle erste Einschätzung reicht das – für eine Antwort an eine Einwohnerin nicht.' },
     { name: 'Strukturiert', title: 'Stufe 2 · Der strukturierte Prompt',
-      prompt: [['Rolle:', 'c'], [' Du bist Controller eines Schweizer Industrie-KMU.\n', ''], ['Kontext:', 'c'], [' Angehängt ist Budget vs. Ist September 2026 in TCHF.\n', ''], ['Aufgabe:', 'c'], [' Kommentiere die drei grössten Abweichungen für die Geschäftsleitung.\n', ''], ['Format:', 'c'], [' Je Abweichung max. 3 Sätze, sachlich, keine Spekulation.', '']],
+      prompt: [['Anweisung:', 'c'], [' Ordne die Anfrage dem zuständigen Amt zu und entwirf eine Antwort.\n', ''], ['Kontext:', 'c'], [' Wir sind die Kanzlei einer Schweizer Gemeinde. Angehängt ist eine Anfrage aus dem Kontaktformular. Ämter: Steueramt, Bauverwaltung, Einwohnerdienste, Sozialdienst, Werkhof.\n', ''], ['Form:', 'c'], [' Zuerst das Amt in einer Zeile, dann max. 5 Sätze in Sie-Form, sachlich, keine Spekulation.', '']],
       head: 'Was sich ändert', good: true,
-      items: ['Fachsprache und Perspektive passen', 'Länge und Form sind steuerbar', 'Fokus auf das Wesentliche'],
-      bad: ['Noch offen: Zahlen und Ursachen'],
-      note: 'Merkhilfe: Rolle · Kontext · Aufgabe · Format.' },
+      items: ['Ton und Perspektive passen', 'Länge und Form sind steuerbar', 'Fokus auf das Wesentliche'],
+      bad: ['Noch offen: Zuständigkeit und Fakten'],
+      note: 'Merkhilfe: Anweisung · Kontext · Form.' },
     { name: 'Fortgeschritten', title: 'Stufe 3 · Der fortgeschrittene Prompt',
-      prompt: [['[Rolle, Kontext, Aufgabe wie Stufe 2]\n', 'm'], ['Gehe Schritt für Schritt vor:\n', 'c'], ['1. Wähle Positionen mit |Abw.| > 5 % UND > 50 TCHF.\n', ''], ['2. Übernimm Werte nur aus Spalte «Abw.» – rechne nicht selbst.\n', 'c'], ['3. Nenne eine Ursache nur, wenn sie in <kommentare> steht,\n   sonst: «Ursache offen – Rückfrage Kostenstelle».\n', 'c'], ['Beispiel:', 'c'], [' «Marketing +190 TCHF (+30.6 %): Messe vom Q4 ins Q3\n   vorgezogen; Verschiebung, kein Mehraufwand im Jahr.»\n', ''], ['Prüfe zum Schluss: Stimmt jede Zahl mit <daten> überein?\n', 'c'], ['<daten> … </daten> <kommentare> … </kommentare>', 'c']],
+      prompt: [['[Anweisung, Kontext, Form wie Stufe 2]\n', 'm'], ['Gehe Schritt für Schritt vor:\n', 'c'], ['1. Bestimme das Amt nur anhand von <zuständigkeiten>.\n', ''], ['2. Übernimm Fristen und Gebühren nur aus <merkblatt> – rechne nicht selbst.\n', 'c'], ['3. Gib eine Auskunft nur, wenn sie in <merkblatt> steht,\n   sonst: «Angabe offen – Rückfrage beim Amt».\n', 'c'], ['Beispiel:', 'c'], [' «Zuständig: Werkhof. Sperrgut holen wir nur auf Anmeldung\n   ab. Zu den Kosten meldet sich der Werkhof bei Ihnen.»\n', ''], ['Prüfe zum Schluss: Steht jede Aussage in <merkblatt>?\n', 'c'], ['<anfrage> … </anfrage> <zuständigkeiten> … </zuständigkeiten>\n<merkblatt> … </merkblatt>', 'c']],
       head: 'Neu auf dieser Stufe', good: true,
       items: ['Schritte vorgeben', 'Regeln gegen Rechnen und Erfinden', 'Beispiel der gewünschten Antwort', 'Daten abgrenzen mit Markierungen', 'Selbstprüfung am Ende'],
-      note: 'Diese Techniken sind gut erforscht – mehr in Kapitel 15.' },
+      note: 'Diese Techniken sind gut erforscht.' },
     { name: 'Instruktion', title: 'Stufe 4 · Die Agenten-Instruktion',
-      prompt: [['# ZWECK\n', 'c'], ['Monatlicher Kommentar Budget vs. Ist für die GL.\n', ''], ['# REGELN\n', 'c'], ['- Zahlen nur aus Tool «Abweichungen_berechnen».\n- Keine Ursache erfinden; Lücken als offen markieren.\n- Schweizer Rechtschreibung (ss statt ß), sachlich.\n', ''], ['# ABLAUF\n', 'c'], ['1. Datei «BvI_<Monat>.xlsx» aus SharePoint laden.\n2. «Abweichungen_berechnen» aufrufen (5 % / 50 TCHF).\n3. Ursachen in Kostenstellen-Kommentaren suchen.\n4. Entwurf an Controller zur Freigabe, nie direkt an GL.\n', ''], ['# AUSGABE\n', 'c'], ['Tabelle + max. 3 Sätze je Position (siehe Beispiel).\n', ''], ['# SELBSTPRÜFUNG\n', 'c'], ['Jede Zahl mit dem Tool-Resultat abgleichen.', '']],
+      prompt: [['# ZWECK\n', 'c'], ['Anfragen aus dem Kontaktformular zuweisen, Antwort entwerfen.\n', ''], ['# REGELN\n', 'c'], ['- Amt nur aus Tool «Zuständigkeit_nachschlagen».\n- Keine Auskunft erfinden; Lücken als offen markieren.\n- Schweizer Rechtschreibung (ss, kein Eszett), Sie-Form, sachlich.\n', ''], ['# ABLAUF\n', 'c'], ['1. Neue Anfrage aus dem Kontaktformular lesen.\n2. «Zuständigkeit_nachschlagen» aufrufen (fünf Ämter).\n3. Auskunft in den Merkblättern des Amts suchen.\n4. Entwurf an Sachbearbeitung zur Freigabe, nie direkt versenden.\n', ''], ['# AUSGABE\n', 'c'], ['Amt + Antwort mit max. 5 Sätzen (siehe Beispiel).\n', ''], ['# SELBSTPRÜFUNG\n', 'c'], ['Jede Aussage mit Merkblatt und Tool-Resultat abgleichen.', '']],
       head: 'Neu auf dieser Stufe', good: true,
       items: ['Dauerhaft hinterlegt statt jedes Mal getippt – gilt für jeden Lauf', 'Benennt Werkzeuge, Wissensquellen und Grenzen ausdrücklich', 'Gegliedert in Markdown'],
-      note: '«Abweichungen_berechnen» ist ein Werkzeug, das separat gebaut wird – je Plattform anders.' }
+      note: '«Zuständigkeit_nachschlagen» ist ein Werkzeug, das separat gebaut wird – je Plattform anders.' }
   ];
   var cur = 0;
   root.classList.add('w', 'pl');

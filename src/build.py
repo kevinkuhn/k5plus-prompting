@@ -255,7 +255,8 @@ def article_html(deck, item, i, seq, cited, bodies):
     notes = notes_m.group(0) if notes_m else ""
     more = rest.replace(figure, "", 1).replace(notes, "", 1)
     head = f'{eyebrow(deck, item)}<header class="slide"><h1>{item["title"]}</h1>{lead}</header>'
-    return (f'<article class="chapter" {attr_s}><div class="col-text">{head}{notes}</div>'
+    cls = "chapter wide" if item.get("wide") else "chapter"
+    return (f'<article class="{cls}" {attr_s}><div class="col-text">{head}{notes}</div>'
             f'<div class="col-fig">{figure}</div>{more}</article>')
 
 

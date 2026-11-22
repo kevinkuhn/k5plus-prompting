@@ -1,0 +1,29 @@
+<p class="lead">Ein Agent arbeitet in vielen Schritten. Ist jeder einzelne Schritt zu 95 % korrekt, sind es nach 10 Schritten <strong>nur noch 60 %</strong>, dass alles stimmt.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="error-chain">
+  <div class="fig-body"></div>
+  <figcaption>Vereinfachte Rechnung p<sup>n</sup>, unabhängige Fehler angenommen; eigene Berechnung. Das Risiko sich aufschaukelnder Fehler beschreiben Schluntz &amp; Zhang.[[ref:anthropic-agents]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Der Zustand wandert mit: Ordnet der Agent in Schritt 2 eine Anfrage dem falschen Amt zu, arbeiten alle Folgeschritte damit weiter – und formulieren überzeugend.</p>
+  <p>Darum: wenige Schritte, Prüfpunkte zwischen den Schritten, ein Mensch am Ende.[[ref:anthropic-agents]]</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Die Tabelle zum Nachschlagen</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Schritte</th><th>99 % je Schritt</th><th>95 % je Schritt</th><th>90 % je Schritt</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>99 %</td><td>95 %</td><td>90 %</td></tr>
+        <tr><td>5</td><td>95 %</td><td>77 %</td><td>59 %</td></tr>
+        <tr><td>10</td><td>90 %</td><td>60 %</td><td>35 %</td></tr>
+        <tr><td>20</td><td>82 %</td><td>36 %</td><td>12 %</td></tr>
+      </tbody>
+    </table></div>
+    <h2>Warum die Rechnung vereinfacht ist</h2>
+    <p>Die Formel nimmt an, dass Fehler unabhängig voneinander auftreten. In der Wirklichkeit ist es gemischt: Manche Fehler korrigiert der Agent selbst, wenn ein Werkzeug ein unerwartetes Resultat liefert. Andere verstärken sich, weil ein falscher Zwischenstand alle folgenden Schritte prägt. Die Grössenordnung bleibt: Lange Ketten ohne Prüfpunkte sind riskant.</p>
+    <h2>Was hilft</h2>
+    <p>Erstens weniger Schritte – also nicht alles einem Agenten überlassen, was ein <a href="@spektrum">fester Workflow</a> erledigen kann. Zweitens deterministische Prüfpunkte: Ein Skript gleicht Angaben wie das zugewiesene Amt, Fristen und Gebühren mit der Quelle ab, bevor formuliert wird. Drittens ein Mensch, der den Antwortentwurf freigibt, bevor er die Gemeinde verlässt.[[ref:anthropic-agents]]</p>
+  </div>
+</details>

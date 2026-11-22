@@ -1,0 +1,31 @@
+<p class="lead">Ein Agent startet auf vier Arten: <strong>manuell, nach Zeitplan, bei einem Ereignis</strong> oder aus einem anderen Programm. Mit Zeitplan oder Ereignis läuft er, auch wenn niemand hinschaut.</p>
+<!-- /slide -->
+<figure class="fig">
+  <div class="fig-body">
+    <div class="ft-wrap"><table class="ft">
+      <thead><tr><th>Auslöser</th><th>Beispiel Gemeinde</th><th>Microsoft</th><th>Claude</th></tr></thead>
+      <tbody>
+        <tr><th>Manuell</th><td>«Bearbeite diese Anfrage»</td><td>Chat in Copilot oder Teams</td><td>Chat in Claude oder Claude Code</td></tr>
+        <tr><th>Zeitplan</th><td>Jeden Arbeitstag, 7 Uhr</td><td>Copilot Studio: «Recurrence»</td><td>Geplante Aufgaben, Routines</td></tr>
+        <tr><th>Ereignis</th><td>Neue Anfrage aus dem Kontaktformular in SharePoint</td><td>Copilot Studio: SharePoint-Trigger</td><td>Routines mit API-Auslöser</td></tr>
+        <tr><th>Programm</th><td>Anderer Agent ruft auf</td><td>Agent Flow, Agent als Tool</td><td>Subagent, <code>claude -p</code></td></tr>
+      </tbody>
+    </table></div>
+    <p class="callout warm">Agent Builder (Microsoft 365 Copilot) kennt nur den manuellen Chat. Zeitplan und Ereignisse brauchen Copilot Studio.[[ref:ms-agent-builder,ms-cs-tools]]</p>
+  </div>
+  <figcaption>Auslöser je Plattform, Stand Oktober 2026.[[ref:ms-agent-builder,ms-cs-tools,claude-code-docs]]</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Mit Zeitplan oder Ereignis wird der Assistent zum autonomen Agenten. Damit ändern sich auch Kosten und Verantwortung: Wer haftet für einen Lauf, den niemand angestossen hat?</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Manuell ist der sichere Anfang</h2>
+    <p>Solange ein Mensch jeden Lauf startet, sieht er auch jedes Resultat. Für den Einstieg ist das der richtige Modus: Du lernst, wie der Agent reagiert, bevor er alleine läuft.</p>
+    <h2>Zeitplan und Ereignis</h2>
+    <p>In Copilot Studio heissen diese Auslöser «Triggers»: etwa «Recurrence» für einen Zeitplan oder «When an item is created» für eine neue Datei in SharePoint.[[ref:ms-cs-tools]] In Claude gibt es geplante Aufgaben in der App und «Routines» in Claude Code.[[ref:claude-code-docs]] Ereignis-Läufe haben zwei Tücken: Sie laufen mit den Anmeldedaten der Person, die den Trigger eingerichtet hat, und sie kosten – auch dann, wenn ein Trigger versehentlich bei jeder Datei feuert (siehe <a href="@risiken">Risiken</a>).</p>
+    <h2>Programmatischer Aufruf</h2>
+    <p>Ein Agent kann selbst Werkzeug eines anderen Agenten sein. In Claude Code startet <code>claude -p "…"</code> einen Lauf ohne Chatfenster, etwa aus einem Skript.[[ref:claude-code-docs]]</p>
+  </div>
+</details>

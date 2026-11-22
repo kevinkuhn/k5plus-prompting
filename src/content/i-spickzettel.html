@@ -1,0 +1,112 @@
+<p class="intro">Das Wichtigste aus der Schulung auf einer Seite, zum Ausdrucken oder Kopieren.</p>
+<p class="dl"><a class="btn" href="spickzettel-{{deck}}.pdf" download>Spickzettel als PDF</a> <a class="btn secondary" href="ki-prompting-{{deck}}.pdf" download>Ganze Präsentation als PDF</a></p>
+<div class="cs" data-widget="copy">
+
+  <section class="cs-card cs-wide">
+    <h2>Die drei Bausteine</h2>
+    <ul class="cs-blocks">
+      <li><b>Anweisung</b> – Was soll das Modell tun? Beantworten, zusammenfassen, entwerfen, prüfen.</li>
+      <li><b>Kontext</b> – Worauf bezieht es sich? Die Anfrage, das Protokoll, das Reglement, deine Stichworte.</li>
+      <li><b>Form</b> – Wie soll die Antwort aussehen? Länge, Ton, Sprache, Aufbau, Anrede.</li>
+    </ul>
+  </section>
+
+  <section class="cs-card cs-wide">
+    <h2>Vorlagen zum Kopieren</h2>
+    <h3>1 · Standard-Prompt</h3>
+<pre class="cs-tpl">Situation: Ich arbeite bei [Amt/Abteilung] und wir [Aufgabe des Teams].
+Zielgruppe: [Wer liest das Ergebnis?]
+Kontext: [Text, Anfrage, Protokoll, Stichworte einfügen]
+Aufgabe: [Was genau soll entstehen?]
+Form: [Länge, Ton, Sprache, Aufbau, Anrede]
+Regeln: [Was darf nicht vorkommen? Was ist zwingend?]
+Wenn dir etwas fehlt, um das gut zu machen, frag zuerst.</pre>
+    <h3>2 · Stell mir zuerst Fragen</h3>
+<pre class="cs-tpl">Ich möchte [Ziel]. Bevor du etwas schreibst, stelle mir die 5 bis 8 Fragen,
+deren Antworten du brauchst, um das Ergebnis wirklich brauchbar zu machen.
+Stelle die Fragen nummeriert, ich antworte dann in einer Nachricht.
+Erst danach erstellst du [das Ergebnis].</pre>
+    <h3>3 · Briefing aus gesprochenem Text</h3>
+<pre class="cs-tpl">Hier ist, was ich eingesprochen habe:
+
+[Transkript einfügen]
+
+Erstelle daraus ein Briefing mit diesen Abschnitten: Ziel, Zielgruppe,
+Anforderungen, Rahmenbedingungen (Zeit, Budget, Vorgaben), offene Fragen an mich.
+Erfinde nichts; was unklar ist, gehört zu den offenen Fragen.</pre>
+    <h3>4 · Prompt bauen lassen</h3>
+<pre class="cs-tpl">Ich möchte [Aufgabe]. Schreibe mir dafür einen Prompt, den ich in einem neuen Gespräch verwenden kann.
+Stell mir zuerst die Fragen, deren Antworten du dafür brauchst, höchstens sechs.
+Der fertige Prompt enthält: Situation, Zielgruppe, Kontext, Aufgabe, Form und Regeln.
+Markiere mit [eckigen Klammern], was ich jedes Mal neu einfügen muss.</pre>
+    <h3>5 · Mein Stil</h3>
+<pre class="cs-tpl">Schreibe im Stil des folgenden Textes von mir: gleiche Satzlänge, gleiche Anrede, gleicher Ton.
+Regeln: Fliesstext ohne Aufzählungspunkte und ohne Fettdruck. Keine Einleitungs- und Schlussfloskeln.
+Keine Gedankenstriche. Schweizer Rechtschreibung (ss statt Eszett, «Guillemets»).
+
+Mein Mustertext:
+[zwei, drei Absätze einfügen]</pre>
+    <h3>6 · Zusammenfassung für ein neues Gespräch</h3>
+<pre class="cs-tpl">Fasse unser bisheriges Gespräch so zusammen, dass ich in einem neuen Gespräch
+nahtlos weiterarbeiten kann: Ziel, alle Entscheidungen und Regeln, die wir
+festgelegt haben, den aktuellen Stand des Ergebnisses und was noch offen ist.
+Kompakt, als Liste, ohne Wiederholungen.</pre>
+  </section>
+
+  <section class="cs-card">
+    <h2>Checkliste vor dem Senden</h2>
+    <ul class="cs-check">
+      <li>Kontext drin? Situation, Zielgruppe, Zweck genannt?</li>
+      <li>Form gesagt? Länge, Ton, Sprache, Aufbau?</li>
+      <li>Ist die Aufgabe klein genug, dass ich das Ergebnis prüfen kann?</li>
+      <li>Rückfragen erlaubt? («Frag zuerst, wenn etwas fehlt.»)</li>
+      <li>Vertrauliches im Prompt? Personendaten, Amtsgeheimnis, interne Dokumente?</li>
+      <li>Richtiges Tool? Nur freigegebene Tools für dienstliche Daten.</li>
+    </ul>
+  </section>
+
+  <section class="cs-card">
+    <h2>Checkliste nach der Antwort</h2>
+    <ul class="cs-check">
+      <li>Zahlen, Namen, Daten und Paragrafen einzeln geprüft?</li>
+      <li>Fundstellen verlangt – und nachgeschlagen, ob sie existieren?</li>
+      <li>Tonfall und Anrede passend für die Empfängerin, den Empfänger?</li>
+      <li>Nichts drin, was das Modell nur vermutet hat?</li>
+      <li>Du unterschreibst, nicht das Modell: Du trägst die Verantwortung.</li>
+    </ul>
+  </section>
+
+  <section class="cs-card">
+    <h2>Wenn das Gespräch hängt</h2>
+    <ol class="cs-steps">
+      <li><b>Regel wiederholen.</b> Die vergessene Vorgabe noch einmal klar nennen.</li>
+      <li><b>Zusammenfassen lassen.</b> Vorlage 6 verwenden.</li>
+      <li><b>Neues Gespräch.</b> Zusammenfassung als ersten Prompt einfügen, weiterarbeiten.</li>
+    </ol>
+  </section>
+
+  <section class="cs-card">
+    <h2>Ampel in Kurzform</h2>
+    <ul class="cs-ampel">
+      <li><i class="gruen"></i><b>Grün</b> – Öffentliche oder allgemeine Inhalte: Formulierungshilfe, Erklärungen, Ideen. Jedes Tool.</li>
+      <li><i class="gelb"></i><b>Gelb</b> – Interne, nicht personenbezogene Inhalte: Entwürfe, Protokolle ohne Namen. Nur freigegebene Tools.</li>
+      <li><i class="rot"></i><b>Rot</b> – Personendaten, besonders schützenswerte Daten, Amtsgeheimnis: Nur in Tools, die dafür ausdrücklich freigegeben sind – im Zweifel gar nicht.</li>
+    </ul>
+    <p class="cs-hint">Massgebend sind die Weisungen deiner Gemeinde. Frag im Zweifel deine IT.</p>
+  </section>
+
+  <section class="cs-card">
+    <h2>Faustregeln</h2>
+    <ul class="cs-rules" style="grid-template-columns:1fr">
+      <li>Mehr Kontext schlägt clevere Formeln.</li>
+      <li>Die Rolle ist Teil des Kontexts – nicht umgekehrt.</li>
+      <li>Ein Beispiel schlägt jede Beschreibung.</li>
+      <li>Grosse Aufgaben in kleine Schritte teilen.</li>
+      <li>Zuerst die Daten, dann das Tool.</li>
+      <li>Ein Thema pro Gespräch.</li>
+      <li>Gratis heisst: du zahlst mit Daten.</li>
+      <li>Würde ich das einer fremden Person erzählen? Wenn nein: nicht eintippen.</li>
+    </ul>
+  </section>
+
+</div>

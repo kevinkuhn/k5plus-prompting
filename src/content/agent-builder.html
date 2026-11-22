@@ -1,0 +1,42 @@
+<p class="lead">Der einfache Agent entsteht in drei Schritten direkt in Microsoft 365 Copilot: <strong>anlegen, konfigurieren, Wissen anbinden und teilen</strong> – ohne Programmierung.</p>
+<!-- /slide -->
+<figure class="fig" data-widget="shots">
+  <div class="fig-body">
+    <div class="shot-item" data-label="1 · Anlegen"><img class="shot" src="img/ab-new-agent.png" alt="Agent Builder: Startbildschirm New Agent mit Eingabefeld und Link Skip to configure"><p class="hint">Links <b>New agent</b> wählen und den Agenten in Worten beschreiben – oder <b>Skip to configure</b>.</p></div>
+    <div class="shot-item" data-label="2 · Konfigurieren"><img class="shot" src="img/ab-configure.png" alt="Agent Builder: Configure-Tab mit Feldern Instructions, Knowledge, Capabilities und Suggested prompts"><p class="hint">Im Tab <b>Configure</b>: Name, Modell, Instructions (Stufe 4), Knowledge, Capabilities, Starter prompts.</p></div>
+    <div class="shot-item" data-label="3 · Wissen"><img class="shot" src="img/ab-knowledge.png" alt="Agent Builder: Knowledge-Bereich mit Quellen SharePoint, Teams, Outlook, Web und Schaltern"><p class="hint">Bis 100 SharePoint-Dateien, 20 Uploads, 4 Websites. Der Agent beachtet die Berechtigungen des Nutzers.</p></div>
+    <div class="shot-item" data-label="4 · Teilen"><img class="shot" src="img/ab-share.png" alt="Agent Builder: Dialog Share mit Personen, Rollen und Optionen"><p class="hint">Personen mit «Can chat» oder «Can edit» hinzufügen, Link kopieren oder organisationsweit freigeben.</p></div>
+  </div>
+  <figcaption>Screenshots: Microsoft Learn.[[ref:ms-agent-builder,ms-build-agents,ms-knowledge]] Bezeichnungen der englischen Oberfläche.</figcaption>
+</figure>
+<div class="slide-notes">
+  <p>Grenze: Agent Builder kann keine Aktionen, Connectoren oder Trigger. Dafür gibt es im Menü (…) <b>Copy to Copilot Studio</b>.[[ref:ms-agent-builder]]</p>
+</div>
+<details class="more">
+  <summary>Mehr lesen</summary>
+  <div class="prose">
+    <h2>Schritt 1: neuen Agenten anlegen</h2>
+    <ol>
+      <li>Microsoft 365 Copilot öffnen: microsoft365.com/chat oder Teams (nicht mobil).</li>
+      <li>Links <b>New agent</b> wählen.</li>
+      <li>Den Agenten in Worten beschreiben – oder <b>Skip to configure</b>.</li>
+      <li>Optional: eine Vorlage unter <b>Start with a template</b>.</li>
+    </ol>
+    <h2>Schritt 2: konfigurieren</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Feld (Configure)</th><th>Für unseren Anfragen-Agenten</th></tr></thead>
+      <tbody>
+        <tr><td>Name, Description</td><td>«Anfragen zuweisen» · max. 30 bzw. 1’000 Zeichen</td></tr>
+        <tr><td>Model</td><td>Auto, Quick response oder Think deeper</td></tr>
+        <tr><td>Instructions</td><td>Stufe-4-Instruktion einfügen (siehe <a href="@prompt-stufen">Prompt-Stufen</a>) · max. 8’000 Zeichen</td></tr>
+        <tr><td>Knowledge</td><td>SharePoint-Ordner mit Zuständigkeitsliste und Merkblättern der Ämter; «Only use specified sources» an</td></tr>
+        <tr><td>Capabilities</td><td>«Create documents, charts, and code» an – damit gerechnet statt geschätzt wird, etwa bei Fristen</td></tr>
+        <tr><td>Starter prompts</td><td>«Bearbeite diese Anfrage: …»</td></tr>
+      </tbody>
+    </table></div>
+    <p>Testen im Tab <b>Try it</b>, dann <b>Create</b>. Der Agent ist zunächst nur für dich sichtbar; Änderungen gehen erst mit <b>Update</b> live.[[ref:ms-build-agents]]</p>
+    <h2>Schritt 3: Wissen anbinden und teilen</h2>
+    <p><b>Knowledge:</b> bis 100 SharePoint-Dateien, 20 Uploads, 4 Websites. Der Agent beachtet die Berechtigungen des Nutzers.[[ref:ms-knowledge]] <b>Share:</b> Personen mit «Can chat» oder «Can edit» hinzufügen, Link kopieren oder organisationsweit freigeben.[[ref:ms-knowledge]]</p>
+    <p class="aside">Da Agent Builder keine eigenen Werkzeuge kennt, ersetzt du in der Stufe-4-Instruktion die Zeile zum Tool «Zuständigkeit_nachschlagen» durch «Schlage das Amt in der hinterlegten Zuständigkeitsliste nach». Agent Builder startet zudem nur im Chat: Du kopierst jede Anfrage selbst hinein.</p>
+  </div>
+</details>

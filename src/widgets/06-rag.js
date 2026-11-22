@@ -3,35 +3,35 @@ App.widget('rag', function (root, ctx) {
   var FLOWS = {
     plain: {
       boxes: [
-        { id: 'q', t: 'Deine Frage', sub: '«Wie lange ist die Einsprachefrist?»' },
+        { id: 'q', t: 'Deine Frage', sub: '«Kurzzeitvermietung: ab wann Bewilligung?»' },
         { id: 'm', t: 'Modell', sub: 'nur Trainingsdaten', cls: 'model' },
         { id: 'a', t: 'Antwort', sub: 'aus dem Gedächtnis' }
       ],
       edges: [['q', 'm'], ['m', 'a']],
       steps: [
-        { at: 'q', txt: 'Die Frage geht direkt ans Modell. Dein Baureglement ist nirgends im Prompt.' },
-        { at: 'm', edge: 0, txt: 'Das Modell greift auf das zurück, was in seinen Trainingsdaten über Baurecht stand – irgendwo, irgendwann.' },
-        { at: 'a', edge: 1, txt: 'Die Antwort klingt sicher, ist aber ungesichert. Ob 20 oder 30 Tage, weiss das Modell nicht.' }
+        { at: 'q', txt: 'Die Frage geht direkt ans Modell. Das Wohnbaureglement ist nirgends im Prompt.' },
+        { at: 'm', edge: 0, txt: 'Das Modell greift auf das zurück, was in seinen Trainingsdaten über Kurzzeitvermietung stand – irgendwo, irgendwann.' },
+        { at: 'a', edge: 1, txt: 'Die Antwort klingt sicher, ist aber ungesichert. Was in Kriens gilt, weiss das Modell nicht.' }
       ],
-      answer: { weak: true, tag: 'unsicher', txt: 'In der Regel beträgt die Einsprachefrist gegen eine Baubewilligung 30 Tage. Die genaue Frist hängt vom Kanton und der Gemeinde ab; bitte prüfen Sie das zuständige Baureglement.' }
+      answer: { weak: true, tag: 'unsicher', txt: 'Das ist je nach Gemeinde unterschiedlich geregelt. Viele Gemeinden kennen keine besondere Bewilligung, andere setzen eine Obergrenze. Bitte prüfen Sie das Reglement Ihrer Gemeinde.' }
     },
     rag: {
       boxes: [
-        { id: 'q', t: 'Deine Frage', sub: '«Wie lange ist die Einsprachefrist?»' },
+        { id: 'q', t: 'Deine Frage', sub: '«Kurzzeitvermietung: ab wann Bewilligung?»' },
         { id: 's', t: 'Suche', sub: 'in deinen Dokumenten', cls: 'tool' },
-        { id: 'p', t: '3 Textstellen', sub: 'Baureglement, Merkblatt, …' },
+        { id: 'p', t: '3 Textstellen', sub: 'Wohnbaureglement, …' },
         { id: 'm', t: 'Modell', sub: 'Frage + Textstellen', cls: 'model' },
         { id: 'a', t: 'Antwort', sub: 'mit Quelle' }
       ],
       edges: [['q', 's'], ['s', 'p'], ['p', 'm'], ['m', 'a']],
       steps: [
-        { at: 'q', txt: 'Die Frage kommt an. Deine Dokumente liegen in einer Sammlung: Baureglement, Merkblatt Baugesuch, Verfahrensordnung.' },
+        { at: 'q', txt: 'Die Frage kommt an. Deine Dokumente liegen in einer Sammlung, darunter das Wohnbaureglement der Stadt Kriens.' },
         { at: 's', edge: 0, txt: 'Die Software vergleicht die Frage mit jedem Absatz der Sammlung und sucht die inhaltlich nächsten.' },
-        { at: 'p', edge: 1, txt: 'Die drei passendsten Textstellen werden geholt – unter anderem Art. 14 des Baureglements.' },
+        { at: 'p', edge: 1, txt: 'Die drei passendsten Textstellen werden geholt – unter anderem Art. 10 des Wohnbaureglements.' },
         { at: 'm', edge: 2, txt: 'Das Modell liest Frage und Textstellen zusammen und schreibt daraus die Antwort.' },
         { at: 'a', edge: 3, txt: 'Die Antwort nennt die Quelle, damit du sie prüfen kannst. Das Modell hat nichts gelernt; es hat gelesen.' }
       ],
-      answer: { weak: false, tag: 'mit Quelle', txt: 'Die Einsprachefrist beträgt 20 Tage ab Publikation des Baugesuchs im amtlichen Anzeiger (Art. 14 Abs. 2 Baureglement). Die Einsprache ist schriftlich an die Baubehörde zu richten (Merkblatt Baugesuch, Ziff. 5).' }
+      answer: { weak: false, tag: 'mit Quelle', txt: 'Wer Räumlichkeiten für mehr als 90 Nächte pro Kalenderjahr kurzzeitig vermietet oder dafür anbietet, braucht eine Bewilligung (Art. 10 Abs. 1 Wohnbaureglement der Stadt Kriens).' }
     }
   };
   var LAYOUT = {

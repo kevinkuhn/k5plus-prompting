@@ -13,7 +13,7 @@ SITE = {
     "headline": "KI-Prompting für die <em>öffentliche Verwaltung</em>",
     "subtitle": "Unterlagen zu den drei Schulungen für die Mitarbeitenden der K5-Gemeinden. "
                 "Wähle die Stufe, in der du angemeldet bist.",
-    "contact": {"name": "Kevin Kuhn", "phone": "+4178 863 28 20", "mail": "kevin.kuhn@gopf.com", "linkedin": ""},
+    "contact": {"name": "Kevin Kuhn", "phone": "+4178 863 28 20", "mail": "kevin.kuhn@gopf.com", "linkedin": "https://www.linkedin.com/in/kuhnkevin/"},
 }
 
 CHAPTERS = {
@@ -24,6 +24,27 @@ CHAPTERS = {
     "b-uebung-2": {"title": "Übung 2: Einen Amtstext <em>verständlich machen</em>", "short": "Übung 2: Amtstext vereinfachen", "kind": "page"},
     "ideen": {"title": "Wo könnte KI <em>bei dir</em> helfen?", "short": "Ideen sammeln", "kind": "page"},
     "b-spickzettel": {"title": "Spickzettel", "kind": "page"},
+
+    "i-ablauf": {"title": "Ablauf", "kind": "page"},
+    "i-uebung-1": {"title": "Übung 1: Die KI <em>baut den Prompt</em>", "short": "Übung 1: Sprach-Briefing", "kind": "page"},
+    "i-uebung-2": {"title": "Übung 2: Ein Prompt, <em>zwei Tools</em>", "short": "Übung 2: Zwei Tools", "kind": "page"},
+    "i-spickzettel": {"title": "Spickzettel", "kind": "page"},
+
+    # --- Intermediate ---
+    "eingabe-ausgabe": {"title": "Eingabe, Modell, <em>Ausgabe</em>", "short": "Eingabe und Ausgabe"},
+    "kontextfenster": {"title": "Das <em>Kontextfenster</em>", "short": "Kontextfenster"},
+    "context-rot": {"title": "Wenn das Gespräch <em>zu lang</em> wird", "short": "Lange Gespräche"},
+    "techniken": {"title": "Ein Beispiel schlägt <em>jede Beschreibung</em>", "short": "Beispiele und Techniken"},
+    "briefing": {"title": "<em>Sprechen</em> statt tippen: das Briefing", "short": "Sprechen statt tippen"},
+    "prompt-hilfe": {"title": "Die KI <em>baut den Prompt</em>", "short": "KI als Prompt-Hilfe"},
+    "system-prompt": {"title": "Vorlagen <em>hinterlegen</em>: der System-Prompt", "short": "Vorlagen hinterlegen"},
+    "rag": {"title": "Wie heutige <em>Chatbots</em> arbeiten", "short": "So arbeiten Chatbots (RAG)", "wide": True},
+    "kontext-mitgeben": {"title": "<em>Prüfbar</em> statt plausibel: Kontext mitgeben", "short": "Kontext mitgeben"},
+    "ki-ton": {"title": "Kein <em>KI-Ton</em>", "short": "Kein KI-Ton"},
+    "drei-kis": {"title": "Derselbe Prompt in <em>drei KIs</em>", "short": "Ein Prompt, drei KIs"},
+    "tool-wahl": {"title": "Welches Tool <em>wofür</em>?", "short": "Welches Tool wofür"},
+    "formate": {"title": "Mehr als <em>Frage und Antwort</em>", "short": "Tabellen, Protokolle, Bilder"},
+    "mehr-als-chat": {"title": "Dokumente, Werkzeuge, <em>Agenten</em>", "short": "Werkzeuge und Agenten"},
 
     # --- Was KI kann und was nicht ---
     "raten": {"title": "Ein Sprachmodell kann vor allem eines: <em>sehr gut raten</em>", "short": "Sehr gut raten"},
@@ -75,7 +96,7 @@ DECKS = [
         ],
     },
     {
-        "id": "intermediate", "level": "Intermediate", "stufe": 2, "ready": False,
+        "id": "intermediate", "level": "Intermediate", "stufe": 2, "ready": True,
         "kicker": "Intermediate-Kurs",
         "title": "<em>KI-Prompting</em> für die öffentliche Verwaltung",
         "date": "25.11.2026",
@@ -83,7 +104,22 @@ DECKS = [
                  "Die Resultate sind brauchbar, aber oft nicht ganz das, was ich will.",
                  "Ich arbeite meistens mit einem einzigen Tool."],
         "take": "Bessere Prompts, Spracheingabe, KI als Prompt-Hilfe und das richtige Tool für jede Aufgabe.",
-        "parts": [],
+        "parts": [
+            {"title": "Start", "divider": False, "chapters": ["i-ablauf"]},
+            {"title": "Warum Prompts wirken", "sub": "Was das Modell liest, und wie viel davon.",
+             "chapters": ["schritte", "eingabe-ausgabe", "kontextfenster", "context-rot"]},
+            {"title": "Techniken", "sub": "Weniger Runden bis zum brauchbaren Ergebnis.",
+             "chapters": ["kontext-statt-rolle", "techniken", "rueckfragen", "briefing", "prompt-hilfe", "system-prompt"]},
+            {"title": "Qualität", "sub": "Weniger Erfundenes, weniger KI-Ton.",
+             "chapters": ["rag", "kontext-mitgeben", "ki-ton"]},
+            {"title": "Tool und Datenschutz", "sub": "Welches Tool wann, und was ist heikel?",
+             "chapters": ["drei-kis", "tool-wahl", "gratis", "organisation"]},
+            {"title": "Mehr als Frage und Antwort", "sub": "Tabellen, Protokolle, Bilder und ein Ausblick auf Agenten.",
+             "chapters": ["formate", "mehr-als-chat"]},
+            {"title": "Übungen", "sub": "30 Minuten, zwei Übungen zum Nachmachen.",
+             "chapters": ["i-uebung-1", "i-uebung-2", "ideen"]},
+            {"title": "Fragen", "chapters": ["i-spickzettel"]},
+        ],
     },
     {
         "id": "advanced", "level": "Advanced", "stufe": 3, "ready": False,
