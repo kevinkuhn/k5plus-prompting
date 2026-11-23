@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.0] - 2026-11-23
+### Added
+- Diktat-Übungen (Intermediate, Advanced): AudioProto-Demo verlinkt, um auf Schweizerdeutsch einzusprechen und das Transkript ins KI-Tool zu übernehmen
+
 ## [0.1.0] - 2026-11-22
 ### Added
 - Kurs-Engine für drei Decks aus einem gemeinsamen Kapitelpool, Erscheinungsbild nach den Google-Slides-Vorlagen
