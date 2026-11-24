@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.2.1] - 2026-11-24
+### Fixed
+- Beginner-Deck: Durchführung vom 26.11. ergänzt
+
 ## [0.2.0] - 2026-11-23
 ### Added
 - Diktat-Übungen (Intermediate, Advanced): AudioProto-Demo verlinkt, um auf Schweizerdeutsch einzusprechen und das Transkript ins KI-Tool zu übernehmen

@@ -98,7 +98,7 @@ DECKS = [
         "id": "beginner", "level": "Beginner", "stufe": 1, "ready": True,
         "kicker": "Beginner-Kurs",
         "title": "Intro zu <em>KI-Prompting</em> für die öffentliche Verwaltung",
-        "date": "Durchführungen: 25.11. · 1.12. · 21.12.2026",
+        "date": "Durchführungen: 25.11. · 26.11. · 1.12. · 21.12.2026",
         "fits": ["Ich habe KI-Tools noch nie oder nur kurz ausprobiert.",
                  "Ich weiss nicht genau, was ich eintippen soll.",
                  "Ich möchte verstehen, was KI kann – und was nicht."],
