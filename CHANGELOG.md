@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.0] - 2026-11-25
+### Added
+- Intermediate-Deck: Kapitel «Das Modell lernt nicht mit» aus dem Beginner-Deck übernommen, im Teil «Tool und Datenschutz» vor «Gratis oder bezahlt»
+
 ## [0.4.1] - 2026-11-25
 ### Fixed
 - Diktat-Übungen (Intermediate, Advanced): Anleitung für den Mac korrigiert. Die Diktierfunktion muss zuerst eingeschaltet werden, einen festen Kurzbefehl mit fn gibt es nicht

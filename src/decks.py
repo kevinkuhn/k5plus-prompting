@@ -137,7 +137,7 @@ DECKS = [
             {"title": "Qualität", "sub": "Weniger Erfundenes, weniger KI-Ton.",
              "chapters": ["rag", "kontext-mitgeben", "ki-ton"]},
             {"title": "Tool und Datenschutz", "sub": "Welches Tool wann, und was ist heikel?",
-             "chapters": ["drei-kis", "tool-wahl", "gratis", "organisation"]},
+             "chapters": ["drei-kis", "tool-wahl", "lernt-nicht", "gratis", "organisation"]},
             {"title": "Mehr als Frage und Antwort", "sub": "Tabellen, Protokolle, Bilder, und was ein Agent ist.",
              "chapters": ["formate", "agenten"]},
             {"title": "Übungen", "sub": "30 Minuten, zwei Übungen zum Nachmachen.",
