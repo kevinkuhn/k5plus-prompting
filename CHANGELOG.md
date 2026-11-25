@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.1] - 2026-11-25
+### Fixed
+- Diktat-Übungen (Intermediate, Advanced): Anleitung für den Mac korrigiert. Die Diktierfunktion muss zuerst eingeschaltet werden, einen festen Kurzbefehl mit fn gibt es nicht
+
 ## [0.4.0] - 2026-11-25
 ### Added
 - Seite «Ein Experiment» vor der Ideensammlung (alle drei Decks): zehn Praktikantinnen und Praktikanten als Gedankenspiel, dazu vier Merkmale geeigneter Aufgaben
