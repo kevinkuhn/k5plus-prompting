@@ -152,7 +152,7 @@ h1 em { font-style: normal; color: var(--accent); }
 
 /* Formular der Ideensammlung: QR-Code zum Scannen, Link zum Anklicken */
 .form-qr { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 1.5rem; }
-.form-qr img { width: 11rem; height: 11rem; }
+.form-qr img { width: 7.5rem; height: 7.5rem; }
 .form-qr p { margin: 0 0 0.9rem; max-width: 30rem; }
 .form-qr .btn { display: inline-block; font-size: 1rem; padding: 0.6rem 1.2rem 0.45rem; text-decoration: none; background: var(--accent); border-color: var(--accent); color: #fff; }
 

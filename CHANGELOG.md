@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.1] - 2026-11-25
+### Changed
+- Ideensammlung: QR-Code zum Formular verkleinert
+
 ## [0.3.0] - 2026-11-25
 ### Added
 - Ideensammlung (alle drei Decks): Formular von K5Plus verlinkt, mit QR-Code zum Scannen
