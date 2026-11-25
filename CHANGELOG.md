@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.6.0] - 2026-11-25
+### Added
+- Kapitel «Drei Regeln, wenn ein Agent getäuscht wird» (Intermediate nach «Was ist ein Agent», Advanced nach «Risiken»): Entwurf statt Versand, minimale Rechte, Rückfrage nur bei unumkehrbaren Schritten, dazu die drei Kreise nach Simon Willison und die Regel «höchstens zwei» von Meta. Quellen am Original geprüft
+
 ## [0.5.0] - 2026-11-25
 ### Added
 - Intermediate-Deck: Kapitel «Das Modell lernt nicht mit» aus dem Beginner-Deck übernommen, im Teil «Tool und Datenschutz» vor «Gratis oder bezahlt»

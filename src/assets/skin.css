@@ -222,6 +222,18 @@ kbd { font-family: var(--mono); font-size: 0.85em; border: 1px solid var(--line)
 .agd-loop { fill: none; stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 4; color: var(--accent); }
 .ragd .agd-looptxt { font-size: 13px; fill: var(--accent); font-weight: 600; }
 
+/* Drei Regeln und die drei Kreise (Schadensbegrenzung) */
+.tri-split { align-items: center; gap: clamp(1.25rem, 4vw, 3.5rem); }
+.tri-rules { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line-soft); }
+.tri-rules li { position: relative; padding: 0.85rem 0 0.85rem 1.5rem; border-bottom: 1px solid var(--line-soft); }
+.tri-rules li::before { content: ""; position: absolute; left: 0; top: 1.5rem; width: 0.6rem; height: 2px; background: var(--accent); }
+.tri-rules b { display: block; font-family: var(--display); font-weight: 600; font-size: 1.1rem; color: var(--ink); }
+.tri-rules span { display: block; margin-top: 0.2rem; font-size: 0.92rem; line-height: 1.45; color: var(--ink-2); }
+.ragd.tri { max-width: 24rem; margin: 0 auto; }
+.tri-c { fill: var(--accent); fill-opacity: 0.12; stroke: var(--accent); stroke-width: 2; }
+.ragd .tri-mid { font-size: 15px; font-weight: 700; fill: var(--accent); }
+.tri-note { margin: 0.5rem 0 0; text-align: center; font-size: 0.88rem; color: var(--ink-2); }
+
 /* Agent Builder: hochformatiger Screenshot in voller Breite, damit der Text lesbar ist */
 .shot[src*="ab-configure"] { width: 100%; max-height: none; }
 .mcpd { max-width: 58rem; margin: 0 auto 1.25rem; }

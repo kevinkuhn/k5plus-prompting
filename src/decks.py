@@ -46,6 +46,7 @@ CHAPTERS = {
     "tool-wahl": {"title": "Welches Tool <em>wofür</em>?", "short": "Welches Tool wofür"},
     "formate": {"title": "Mehr als <em>Frage und Antwort</em>", "short": "Tabellen, Protokolle, Bilder"},
     "agenten": {"title": "Vom Chatbot zum <em>Agenten</em>", "short": "Was ist ein Agent", "wide": True},
+    "drei-regeln": {"title": "Drei Regeln, wenn ein Agent <em>getäuscht</em> wird", "short": "Schaden begrenzen", "wide": True},
     "mehr-als-chat": {"title": "Dokumente, Werkzeuge, <em>Agenten</em>", "short": "Werkzeuge und Agenten"},
 
     # --- Advanced ---
@@ -139,7 +140,7 @@ DECKS = [
             {"title": "Tool und Datenschutz", "sub": "Welches Tool wann, und was ist heikel?",
              "chapters": ["drei-kis", "tool-wahl", "lernt-nicht", "gratis", "organisation"]},
             {"title": "Mehr als Frage und Antwort", "sub": "Tabellen, Protokolle, Bilder, und was ein Agent ist.",
-             "chapters": ["formate", "agenten"]},
+             "chapters": ["formate", "agenten", "drei-regeln"]},
             {"title": "Übungen", "sub": "30 Minuten, zwei Übungen zum Nachmachen.",
              "chapters": ["i-uebung-1", "i-uebung-2", "experiment", "ideen"]},
             {"title": "Fragen", "chapters": ["i-spickzettel"]},
@@ -163,7 +164,7 @@ DECKS = [
             {"title": "Anbindung", "sub": "Wie der Agent an Dokumente und Systeme kommt.",
              "chapters": ["rag", "anbindung", "it-freigabe"]},
             {"title": "Prüfen", "sub": "Überwachen und die Resultate überprüfen.",
-             "chapters": ["rechnet-nicht", "fehlerkette", "agent-pruefen", "risiken"]},
+             "chapters": ["rechnet-nicht", "fehlerkette", "agent-pruefen", "risiken", "drei-regeln"]},
             {"title": "Governance", "sub": "Was bleibt, wenn die Schulung vorbei ist.",
              "chapters": ["prompt-bibliothek", "checkliste"]},
             {"title": "Übung", "sub": "25 Minuten, eine Übung zum Nachmachen.",

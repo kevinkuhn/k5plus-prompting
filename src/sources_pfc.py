@@ -146,6 +146,15 @@ SOURCES = [
     {"id": "gartner", "group": "27-risks",
      "text": "Gartner (25.06.2025). Gartner predicts over 40% of agentic AI projects will be canceled by end of 2027. Pressemitteilung.",
      "url": "https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027"},
+    {"id": "willison-trifecta", "group": "27-risks",
+     "text": "Willison, S. (16.06.2025). The lethal trifecta for AI agents: private data, untrusted content, and external communication. Simon Willison’s Weblog.",
+     "url": "https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/"},
+    {"id": "meta-rule-of-two", "group": "27-risks",
+     "text": "Meta (31.10.2025). Agents Rule of Two: A Practical Approach to AI Agent Security (höchstens zwei von drei Eigenschaften pro Sitzung; sonst Freigabe durch einen Menschen).",
+     "url": "https://ai.meta.com/blog/practical-ai-agent-security/"},
+    {"id": "anthropic-auto-mode", "group": "27-risks",
+     "text": "Hughes, J. (25.03.2026). How we built Claude Code auto mode: a safer way to skip permissions. Anthropic Engineering (Nutzer bestätigen 93 % der Rückfragen; Erhebungsmethode nicht angegeben).",
+     "url": "https://www.anthropic.com/engineering/claude-code-auto-mode"},
 
     # --- 28 Checkliste ---
     {"id": "ai-act", "group": "28-checklist",
