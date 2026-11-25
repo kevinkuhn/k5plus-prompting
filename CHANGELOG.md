@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.4.0] - 2026-11-25
+### Added
+- Seite «Ein Experiment» vor der Ideensammlung (alle drei Decks): zehn Praktikantinnen und Praktikanten als Gedankenspiel, dazu vier Merkmale geeigneter Aufgaben
+
 ## [0.3.1] - 2026-11-25
 ### Changed
 - Ideensammlung: QR-Code zum Formular verkleinert
