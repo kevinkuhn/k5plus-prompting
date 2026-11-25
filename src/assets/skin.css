@@ -150,6 +150,12 @@ h1 em { font-style: normal; color: var(--accent); }
 .level .take { margin: 0 0 1.5rem; line-height: 1.35; }
 .level .go { font-weight: 700; color: var(--accent); }
 
+/* Formular der Ideensammlung: QR-Code zum Scannen, Link zum Anklicken */
+.form-qr { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; margin-top: 1.5rem; }
+.form-qr img { width: 11rem; height: 11rem; }
+.form-qr p { margin: 0 0 0.9rem; max-width: 30rem; }
+.form-qr .btn { display: inline-block; font-size: 1rem; padding: 0.6rem 1.2rem 0.45rem; text-decoration: none; background: var(--accent); border-color: var(--accent); color: #fff; }
+
 /* Hinweis auf offene Punkte, sichtbar bis sie geklärt sind */
 .todo { background: #ffe45c; padding: 0.1em 0.4em; border-radius: 3px; font-family: var(--mono); font-size: 0.85em; }
 

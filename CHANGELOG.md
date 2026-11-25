@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0] - 2026-11-25
+### Added
+- Ideensammlung (alle drei Decks): Formular von K5Plus verlinkt, mit QR-Code zum Scannen
+
 ## [0.2.1] - 2026-11-24
 ### Fixed
 - Beginner-Deck: Durchführung vom 26.11. ergänzt
